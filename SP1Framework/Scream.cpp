@@ -21,6 +21,10 @@ void Scream::draw()
 
 gamestate Scream::update()
 {
+	if(isKeyPressed(VK_ESCAPE))
+	{
+		return MAIN_MENU;
+	}
 	if(isKeyPressed(VK_RETURN))
 	{
 		paused = !paused;

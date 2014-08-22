@@ -10,6 +10,10 @@
 #include "TableFlip.h"
 #include "Scream.h"
 #include "subgame.h"
+#include "Spotted.h"
+#include "Rocket.h"
+#include "Photospam.h"
+#include "FindTwins.h"
 
 
 Graphics console;
@@ -57,13 +61,13 @@ void update(double dt)
 		state = playsubgamemain(&console);
 		break;
 	case TOILET_ROLL:
-		//create the toiletroll object if it doesn't exist
 		if(toilet == NULL)
 		{
 			toilet = new toiletroll(console);
 		}
+
 		state = toilet->update();
-		//deletes the toiletroll once the game changes state and makes the scream pointer NULL again
+
 		if(state != TOILET_ROLL)
 		{
 			delete toilet;
@@ -71,18 +75,26 @@ void update(double dt)
 		}
 		break;
 	case SCREAM:
-		//create the scream object if it doesn't exist
 		if(scream == NULL)
 		{
 			scream = new Scream(console);
 		}
+
 		state = scream->update();
-		//deletes the scream once the game changes state and makes the scream pointer NULL again
+
 		if(state != SCREAM)
 		{
 			delete scream;
 			scream = NULL;
 		}
+		break;
+	case SPOTTED:
+		break;
+	case FIND_TWINS:
+		break;
+	case PHOTOSPAM:
+		break;
+	case ROCKET:
 		break;
 	case QUIT_GAME:
 		g_quitGame = true;

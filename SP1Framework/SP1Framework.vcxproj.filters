@@ -84,6 +84,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FindTwins.cpp">
+      <Filter>Source Files\Minigames</Filter>
+    </ClCompile>
+    <ClCompile Include="Photospam.cpp">
+      <Filter>Source Files\Minigames</Filter>
+    </ClCompile>
+    <ClCompile Include="Rocket.cpp">
+      <Filter>Source Files\Minigames</Filter>
+    </ClCompile>
+    <ClCompile Include="Spotted.cpp">
+      <Filter>Source Files\Minigames</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\console.h">
@@ -114,6 +126,18 @@
       <Filter>Header Files\Minigames</Filter>
     </ClInclude>
     <ClInclude Include="ToiletRoll.h">
+      <Filter>Header Files\Minigames</Filter>
+    </ClInclude>
+    <ClInclude Include="FindTwins.h">
+      <Filter>Header Files\Minigames</Filter>
+    </ClInclude>
+    <ClInclude Include="Photospam.h">
+      <Filter>Header Files\Minigames</Filter>
+    </ClInclude>
+    <ClInclude Include="Rocket.h">
+      <Filter>Header Files\Minigames</Filter>
+    </ClInclude>
+    <ClInclude Include="Spotted.h">
       <Filter>Header Files\Minigames</Filter>
     </ClInclude>
   </ItemGroup>
