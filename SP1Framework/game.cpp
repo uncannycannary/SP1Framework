@@ -18,7 +18,7 @@ Graphics console;
 Scream* scream;
 toiletroll* toilet;
 
-gamestate state = SUBMARINE;
+gamestate state = INTRO;
 void init()
 {
 	updateinput();
@@ -38,10 +38,10 @@ void update(double dt)
 	switch(state)
 	{
 	case INTRO:
-		Intro(console);
+		state = Intro(console);
 		break;
 	case MAIN_MENU:
-		MainMenu(console);
+		state = MainMenu(console);
 		break;
 	case TABLE_FLIP:
 		state = updateTableFlip(&console);

@@ -31,6 +31,24 @@
     <Filter Include="Header Files\Minigames">
       <UniqueIdentifier>{63b262cf-f91f-4d74-a427-5f42ccc75414}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Text Files">
+      <UniqueIdentifier>{fac04bfe-3552-4a00-8769-ff34cb006c33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text Files\UI">
+      <UniqueIdentifier>{37ed554b-197b-4610-9600-7c7df7749aa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text Files\Sub shoot-down">
+      <UniqueIdentifier>{72938028-fefd-482f-8214-cb1d9c86e73c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text Files\Scream">
+      <UniqueIdentifier>{c7e0a8c8-169f-4680-9913-5eab586b5475}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text Files\ToiletRoll">
+      <UniqueIdentifier>{6441c411-1eeb-4313-9e1d-fc1820f3fcea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text Files\TableFlip">
+      <UniqueIdentifier>{f1cd3e40-992c-4c74-b04c-b5bb5dc3455f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\console.cpp">
@@ -98,5 +116,34 @@
     <ClInclude Include="ToiletRoll.h">
       <Filter>Header Files\Minigames</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ButtonMashMaster.txt">
+      <Filter>Text Files\UI</Filter>
+    </None>
+    <None Include="MainMenu.txt">
+      <Filter>Text Files\UI</Filter>
+    </None>
+    <None Include="Submarine\Sub.txt">
+      <Filter>Text Files\Sub shoot-down</Filter>
+    </None>
+    <None Include="Submarine\Sub-shoot.txt">
+      <Filter>Text Files\Sub shoot-down</Filter>
+    </None>
+    <None Include="Submarine\Subenemies.txt">
+      <Filter>Text Files\Sub shoot-down</Filter>
+    </None>
+    <None Include="Submarine\Subenemies-dead.txt">
+      <Filter>Text Files\Sub shoot-down</Filter>
+    </None>
+    <None Include="ascii\lefthand.txt">
+      <Filter>Text Files\ToiletRoll</Filter>
+    </None>
+    <None Include="ascii\righthand.txt">
+      <Filter>Text Files\ToiletRoll</Filter>
+    </None>
+    <None Include="ascii\toiletroll.txt">
+      <Filter>Text Files\ToiletRoll</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -31,6 +31,7 @@ gamestate Intro(Graphics& console)
 		{
 			return MAIN_MENU;
 		}
+		return INTRO;
 }
  
 gamestate MainMenu(Graphics& console)
