@@ -30,36 +30,36 @@ int enemiesapp[15]={};//dictates when the enemy with appear.
  void playsubcontrolsmechanics(Graphics* console)//only starts after 3 sec
 {
 		framecounter++;
-	if(framecounter == 1)
+	if(framecounter >= 1 && framecounter<=29)
 	 {
-		 console->draw(42,10,subdrawarray[4].c_str(),0x1A);
+		 console->draw(42,10,subdrawarray[1].c_str(),0x1A);
 	 }
-	 if(framecounter == 30)
-	 {
-		 console->draw(42,10,subdrawarray[3].c_str(),0x1A);
-	 }
-	 if(framecounter == 60)
+	 if(framecounter >= 30 && framecounter <= 59)
 	 {
 		 console->draw(42,10,subdrawarray[2].c_str(),0x1A);
 	 }
-	 if(framecounter == 90)
+	 if(framecounter >= 60 && framecounter <= 89)
 	 {
-		 console->draw(42,10,subdrawarray[5].c_str(),0x1A);
+		 console->draw(42,10,subdrawarray[3].c_str(),0x1A);
+	 }
+	 if(framecounter >= 90 && framecounter <= 108)
+	 {
+		 console->draw(42,10,subdrawarray[4].c_str(),0x1A);
 	 }
 	if(framecounter > 90)
 	{
 		if(isKeyPressed(VK_LEFT))
 		{
-		console->draw(4,24,subdrawarray[0].c_str(),0x1A);
+		console->draw(4,24,subdrawarray[7].c_str(),0x1A);
 		}
 		if(isKeyPressed(VK_UP))
 		{
-		console->draw(42,24,subdrawarray[0].c_str(),0x1A);
+		console->draw(42,24,subdrawarray[7].c_str(),0x1A);
 		}
 	
 		if(isKeyPressed(VK_RIGHT))
 		{
-		console->draw(79,24,subdrawarray[0].c_str(),0x1A);
+		console->draw(79,24,subdrawarray[7].c_str(),0x1A);
 		}
 	}
 }
@@ -68,16 +68,16 @@ int enemiesapp[15]={};//dictates when the enemy with appear.
  {
 	  if(framecounter >= 150 && framecounter <= 230)
 	  {
-		  console->draw(5,4,subdrawarray[7].c_str(),0x1A);
+		  console->draw(5,4,subdrawarray[5].c_str(),0x1A);
 		  if(isKeyPressed(VK_LEFT) &&(framecounter >= 150 && framecounter <= 230))
 		  {
-			  console->draw(5,4,subdrawarray[6].c_str(),0xB2);
+			  console->draw(5,4,subdrawarray[7].c_str(),0xB2);
 			  higherscore++;
 		  }
 	  }
 	  if(framecounter >= 300 && framecounter <=360)
 	  {
-		  console->draw(80,4,subdrawarray[7].c_str(),0x1A);
+		  console->draw(80,4,subdrawarray[5].c_str(),0x1A);
 		  if(isKeyPressed(VK_RIGHT) && (framecounter >= 300 && framecounter <=360))
 		  {
 			  console->draw(80,4,subdrawarray[6].c_str(),0xB2);
@@ -102,6 +102,33 @@ int enemiesapp[15]={};//dictates when the enemy with appear.
 			  higherscore++;
 		  }
 	  }
+	  if(framecounter >= 460 && framecounter <= 478)
+	  {
+		  console->draw(80,4,subdrawarray[7].c_str(),0x1A);
+		  if(isKeyPressed(VK_RIGHT) && (framecounter >= 410 && framecounter <=450))
+		  {
+			  console->draw(80,4,subdrawarray[6].c_str(),0xB2);
+			  higherscore++;
+		  }
+	  }
+	  if(framecounter >= 859 && framecounter <= 875)
+	  {
+		  console->draw(5,4,subdrawarray[7].c_str(),0x1A);
+		  if(isKeyPressed(VK_LEFT) &&(framecounter >= 859 && framecounter <= 875))
+		  {
+			  console->draw(5,4,subdrawarray[6].c_str(),0xB2);
+			  higherscore++;
+		  }
+	  }
+	  if(framecounter >= 861 && framecounter <= 900)
+	  {
+		  console->draw(80,4,subdrawarray[7].c_str(),0x1A);
+		  if(isKeyPressed(VK_RIGHT) && (framecounter >= 861 && framecounter <=900))
+		  {
+			  console->draw(80,4,subdrawarray[6].c_str(),0xB2);
+			  higherscore++;
+		  }
+	  }
  }
 
 gamestate playsubgamemain(Graphics* console) 
@@ -112,9 +139,9 @@ gamestate playsubgamemain(Graphics* console)
 	}
 	playsubcontrolsmechanics(console);
 	playgamestate(console);
-	console->draw(5,30,subdrawarray[1].c_str(),0x1A);
-	console->draw(43,30,subdrawarray[1].c_str(),0x1A);
-	console->draw(80,30,subdrawarray[1].c_str(),0x1A);
+	console->draw(5,30,subdrawarray[0].c_str(),0x1A);
+	console->draw(43,30,subdrawarray[0].c_str(),0x1A);
+	console->draw(80,30,subdrawarray[0].c_str(),0x1A);
 	return SUBMARINE;
 }
 
