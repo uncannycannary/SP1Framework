@@ -48,12 +48,12 @@ void playTableFlip()
 		if(isKeyPressed(VK_LEFT))
 		{
 			checkleft += 1;
-			left = checkleft/2;
+			left = checkleft;
 		}
 		if(isKeyPressed(VK_RIGHT))
 		{
 			checkright += 1;
-			right = checkright/2;
+			right = checkright;
 		}
 	}
 }
@@ -101,4 +101,15 @@ void drawTableFlip(Graphics* TableFlip)
 		}
 		TableFlip->draw(61,21,"m!",0x2A);
 	}
+}
+
+void resetTableFlip()
+{
+	left = 0;
+	right = 0;
+	checkleft = 0;
+	checkright = 0;
+	CurrentFramePerSec = 0;
+	GameStarts = false;
+	gameends = false;
 }

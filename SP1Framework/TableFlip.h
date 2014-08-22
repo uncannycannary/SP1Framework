@@ -16,5 +16,6 @@ using std::endl;
 gamestate updateTableFlip(Graphics* console);
 void drawTableFlip(Graphics* TableFlip);
 void playTableFlip();
+void resetTableFlip();
 
 #endif
