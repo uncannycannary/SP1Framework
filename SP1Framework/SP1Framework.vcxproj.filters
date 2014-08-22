@@ -145,5 +145,8 @@
     <None Include="ascii\toiletroll.txt">
       <Filter>Text Files\ToiletRoll</Filter>
     </None>
+    <None Include="SelectGame.txt">
+      <Filter>Text Files\UI</Filter>
+    </None>
   </ItemGroup>
 </Project>

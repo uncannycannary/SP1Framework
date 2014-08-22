@@ -105,6 +105,7 @@
     <None Include="ascii\toiletroll.txt" />
     <None Include="ButtonMashMaster.txt" />
     <None Include="MainMenu.txt" />
+    <None Include="SelectGame.txt" />
     <None Include="Submarine\Sub-shoot.txt" />
     <None Include="Submarine\Sub.txt" />
     <None Include="Submarine\Subenemies-dead.txt" />

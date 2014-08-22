@@ -17,13 +17,13 @@ Graphics console;
 //Create a pointer to store the location of the scream object
 Scream* scream;
 toiletroll* toilet;
-
 gamestate state = INTRO;
 void init()
 {
 	updateinput();
 	ini();
 	initialisesubdrawings();
+
 	scream = NULL;
 	toilet = NULL;
 }
@@ -43,8 +43,15 @@ void update(double dt)
 	case MAIN_MENU:
 		state = MainMenu(console);
 		break;
+	case GAME_SELECT:
+		state = GameSelect(console);
+		break;
 	case TABLE_FLIP:
 		state = updateTableFlip(&console);
+		if(state != TABLE_FLIP)
+		{
+			resetTableFlip();
+		}
 		break;
 	case SUBMARINE:
 		state = playsubgamemain(&console);
