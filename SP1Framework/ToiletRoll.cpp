@@ -5,8 +5,9 @@ toiletroll::toiletroll(Graphics& console)
 console(console)
 {
 	CurrentFrame = 0;
-	GameStarts = false;
-	gameends = false;
+	hold = false;
+	holdcount = 0;
+	scorecount = 0;
 	y = 0;
 	rx = 60;
 	lx = 25;

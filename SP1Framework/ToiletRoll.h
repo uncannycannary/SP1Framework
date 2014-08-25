@@ -11,8 +11,9 @@ class toiletroll
 {
 private:
 	int CurrentFrame;
-	bool GameStarts;
-	bool gameends;
+	bool hold;
+	int holdcount;
+	int scorecount;
 	int y;
 	int rx;
 	int lx;
