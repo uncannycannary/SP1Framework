@@ -178,11 +178,5 @@
     <None Include="SelectGame.txt">
       <Filter>Text Files\UI</Filter>
     </None>
-    <None Include="Charging in.txt">
-      <Filter>Text Files\TableFlip</Filter>
-    </None>
-    <None Include="Charging out.txt">
-      <Filter>Text Files\TableFlip</Filter>
-    </None>
   </ItemGroup>
 </Project>
