@@ -15,11 +15,10 @@ public:
 	void playInstance(const int index);
 	bool InstanceIsPlaying(const int index);
 	void drawInstance(const int x, const int y, const int color, const int index);
+	void reset(const int index);
 private:
-	bool isPlaying(const int index);
 	void advance(const int index);
 	bool hasEnded(const int index);
-	void reset(const int index);
 	struct Animation
 	{
 		const std::vector<std::string>* frames;
