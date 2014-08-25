@@ -43,6 +43,7 @@ gamestate TableFlip::updateTableFlip(Graphics* console)
 void TableFlip::playTableFlip()
 {
 	CurrentFramePerSec++;
+	countframe--;
 	if(CurrentFramePerSec <=210)
 	{
 		if(isKeyPressed(VK_LEFT))
@@ -68,6 +69,9 @@ void TableFlip::drawTableFlip(Graphics* TableFlip)
 	}
 	if(CurrentFramePerSec == 0)
 	{
+		TableFlip->draw(33,20,"Table Flip",0x2A);
+		TableFlip->draw(23,21,"----------Instuctions----------" ,0x2A);
+		TableFlip->draw(13,22,"Press the left and right button as much as you can!",0x2A);
 		TableFlip->draw(28,10,"Press Enter to Begin!" ,0x3E);
 	}
 	if(CurrentFramePerSec <= 210)
@@ -76,12 +80,33 @@ void TableFlip::drawTableFlip(Graphics* TableFlip)
 		TableFlip->draw(23,21,"----------Instuctions----------" ,0x2A);
 		TableFlip->draw(13,22,"Press the left and right button as much as you can!",0x2A);
 
-		TableFlip->draw(6,12,"-------",0x58);
-		TableFlip->draw(6,13,"|     |",0x58);
+		TableFlip->draw(7,12,"-------",0x58);
+		TableFlip->draw(7,13,"|     |",0x58);
 
 		TableFlip->draw(2,11,"  o",0x48);  
 		TableFlip->draw(2,12," / =",0x48);  
-		TableFlip->draw(2,13,"|| ",0x48);  
+		TableFlip->draw(2,13,"|| ",0x48);
+
+		if(isKeyHold(VK_LEFT))
+		{
+			TableFlip->draw(0,10,"  \\||/ ",0x48);  
+			TableFlip->draw(0,11," -  o- ",0x48);  
+			TableFlip->draw(0,12," - / = ",0x48);  
+			TableFlip->draw(0,13," -||   ",0x48);
+			TableFlip->draw(0,14,"  /||\\ ",0x48);
+
+		}
+
+		if(isKeyHold(VK_RIGHT))
+		{
+			TableFlip->draw(0,9,"\\ || / ",0x48); 
+			TableFlip->draw(0,10,"       ",0x48); 
+			TableFlip->draw(0,11,"-   o -",0x48);  
+			TableFlip->draw(0,12,"-  / = ",0x48);  
+			TableFlip->draw(0,13,"- ||   ",0x48);
+			TableFlip->draw(0,14,"       ",0x48);
+			TableFlip->draw(0,15,"/ || \\ ",0x48);
+		}
 	}
 
 	if (CurrentFramePerSec > 210)
@@ -89,9 +114,9 @@ void TableFlip::drawTableFlip(Graphics* TableFlip)
 		TableFlip->draw(71,12,"|     |",0x58);
 		TableFlip->draw(71,13,"-------",0x58);
 
-		TableFlip->draw(2,11,"  o// ",0x48);  
-		TableFlip->draw(2,12,"  |   ",0x48);  
-		TableFlip->draw(2,13,"  |\\  ",0x48); 
+		TableFlip->draw(3,11,"  o// ",0x48);  
+		TableFlip->draw(3,12,"  |   ",0x48);  
+		TableFlip->draw(3,13,"  |\\  ",0x48); 
 
 		TableFlip->draw(13,21,"Congratulations! Your table has flipped over ",0x2A);
 		{

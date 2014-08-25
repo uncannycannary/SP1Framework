@@ -27,6 +27,7 @@ public:
 		CurrentFramePerSec = 0;
 		GameStarts = false;
 		gameends = false;
+		countframe = 210;
 	}
 	~TableFlip()
 	{
@@ -39,6 +40,7 @@ private:
 	int checkleft;
 	int checkright;
 	int CurrentFramePerSec;
+	int countframe;
 	bool GameStarts;
 	bool gameends;
 };

@@ -113,6 +113,8 @@
     <None Include="ascii\righthand.txt" />
     <None Include="ascii\toiletroll.txt" />
     <None Include="ButtonMashMaster.txt" />
+    <None Include="Charging in.txt" />
+    <None Include="Charging out.txt" />
     <None Include="MainMenu.txt" />
     <None Include="SelectGame.txt" />
     <None Include="Submarine\Sub-shoot.txt" />
