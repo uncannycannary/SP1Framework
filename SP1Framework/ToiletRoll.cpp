@@ -5,9 +5,10 @@ toiletroll::toiletroll(Graphics& console)
 console(console)
 {
 	CurrentFrame = 0;
-	hold = false;
-	holdcount = 0;
-	scorecount = 0;
+	rhold = false;
+	lhold = false;
+	rholdcount = 0;
+	lholdcount = 0;
 	y = 0;
 	rx = 60;
 	lx = 25;
@@ -38,14 +39,40 @@ void toiletroll::play()
 {
 	if (CurrentFrame >= 370)
 	{
-		if(isKeyHold(VK_RIGHT))
+		if(!isKeyHold(VK_RIGHT))
 		{
-			rx = 55;
+			rhold = false;
+		}
+		if(isKeyHold(VK_RIGHT) && rhold == false)
+		{
+			if(rholdcount < 4)
+			{
+				++rholdcount;
+				rx = 55;
+			}
+			else
+			{
+				rhold = true;
+				rholdcount = 0;
+			}
 		}
 
-		if(isKeyHold(VK_LEFT))
+		if(!isKeyHold(VK_LEFT))
 		{
-			lx = 30;
+			lhold = false;
+		}
+		if(isKeyHold(VK_LEFT) && lhold == false)
+		{
+			if(lholdcount < 4)
+			{
+				++lholdcount;
+				lx = 30;
+			}
+			else
+			{
+				lhold = true;
+				lholdcount = 0;
+			}
 		}
 	}
 
@@ -55,7 +82,7 @@ void toiletroll::play()
 		{
 			y = 0;
 			CurrentFrame+=12;
-			score+=1;
+			++score;
 		}
 	}
 
@@ -65,17 +92,17 @@ void toiletroll::play()
 		{
 			y = 0;
 			CurrentFrame+=6;
-			score+=1;
+			++score;
 		}
 	}
 
 	if(CurrentFrame >= 695 && CurrentFrame <= 727)
 	{
-		if(rx == 55 && (y >= 35 && y <= 40) && lx == 30)
+		if(rx == 55 && (y >= 38 && y <= 40) && lx == 30)
 		{
 			y = 0;
 			CurrentFrame+=3;
-			score+=1;
+			++score;
 		}
 	}
 	CurrentFrame ++;

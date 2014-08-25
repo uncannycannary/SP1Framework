@@ -11,9 +11,10 @@ class toiletroll
 {
 private:
 	int CurrentFrame;
-	bool hold;
-	int holdcount;
-	int scorecount;
+	bool rhold;
+	int rholdcount;
+	bool lhold;
+	int lholdcount;
 	int y;
 	int rx;
 	int lx;
