@@ -1,5 +1,6 @@
 #include "Scream.h"
 
+
 Scream::Scream(Graphics& console)
 	:
 console(console),
@@ -7,8 +8,12 @@ power(0),
 resistance(0),
 currFrame(0),
 paused(true),
-gameends(false)
+gameends(false),
+anim(console)
 {
+	someanim.push_back("lololol");
+	someanim.push_back("ROROROROR");
+	anim.Add(&someanim,1,1,15);
 }
 
 Scream::~Scream()
@@ -21,6 +26,11 @@ void Scream::draw()
 
 gamestate Scream::update()
 {
+	anim.update();
+	if(!(anim.InstanceIsPlaying(0)))
+	{
+		anim.playInstance(0);
+	}
 	if(isKeyPressed(VK_ESCAPE))
 	{
 		return MAIN_MENU;
@@ -36,6 +46,7 @@ gamestate Scream::update()
 	}
 	else
 	{
+		anim.drawInstance(0, 0, 0x1A, 0);
 		currFrame++;
 		gameends = play();
 		draw();

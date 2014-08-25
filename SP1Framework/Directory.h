@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _DIRECTORY_H
+#define _DIRECTORY_H
+
 #include <windows.h> 
 #include <iostream>
 #include <fstream>
@@ -21,3 +23,5 @@ public:
 	std::wstring path() const;
 	std::wstring operator[](int index);
 };
+
+#endif

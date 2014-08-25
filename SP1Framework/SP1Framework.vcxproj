@@ -76,6 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animations.cpp" />
     <ClCompile Include="Directory.cpp" />
     <ClCompile Include="FindTwins.cpp" />
     <ClCompile Include="Framework\console.cpp" />
@@ -93,6 +94,7 @@
     <ClCompile Include="ToiletRoll.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animations.h" />
     <ClInclude Include="Directory.h" />
     <ClInclude Include="FindTwins.h" />
     <ClInclude Include="Framework\console.h" />

@@ -4,6 +4,7 @@
 #include "game.h"
 #include "Framework\console.h"
 #include "Graphics.h"
+#include "Animations.h"
 
 class Scream
 {
@@ -21,8 +22,10 @@ private:
 public:
 	Scream(Graphics& console);
 	~Scream();
+	Animations anim;
 	gamestate update();
 	void draw();
+	std::vector<std::string> someanim;
 };
 
 #endif
