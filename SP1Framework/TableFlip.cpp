@@ -43,7 +43,6 @@ gamestate TableFlip::updateTableFlip(Graphics* console)
 void TableFlip::playTableFlip()
 {
 	CurrentFramePerSec++;
-	countframe--;
 	if(CurrentFramePerSec <=210)
 	{
 		if(isKeyPressed(VK_LEFT))

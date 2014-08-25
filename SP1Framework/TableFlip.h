@@ -9,10 +9,6 @@
 #include "Framework\timer.h"
 #include <stdlib.h>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 class TableFlip
 {
 public:
@@ -27,7 +23,6 @@ public:
 		CurrentFramePerSec = 0;
 		GameStarts = false;
 		gameends = false;
-		countframe = 210;
 	}
 	~TableFlip()
 	{
@@ -40,7 +35,6 @@ private:
 	int checkleft;
 	int checkright;
 	int CurrentFramePerSec;
-	int countframe;
 	bool GameStarts;
 	bool gameends;
 };
