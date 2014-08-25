@@ -18,16 +18,6 @@ class TableFlip
 public:
 	gamestate updateTableFlip(Graphics* console);
 	void resetTableFlip();
-private:
-	void drawTableFlip(Graphics* TableFlip);
-	void playTableFlip();
-	int left;
-	int right;
-	int checkleft;
-	int checkright;
-	int CurrentFramePerSec;
-	bool GameStarts;
-	bool gameends;
 	TableFlip()
 	{
 		left = 0;
@@ -38,12 +28,19 @@ private:
 		GameStarts = false;
 		gameends = false;
 	}
-	~TableFlip();
+	~TableFlip()
+	{
+	}
+private:
+	void drawTableFlip(Graphics* TableFlip);
+	void playTableFlip();
+	int left;
+	int right;
+	int checkleft;
+	int checkright;
+	int CurrentFramePerSec;
+	bool GameStarts;
+	bool gameends;
 };
-
-gamestate updateTableFlip(Graphics* console);
-void drawTableFlip(Graphics* TableFlip);
-void playTableFlip();
-void resetTableFlip();
 
 #endif
