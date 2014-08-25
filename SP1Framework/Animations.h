@@ -15,7 +15,8 @@ public:
 	void playInstance(const int index);
 	bool InstanceIsPlaying(const int index);
 	void drawInstance(const int x, const int y, const int color, const int index);
-	void reset(const int index);
+	void stop(const int index);
+	void ChangeDelay(const int index, const int delay);
 private:
 	void advance(const int index);
 	bool hasEnded(const int index);
@@ -24,7 +25,7 @@ private:
 		const std::vector<std::string>* frames;
 		const int sizeX;
 		const int sizeY;
-		const int frameDelay;
+		int frameDelay;
 		int currDelay;
 		bool isplaying;
 		int currframe;
