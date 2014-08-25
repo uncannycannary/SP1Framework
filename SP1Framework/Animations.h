@@ -16,7 +16,6 @@ public:
 	bool InstanceIsPlaying(const int index);
 	void drawInstance(const int x, const int y, const int color, const int index);
 private:
-	void play(const int index);
 	bool isPlaying(const int index);
 	void advance(const int index);
 	bool hasEnded(const int index);

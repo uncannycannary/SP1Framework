@@ -11,9 +11,9 @@ paused(true),
 gameends(false),
 anim(console)
 {
-	someanim.push_back("lololol");
+	someanim.push_back("lololol\nlololol");
 	someanim.push_back("ROROROROR");
-	anim.Add(&someanim,1,1,15);
+	int anim1Index = anim.Add(&someanim,1,1,15);
 }
 
 Scream::~Scream()
@@ -27,7 +27,7 @@ void Scream::draw()
 gamestate Scream::update()
 {
 	anim.update();
-	if(!(anim.InstanceIsPlaying(0)))
+	if(!anim.InstanceIsPlaying(0))
 	{
 		anim.playInstance(0);
 	}
