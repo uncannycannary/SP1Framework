@@ -1,14 +1,14 @@
 #include "TableFlip.h"
 
-int left = 0;
-int right = 0;
-int checkleft = 0;
-int checkright = 0;
-int CurrentFramePerSec = 0;
-bool GameStarts = false;
-bool gameends = false;
+//int left = 0;
+//int right = 0;
+//int checkleft = 0;
+//int checkright = 0;
+//int CurrentFramePerSec = 0;
+//bool GameStarts = false;
+//bool gameends = false;
 
-gamestate updateTableFlip(Graphics* console)
+gamestate TableFlip::updateTableFlip(Graphics* console)
 {
 	//does user input
 	if(isKeyPressed(VK_ESCAPE))
@@ -40,7 +40,7 @@ gamestate updateTableFlip(Graphics* console)
 
 }
 
-void playTableFlip()
+void TableFlip::playTableFlip()
 {
 	CurrentFramePerSec++;
 	if(CurrentFramePerSec <=210)
@@ -58,7 +58,7 @@ void playTableFlip()
 	}
 }
 
-void drawTableFlip(Graphics* TableFlip)
+void TableFlip::drawTableFlip(Graphics* TableFlip)
 {
 	{
 		char buffer[10];
@@ -103,7 +103,7 @@ void drawTableFlip(Graphics* TableFlip)
 	}
 }
 
-void resetTableFlip()
+void TableFlip::resetTableFlip()
 {
 	left = 0;
 	right = 0;

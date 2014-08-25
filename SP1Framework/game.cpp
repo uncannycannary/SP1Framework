@@ -17,6 +17,7 @@
 
 
 Graphics console;
+TableFlip FlippingTables;
 
 //Create a pointer to store the location of the scream object
 Scream* scream;
@@ -51,10 +52,10 @@ void update(double dt)
 		state = GameSelect(console);
 		break;
 	case TABLE_FLIP:
-		state = updateTableFlip(&console);
+		state = FlippingTables.updateTableFlip(&console);
 		if(state != TABLE_FLIP)
 		{
-			resetTableFlip();
+			FlippingTables.resetTableFlip();
 		}
 		break;
 	case SUBMARINE:
