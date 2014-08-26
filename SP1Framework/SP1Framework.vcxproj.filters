@@ -99,6 +99,9 @@
     <ClCompile Include="Animations.cpp">
       <Filter>Source Files\Framework</Filter>
     </ClCompile>
+    <ClCompile Include="highscore.cpp">
+      <Filter>Source Files\UI&amp;Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\console.h">
@@ -145,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="Animations.h">
       <Filter>Header Files\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="highscore.h">
+      <Filter>Header Files\UI&amp;Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

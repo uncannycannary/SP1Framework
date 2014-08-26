@@ -108,6 +108,7 @@ gamestate GameSelect(Graphics& console)
 	console.draw(30,13,"Flip that table over!",0x69);
 	console.draw(30,14,"Submarine shoot-down!",0x69);
 	console.draw(30,15,"Toilet Roll Catch!",0x69);
+	console.draw(30,16,"Cross, but don't get Spotted!",0x69);
 	if(choice2 == 0 && isKeyPressed(VK_DOWN))
 	{
 		check2 += 1;
@@ -123,6 +124,11 @@ gamestate GameSelect(Graphics& console)
 		check2 += 1;
 		choice2 = check2;
 	}
+	if(choice2 == 3 && isKeyPressed(VK_DOWN))
+	{
+		check2 += 1;
+		choice2 = check2;
+	}
 	if(choice2 == 1 && isKeyPressed(VK_UP))
 	{
 		check2 -= 1;
@@ -134,6 +140,11 @@ gamestate GameSelect(Graphics& console)
 		choice2 = check2;
 	}
 	if( choice2 == 3 && isKeyPressed(VK_UP))
+	{
+		check2 -= 1;
+		choice2 = check2;
+	}
+	if( choice2 == 4 && isKeyPressed(VK_UP))
 	{
 		check2 -= 1;
 		choice2 = check2;
@@ -154,6 +165,10 @@ gamestate GameSelect(Graphics& console)
 	{
 		console.draw(27,15,"-->",0x69);
 	}
+	if(choice2 == 4)
+	{
+		console.draw(27,16,"-->",0x69);
+	}
 	if(isKeyPressed(VK_RETURN))
 	{
 		if (choice2 == 0)
@@ -171,6 +186,10 @@ gamestate GameSelect(Graphics& console)
 		if (choice2 == 3)
 		{
 			return TOILET_ROLL;
+		}
+		if (choice2 == 4)
+		{
+			return SPOTTED;
 		}
 	}
 

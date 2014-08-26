@@ -18,6 +18,7 @@
 
 Graphics console;
 TableFlip FlippingTables;
+Spotted Spotting;
 
 //Create a pointer to store the location of the scream object
 Scream* scream;
@@ -90,6 +91,11 @@ void update(double dt)
 		}
 		break;
 	case SPOTTED:
+		state = Spotting.updateSpotted(&console);
+		if(state != SPOTTED)
+		{
+			Spotting.resetSpotted();
+		}
 		break;
 	case FIND_TWINS:
 		break;
