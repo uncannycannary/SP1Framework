@@ -137,8 +137,6 @@ void toiletroll::read()
 
 void toiletroll::draw()
 {
-	
-
 	if(CurrentFrame >= 0 && CurrentFrame <= 60)
 	{
 		console.draw(45,20,"TOILET ROLL", 0x0F);
@@ -192,8 +190,8 @@ void toiletroll::draw()
 	if(CurrentFrame >= 370 && CurrentFrame <= 728)
 	{
 		char buffer[10];
-		sprintf(buffer,"%d",score);
-		console.draw(50,20, buffer, 0x0F);
+		sprintf(buffer,"Score: %d",score);
+		console.draw(46,20, buffer, 0x0F);
 	}
 
 	if(CurrentFrame >= 370 && CurrentFrame <= 619)
