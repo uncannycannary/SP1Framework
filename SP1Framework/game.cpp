@@ -17,12 +17,15 @@
 
 
 Graphics console;
-TableFlip FlippingTables;
 Spotted Spotting;
 
 //Create a pointer to store the location of the scream object
+Spotted* spot;
+TableFlip* flip;
 Scream* scream;
 toiletroll* toilet;
+photospam* spam;
+FindTwins* twins;
 gamestate state = INTRO;
 void init()
 {
@@ -32,6 +35,10 @@ void init()
 
 	scream = NULL;
 	toilet = NULL;
+	spam = NULL;
+	flip = NULL;
+	spot = NULL;
+	twins = NULL;
 }
 
 void shutdown()
@@ -53,10 +60,17 @@ void update(double dt)
 		state = GameSelect(console);
 		break;
 	case TABLE_FLIP:
-		state = FlippingTables.updateTableFlip(&console);
+		if(flip == NULL)
+		{
+			flip = new TableFlip;
+		}
+
+		state = flip->updateTableFlip(&console);
+
 		if(state != TABLE_FLIP)
 		{
-			FlippingTables.resetTableFlip();
+			delete flip;
+			flip = NULL;
 		}
 		break;
 	case SUBMARINE:
@@ -91,15 +105,45 @@ void update(double dt)
 		}
 		break;
 	case SPOTTED:
-		state = Spotting.updateSpotted(&console);
+		if(spot == NULL)
+		{
+			spot = new Spotted;
+		}
+
+		state = spot->updateSpotted(&console);
+
 		if(state != SPOTTED)
 		{
-			Spotting.resetSpotted();
+			delete spot;
 		}
 		break;
 	case FIND_TWINS:
+		if(twins == NULL)
+		{
+			twins = new FindTwins(console);
+		}
+
+		state = twins->update();
+
+		if(state != FIND_TWINS)
+		{
+			delete twins;
+			twins = NULL;
+		}
 		break;
 	case PHOTOSPAM:
+		if(spam == NULL)
+		{
+			spam = new photospam(console);
+		}
+
+		state = spam->update();
+
+		if(state != PHOTOSPAM)
+		{
+			delete spam;
+			spam = NULL;
+		}
 		break;
 	case ROCKET:
 		break;

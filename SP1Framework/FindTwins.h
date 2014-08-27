@@ -14,7 +14,7 @@ class FindTwins
 public:
 	FindTwins(Graphics& console);
 	~FindTwins();
-	gamestate Update();
+	gamestate update();
 private:
 	//game variables
 	Graphics& console;

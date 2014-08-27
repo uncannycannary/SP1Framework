@@ -3,7 +3,15 @@
 FindTwins::FindTwins(Graphics& console)
 	:
 console(console),
-anim(console)
+anim(console),
+showansduration(0),
+picture1positionx(0),
+picture2positionx(0),
+picture3positionx(0),
+picturepositiony(0),
+pictureheight(0),
+positionpictureduration(0),
+positionpicture(0)
 {
 	srand(time(NULL));
 	picture1state = (PICTURES)(rand() % TOTAL_PICTURES);
@@ -13,7 +21,7 @@ FindTwins::~FindTwins()
 {
 }
 
-gamestate FindTwins::Update()
+gamestate FindTwins::update()
 {
 	if(isKeyPressed(VK_ESCAPE))
 	{
