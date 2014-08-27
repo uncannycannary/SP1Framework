@@ -14,6 +14,7 @@ public:
 	highscore(Graphics* console)
 	{
 		corn = console;
+
 	}
 	~highscore()
 	{
