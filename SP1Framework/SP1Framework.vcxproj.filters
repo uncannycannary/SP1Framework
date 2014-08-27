@@ -184,5 +184,14 @@
     <None Include="SelectGame.txt">
       <Filter>Text Files\UI</Filter>
     </None>
+    <None Include="Position.txt">
+      <Filter>Text Files\UI</Filter>
+    </None>
+    <None Include="name.txt">
+      <Filter>Text Files\UI</Filter>
+    </None>
+    <None Include="score.txt">
+      <Filter>Text Files\UI</Filter>
+    </None>
   </ItemGroup>
 </Project>

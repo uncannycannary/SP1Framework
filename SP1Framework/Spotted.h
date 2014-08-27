@@ -21,6 +21,8 @@ public:
 		Guard = false;
 		moving = false;
 		score = 0;
+		step = 0;
+		Escapee = 0;
 		checkEscapee = Escapee%2;
 		
 	}
@@ -38,6 +40,7 @@ private:
 	int Escapee;
 	int score;
 	int checkEscapee;
+	int step;
 };
 
 #endif 

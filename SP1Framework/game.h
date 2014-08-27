@@ -21,6 +21,7 @@ enum gamestate
 	OPTIONS,
 	INTRO,
 	MAIN_MENU,
+	HIGH_SCORE,
 	MAXSTATES
 };
 

@@ -2,6 +2,7 @@
 //
 //
 #include "game.h"
+#include "highscore.h"
 #include "Framework\console.h"
 #include <iostream>
 #include "MainMenu.h"
@@ -15,9 +16,7 @@
 #include "Photospam.h"
 #include "FindTwins.h"
 
-
 Graphics console;
-Spotted Spotting;
 
 //Create a pointer to store the location of the scream object
 Spotted* spot;
@@ -26,6 +25,7 @@ Scream* scream;
 toiletroll* toilet;
 photospam* spam;
 FindTwins* twins;
+highscore* score;
 gamestate state = INTRO;
 void init()
 {
@@ -33,6 +33,7 @@ void init()
 	ini();
 	initialisesubdrawings();
 
+	score = NULL;
 	scream = NULL;
 	toilet = NULL;
 	spam = NULL;
@@ -115,6 +116,7 @@ void update(double dt)
 		if(state != SPOTTED)
 		{
 			delete spot;
+			spot = NULL;
 		}
 		break;
 	case FIND_TWINS:
@@ -147,6 +149,16 @@ void update(double dt)
 		break;
 	case ROCKET:
 		break;
+	case HIGH_SCORE:
+	{
+		if(score == NULL)
+		{
+			 score = new highscore(console);
+		}
+
+		state = score->updatehighscore();
+		break;
+	}
 	case QUIT_GAME:
 		g_quitGame = true;
 		break;

@@ -15,6 +15,7 @@ void ini()
 	{
 		Title += readTitle.get();
 	}
+	Title.pop_back();
 	readTitle.close ();
 
 	std::ifstream readMain;
@@ -23,6 +24,7 @@ void ini()
 	{
 		Main += readMain.get();
 	}
+	Main.pop_back();
 	readMain.close();
 
 	std::ifstream readSelect;
@@ -31,6 +33,7 @@ void ini()
 	{
 		Select += readSelect.get();
 	}
+	Select.pop_back();
 	readSelect.close();
 }
 
@@ -50,7 +53,8 @@ gamestate MainMenu(Graphics& console)
 	console.draw(15,3,Main.c_str(),0x25);
 	console.draw(30,12,"Start game",0x25);
 	console.draw(30,13,"Options",0x25);
-	console.draw(30,14,"Exit game",0x25);
+	console.draw(30,14,"High Score",0x25);
+	console.draw(30,15,"Exit game",0x25);
 	if(choice == 0 && isKeyPressed(VK_DOWN))
 	{
 		check += 1;
@@ -61,12 +65,22 @@ gamestate MainMenu(Graphics& console)
 		check += 1;
 		choice = check;
 	}
+	if(choice == 2 && isKeyPressed(VK_DOWN))
+	{
+		check += 1;
+		choice = check;
+	}
 	if( choice == 1 && isKeyPressed(VK_UP))
 	{
 		check -= 1;
 		choice = check;
 	}
 	if( choice == 2 && isKeyPressed(VK_UP))
+	{
+		check -= 1;
+		choice = check;
+	}
+	if( choice == 3 && isKeyPressed(VK_UP))
 	{
 		check -= 1;
 		choice = check;
@@ -83,6 +97,10 @@ gamestate MainMenu(Graphics& console)
 	{
 		console.draw(27,14,"-->",0x25);
 	}
+	if(choice == 3)
+	{
+		console.draw(27,15,"-->",0x25);
+	}
 	if(isKeyPressed(VK_RETURN))
 	{
 		if (choice == 0)
@@ -94,6 +112,10 @@ gamestate MainMenu(Graphics& console)
 			return OPTIONS;
 		}
 		if (choice == 2)
+		{
+			return HIGH_SCORE;
+		}
+		if (choice == 3)
 		{
 			return QUIT_GAME;
 		}
@@ -192,6 +214,9 @@ gamestate GameSelect(Graphics& console)
 			return SPOTTED;
 		}
 	}
-
+	if(isKeyPressed(VK_ESCAPE))
+	{
+		return MAIN_MENU;
+	}
 	return GAME_SELECT;
 }
