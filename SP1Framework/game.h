@@ -24,6 +24,15 @@ enum gamestate
 	MAXSTATES
 };
 
+enum submarfull//submarine game.
+{
+	ANIMATIONS,
+	GAMESTATE,
+	MECHANICS
+};
+
+
+
 const int numofminigames = MAXSTATES - 2;
 
 

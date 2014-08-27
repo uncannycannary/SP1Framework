@@ -11,7 +11,6 @@ int higherscore = 0;
 
 int enemiesapp[15]={};//dictates when the enemy with appear.
 
-
  void initialisesubdrawings()//the fstream thingys
  {
 	 ifstream drawdata;//get input/stuff from file
@@ -23,7 +22,7 @@ int enemiesapp[15]={};//dictates when the enemy with appear.
 			 subdrawarray[i].push_back(drawdata.get());
 		 }
 		 drawdata.close();
-		 subdrawarray[i].pop_back();
+		 subdrawarray[i].pop_back();// do this to pop the null ascii
 	 }
  }
 
@@ -86,7 +85,7 @@ int enemiesapp[15]={};//dictates when the enemy with appear.
 	  }
 	  if(framecounter >= 370 && framecounter <= 420)
 	  {
-		  console->draw(43,4,subdrawarray[7].c_str(),0x1A);
+		  console->draw(43,4,subdrawarray[5].c_str(),0x1A);
 		  if(isKeyPressed(VK_UP) && (framecounter >= 370 && framecounter <=420))
 		  {
 			  console->draw(43,4,subdrawarray[6].c_str(),0xB2);
@@ -95,7 +94,7 @@ int enemiesapp[15]={};//dictates when the enemy with appear.
 	  }
 	  if(framecounter >= 410 && framecounter <= 450)
 	  {
-		  console->draw(80,4,subdrawarray[7].c_str(),0x1A);
+		  console->draw(80,4,subdrawarray[5].c_str(),0x1A);
 		  if(isKeyPressed(VK_RIGHT) && (framecounter >= 410 && framecounter <=450))
 		  {
 			  console->draw(80,4,subdrawarray[6].c_str(),0xB2);
@@ -104,7 +103,7 @@ int enemiesapp[15]={};//dictates when the enemy with appear.
 	  }
 	  if(framecounter >= 460 && framecounter <= 478)
 	  {
-		  console->draw(80,4,subdrawarray[7].c_str(),0x1A);
+		  console->draw(80,4,subdrawarray[5].c_str(),0x1A);
 		  if(isKeyPressed(VK_RIGHT) && (framecounter >= 410 && framecounter <=450))
 		  {
 			  console->draw(80,4,subdrawarray[6].c_str(),0xB2);
@@ -113,7 +112,7 @@ int enemiesapp[15]={};//dictates when the enemy with appear.
 	  }
 	  if(framecounter >= 859 && framecounter <= 875)
 	  {
-		  console->draw(5,4,subdrawarray[7].c_str(),0x1A);
+		  console->draw(5,4,subdrawarray[5].c_str(),0x1A);
 		  if(isKeyPressed(VK_LEFT) &&(framecounter >= 859 && framecounter <= 875))
 		  {
 			  console->draw(5,4,subdrawarray[6].c_str(),0xB2);
@@ -122,7 +121,7 @@ int enemiesapp[15]={};//dictates when the enemy with appear.
 	  }
 	  if(framecounter >= 861 && framecounter <= 900)
 	  {
-		  console->draw(80,4,subdrawarray[7].c_str(),0x1A);
+		  console->draw(80,4,subdrawarray[5].c_str(),0x1A);
 		  if(isKeyPressed(VK_RIGHT) && (framecounter >= 861 && framecounter <=900))
 		  {
 			  console->draw(80,4,subdrawarray[6].c_str(),0xB2);
@@ -139,9 +138,16 @@ gamestate playsubgamemain(Graphics* console)
 	}
 	playsubcontrolsmechanics(console);
 	playgamestate(console);
+
 	console->draw(5,30,subdrawarray[0].c_str(),0x1A);
 	console->draw(43,30,subdrawarray[0].c_str(),0x1A);
 	console->draw(80,30,subdrawarray[0].c_str(),0x1A);
 	return SUBMARINE;
 }
 
+//void updateSubmarineAnimation()
+
+//void playanimation(subanim animationIndex)
+//{
+
+//}
