@@ -24,7 +24,14 @@ gamestate photospam::update()
 	draw();
 	play();
 
-	return PHOTOSPAM;
+	if(CurrentFrame >= 1310 && isKeyPressed(VK_RETURN))
+	{
+		return MAIN_MENU;
+	}
+	else
+	{
+		return PHOTOSPAM;
+	}
 }
 
 void photospam::play()
@@ -129,10 +136,10 @@ void photospam::play()
 		}
 	}
 	if(CurrentFrame == 530 || CurrentFrame == 680 || CurrentFrame == 830 || CurrentFrame == 980 || CurrentFrame == 1130)
-		{
-			wrong = false;
-			set+=150;
-		}
+	{
+		wrong = false;
+		set+=150;
+	}
 	CurrentFrame++;
 }
 
@@ -215,7 +222,7 @@ void photospam::draw()
 	{	
 		console.draw(49,20,"GO!", 0x0F);
 	}
-	
+
 	if(CurrentFrame >= 440 && CurrentFrame <= 1310)
 	{
 		char buffer[10];
