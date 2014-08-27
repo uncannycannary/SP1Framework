@@ -9,15 +9,12 @@
 class subgame
 {
 private:
-	std::string subdrawarray[30];
 //Objective of this game is to shoot the monsters as much as you can as it appears
 	int framecounter;
 	int higherscore;
 	Graphics* console;
-
-
+	Directory Subfold;
 public:
-	void initialisesubdrawings();
 	void playgamestate();
 	gamestate playsubgamemain();
 	void playsubcontrolsmechanics();

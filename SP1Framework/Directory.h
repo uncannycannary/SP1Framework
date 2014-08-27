@@ -12,10 +12,14 @@ class Directory
 {
 private:
 	std::vector<std::wstring> FileList;
+	std::vector<std::string> drawings;
 	const std::wstring filepath;
 	const std::wstring filetype;
 	std::wstring searchpath;
+	void InnitDrawings();
+	std::wstring getname(int index);
 public:
+	std::string getstring(wchar_t* filename);
 	Directory(const wchar_t* filepath, const wchar_t* searchpattern);
 	~Directory();
 	int size() const;

@@ -13,10 +13,11 @@ filetype(searchpattern)
 	int index;
 	do
 	{
-		std::wstring buffer = filepath;
+		std::wstring buffer; //= filepath;
 		buffer += FindData.cFileName;
 		FileList.push_back(buffer);
 	}while (FindNextFile(hFind, &FindData) > 0);
+	InnitDrawings();
 }
 
 Directory::~Directory()
@@ -52,4 +53,37 @@ std::wstring Directory::path() const
 std::wstring Directory::operator[](int index)
 {
 	return FileList[index];
+}
+
+std::wstring Directory::getname(int index)
+{
+	std::wstring buffer = filepath + FileList[index];
+	return buffer;
+}
+
+void Directory::InnitDrawings()
+{
+	 std::ifstream drawdata;//get input/stuff from file
+	 for(int i = 0; i < size();++i )
+	 {
+		 std::string buffer;
+		 drawdata.open(getname(i));
+		 while(!drawdata.eof())//EOF
+		 {
+			 buffer.push_back(drawdata.get());
+		 }
+		 drawdata.close();
+		 buffer.pop_back();// do this to pop the null ascii
+		 drawings.push_back(buffer);
+	 }
+}
+
+std::string Directory::getstring(wchar_t* filename)
+{
+	int index = 0;
+	while(wcscmp(filename,FileList[index].c_str()))
+	{
+		index++;
+	}
+	return drawings[index];
 }

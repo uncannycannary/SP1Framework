@@ -26,12 +26,12 @@ toiletroll* toilet;
 photospam* spam;
 FindTwins* twins;
 highscore* score;
+subgame* submarine;
 gamestate state = INTRO;
 void init()
 {
 	updateinput();
 	ini();
-	initialisesubdrawings();
 
 	score = NULL;
 	scream = NULL;
@@ -40,6 +40,7 @@ void init()
 	flip = NULL;
 	spot = NULL;
 	twins = NULL;
+	submarine = NULL;
 }
 
 void shutdown()
@@ -75,7 +76,16 @@ void update(double dt)
 		}
 		break;
 	case SUBMARINE:
-		state = playsubgamemain(&console);
+		if(submarine == NULL)
+		{
+			submarine = new subgame(&console);
+		}
+		state = submarine->playsubgamemain();
+		if(state != SUBMARINE)
+		{
+			delete submarine;
+			submarine = NULL;
+		}
 		break;
 	case TOILET_ROLL:
 		if(toilet == NULL)
