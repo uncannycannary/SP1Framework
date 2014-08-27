@@ -5,7 +5,21 @@
 #include <fstream>
 #include "Framework\console.h"
 #include "game.h"
+//bababi
+class subgame
+{
+private:
+	std::string subdrawarray[30];
+//Objective of this game is to shoot the monsters as much as you can as it appears
+	int framecounter;
+	int higherscore;
+	Graphics* console;
 
-void initialisesubdrawings();
-gamestate playsubgamemain(Graphics*);
-void playsubcontrolsmechanics(Graphics*);
+
+public:
+	void initialisesubdrawings();
+	void playgamestate();
+	gamestate playsubgamemain();
+	void playsubcontrolsmechanics();
+	subgame(Graphics* console);
+};
