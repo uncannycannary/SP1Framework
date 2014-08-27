@@ -12,7 +12,7 @@ private:
 	//variables
 	bool gameends;
 	bool paused;
-	double power;
+	int power;
 	int currFrame;
 	bool lockinput;
 	Graphics& console;

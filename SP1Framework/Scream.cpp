@@ -9,11 +9,11 @@ currFrame(0),
 paused(false),
 gameends(false),
 lockinput(true),
-GameStartFrame(170),
-GameEndFrame(200),
-EndscreenFrame(230),
-PowerToPixelRatio(450),
-PowerToResistanceRatio(5),
+GameStartFrame(100),
+GameEndFrame(260),
+EndscreenFrame(300),
+PowerToPixelRatio(1550),
+PowerToResistanceRatio(80),
 PowerIncrement(1000),
 PowerbarPositionXTop(80),
 PowerbarPositionXBottom(40),
@@ -23,6 +23,8 @@ drawPauseY(30),
 anim(console)
 {
 	endscreen = "lol";
+	Dovakin.push_back("lol");
+	Dovakin.push_back("ROR");
 	anim.Add(&Intro, 0, 0, 1);
 	anim.Add(&Dovakin, 0, 0, 1);
 	anim.Add(&Dragon, 0, 0, 1);
