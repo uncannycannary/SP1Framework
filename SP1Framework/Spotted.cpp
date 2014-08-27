@@ -62,7 +62,7 @@ void Spotted::drawSpotted(Graphics* Spotted)
 		Spotted->draw(35,5,"|   o   |",0x3C);
 		Guard = true;
 	}
-	else if (CurrentFramePerSec == 151 || CurrentFramePerSec == 211 || CurrentFramePerSec == 316 || CurrentFramePerSec == 421 || CurrentFramePerSec == 501 || CurrentFramePerSec == 581 || CurrentFramePerSec == 621 || CurrentFramePerSec == 731 || CurrentFramePerSec == 796 || CurrentFramePerSec == 901 || CurrentFramePerSec == 1016 || CurrentFramePerSec == 1081 || CurrentFramePerSec == 1141)
+	else if (CurrentFramePerSec == 151 || CurrentFramePerSec == 211 || CurrentFramePerSec == 316 || CurrentFramePerSec == 421 || CurrentFramePerSec == 501 || CurrentFramePerSec == 581 || CurrentFramePerSec == 621 || CurrentFramePerSec == 731 || CurrentFramePerSec == 796 || CurrentFramePerSec == 946 || CurrentFramePerSec == 1016 || CurrentFramePerSec == 1081 || CurrentFramePerSec == 1141)
 	{
 		Guard = false;
 	}
