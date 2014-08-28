@@ -225,7 +225,7 @@ void photospam::draw()
 
 	if(CurrentFrame >= 440 && CurrentFrame <= 1310)
 	{
-		char buffer[10];
+		char buffer[11];
 		sprintf(buffer,"Score: %d",score);
 		console.draw(46,40, buffer, 0x0F);
 	}
