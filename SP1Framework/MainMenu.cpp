@@ -131,6 +131,7 @@ gamestate GameSelect(Graphics& console)
 	console.draw(30,14,"Submarine shoot-down!",0x69);
 	console.draw(30,15,"Toilet Roll Catch!",0x69);
 	console.draw(30,16,"Cross, but don't get Spotted!",0x69);
+	console.draw(30,17,"Snapshot that blink!",0x69);
 	if(choice2 == 0 && isKeyPressed(VK_DOWN))
 	{
 		check2 += 1;
@@ -147,6 +148,11 @@ gamestate GameSelect(Graphics& console)
 		choice2 = check2;
 	}
 	if(choice2 == 3 && isKeyPressed(VK_DOWN))
+	{
+		check2 += 1;
+		choice2 = check2;
+	}
+	if(choice2 == 4 && isKeyPressed(VK_DOWN))
 	{
 		check2 += 1;
 		choice2 = check2;
@@ -171,6 +177,11 @@ gamestate GameSelect(Graphics& console)
 		check2 -= 1;
 		choice2 = check2;
 	}
+	if( choice2 == 5 && isKeyPressed(VK_UP))
+	{
+		check2 -= 1;
+		choice2 = check2;
+	}
 	if(choice2 == 0)
 	{
 		console.draw(27,12,"-->",0x69);
@@ -190,6 +201,10 @@ gamestate GameSelect(Graphics& console)
 	if(choice2 == 4)
 	{
 		console.draw(27,16,"-->",0x69);
+	}
+	if(choice2 == 5)
+	{
+		console.draw(27,17,"-->",0x69);
 	}
 	if(isKeyPressed(VK_RETURN))
 	{
@@ -212,6 +227,10 @@ gamestate GameSelect(Graphics& console)
 		if (choice2 == 4)
 		{
 			return SPOTTED;
+		}
+		if (choice2 == 5)
+		{
+			return PHOTOSPAM;
 		}
 	}
 	if(isKeyPressed(VK_ESCAPE))

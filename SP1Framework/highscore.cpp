@@ -53,5 +53,11 @@ gamestate highscore::updatehighscore()
 	corn.draw(2,10,position.c_str(),0x2A);
 	corn.draw(7,10,name.c_str(),0x2A);
 	corn.draw(45,10,score.c_str(),0x2A);
+	
+
+	if(isKeyPressed(VK_ESCAPE))
+	{
+		return MAIN_MENU;
+	}
 	return HIGH_SCORE;
 }

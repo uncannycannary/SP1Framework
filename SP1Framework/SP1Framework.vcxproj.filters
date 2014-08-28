@@ -30,9 +30,6 @@
     <Filter Include="Text Files">
       <UniqueIdentifier>{fac04bfe-3552-4a00-8769-ff34cb006c33}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Text Files\UI">
-      <UniqueIdentifier>{37ed554b-197b-4610-9600-7c7df7749aa6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Text Files\Sub shoot-down">
       <UniqueIdentifier>{72938028-fefd-482f-8214-cb1d9c86e73c}</UniqueIdentifier>
     </Filter>
@@ -48,6 +45,9 @@
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Text Files\TableFlip\UI">
+      <UniqueIdentifier>{37ed554b-197b-4610-9600-7c7df7749aa6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -155,10 +155,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ButtonMashMaster.txt">
-      <Filter>Text Files\UI</Filter>
+      <Filter>Text Files\TableFlip\UI</Filter>
     </None>
     <None Include="MainMenu.txt">
-      <Filter>Text Files\UI</Filter>
+      <Filter>Text Files\TableFlip\UI</Filter>
     </None>
     <None Include="Submarine\Sub.txt">
       <Filter>Text Files\Sub shoot-down</Filter>
@@ -182,16 +182,16 @@
       <Filter>Text Files\ToiletRoll</Filter>
     </None>
     <None Include="SelectGame.txt">
-      <Filter>Text Files\UI</Filter>
+      <Filter>Text Files\TableFlip\UI</Filter>
     </None>
     <None Include="Position.txt">
-      <Filter>Text Files\UI</Filter>
+      <Filter>Text Files\TableFlip\UI</Filter>
     </None>
     <None Include="name.txt">
-      <Filter>Text Files\UI</Filter>
+      <Filter>Text Files\TableFlip\UI</Filter>
     </None>
     <None Include="score.txt">
-      <Filter>Text Files\UI</Filter>
+      <Filter>Text Files\TableFlip\UI</Filter>
     </None>
   </ItemGroup>
 </Project>
