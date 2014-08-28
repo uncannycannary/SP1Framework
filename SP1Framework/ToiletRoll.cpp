@@ -141,7 +141,7 @@ void toiletroll::draw()
 	{
 		console.draw(45,20,"TOILET ROLL", 0x0F);
 	}
-	if(CurrentFrame >= 60 && CurrentFrame <= 230)
+	if(CurrentFrame >= 60 && CurrentFrame <= 229)
 	{
 		console.draw(45,20,"How to play", 0x0F);
 		console.draw(38,22,"When the toiletroll falls\n  press the < and > keys\n     at the same time\n       to catch it", 0x0F);

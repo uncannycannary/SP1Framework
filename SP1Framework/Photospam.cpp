@@ -188,7 +188,7 @@ void photospam::read()
 
 void photospam::draw()
 {
-	if(CurrentFrame >= 0 && CurrentFrame <= 60)
+	if(CurrentFrame >= 0 && CurrentFrame <= 59)
 	{
 		console.draw(45,20,"PHOTO SPAM", 0x0F);
 	}
