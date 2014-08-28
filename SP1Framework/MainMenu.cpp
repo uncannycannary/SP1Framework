@@ -132,6 +132,7 @@ gamestate GameSelect(Graphics& console)
 	console.draw(30,15,"Toilet Roll Catch!",0x69);
 	console.draw(30,16,"Cross, but don't get Spotted!",0x69);
 	console.draw(30,17,"Snapshot that blink!",0x69);
+	console.draw(30,18,"Be the Virus Buster!",0x69);
 	if(choice2 == 0 && isKeyPressed(VK_DOWN))
 	{
 		check2 += 1;
@@ -153,6 +154,11 @@ gamestate GameSelect(Graphics& console)
 		choice2 = check2;
 	}
 	if(choice2 == 4 && isKeyPressed(VK_DOWN))
+	{
+		check2 += 1;
+		choice2 = check2;
+	}
+	if(choice2 == 5 && isKeyPressed(VK_DOWN))
 	{
 		check2 += 1;
 		choice2 = check2;
@@ -182,6 +188,11 @@ gamestate GameSelect(Graphics& console)
 		check2 -= 1;
 		choice2 = check2;
 	}
+	if( choice2 == 6 && isKeyPressed(VK_UP))
+	{
+		check2 -= 1;
+		choice2 = check2;
+	}
 	if(choice2 == 0)
 	{
 		console.draw(27,12,"-->",0x69);
@@ -205,6 +216,10 @@ gamestate GameSelect(Graphics& console)
 	if(choice2 == 5)
 	{
 		console.draw(27,17,"-->",0x69);
+	}
+	if(choice2 == 6)
+	{
+		console.draw(27,18,"-->",0x69);
 	}
 	if(isKeyPressed(VK_RETURN))
 	{
@@ -231,6 +246,10 @@ gamestate GameSelect(Graphics& console)
 		if (choice2 == 5)
 		{
 			return PHOTOSPAM;
+		}
+		if (choice2 == 6)
+		{
+			return VIRUS;
 		}
 	}
 	if(isKeyPressed(VK_ESCAPE))

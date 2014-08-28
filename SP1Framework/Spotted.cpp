@@ -90,17 +90,17 @@ void Spotted::drawSpotted(Graphics* Spotted)
 			Spotted->draw(10+checkEscapee*3,11,"\\ 0 /",0x3C);
 			Spotted->draw(10+checkEscapee*3,12," > / ",0x3C);
 		}
-		Spotted->draw(24,20,"Cross, but don't get Spotted!",0x2A);
-		Spotted->draw(23,21,"----------Instuctions----------" ,0x2A);
-		Spotted->draw(5,22,"Spam the left, down and right buttons, but stop if the Guard wakes up!",0x2A);
+		Spotted->draw(24,20,"Cross, but don't get Spotted!",0x2B);
+		Spotted->draw(23,21,"----------Instuctions----------" ,0x2B);
+		Spotted->draw(5,22,"Spam the left, down and right buttons, but stop if the Guard wakes up!",0x2B);
 	}
 	if(CurrentFramePerSec > 1200)
 	{
-		Spotted->draw(20,21," criminals have crossed!",0x2A);
+		Spotted->draw(19,21,"  criminals have crossed!",0x2B);
 		{
 			char buffer[10];
 			sprintf(buffer,"%d",score);
-			Spotted->draw(18,21,(buffer),0x2A);
+			Spotted->draw(18,21,(buffer),0x2B);
 		}
 	}
 	if(CurrentFramePerSec == 0 )

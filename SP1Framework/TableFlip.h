@@ -13,7 +13,6 @@ class TableFlip
 {
 public:
 	gamestate updateTableFlip(Graphics* console);
-	void resetTableFlip();
 	TableFlip()
 	{
 		left = 0;

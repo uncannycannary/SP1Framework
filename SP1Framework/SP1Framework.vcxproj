@@ -93,6 +93,7 @@
     <ClCompile Include="subgame.cpp" />
     <ClCompile Include="TableFlip.cpp" />
     <ClCompile Include="ToiletRoll.cpp" />
+    <ClCompile Include="Virus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animations.h" />
@@ -111,6 +112,7 @@
     <ClInclude Include="subgame.h" />
     <ClInclude Include="TableFlip.h" />
     <ClInclude Include="ToiletRoll.h" />
+    <ClInclude Include="Virus.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ascii\lefthand.txt" />

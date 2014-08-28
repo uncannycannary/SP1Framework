@@ -32,12 +32,12 @@ gamestate TableFlip::updateTableFlip(Graphics* console)
 		drawTableFlip(console);
 		return TABLE_FLIP;
 	}
+
 	if(gameends)
 	{
 		gamestate state = (gamestate)(rand() % numofminigames);
 		return state;
 	}
-
 }
 
 void TableFlip::playTableFlip()
@@ -68,16 +68,16 @@ void TableFlip::drawTableFlip(Graphics* TableFlip)
 	}
 	if(CurrentFramePerSec == 0)
 	{
-		TableFlip->draw(33,20,"Table Flip",0x2A);
-		TableFlip->draw(23,21,"----------Instuctions----------" ,0x2A);
-		TableFlip->draw(13,22,"Press the left and right button as much as you can!",0x2A);
+		TableFlip->draw(33,20,"Table Flip",0x2B);
+		TableFlip->draw(23,21,"----------Instuctions----------" ,0x2B);
+		TableFlip->draw(13,22,"Press the left and right button as much as you can!",0x2B);
 		TableFlip->draw(28,10,"Press Enter to Begin!" ,0x3E);
 	}
 	if(CurrentFramePerSec <= 210)
 	{
-		TableFlip->draw(33,20,"Table Flip",0x2A);
-		TableFlip->draw(23,21,"----------Instuctions----------" ,0x2A);
-		TableFlip->draw(13,22,"Press the left and right button as much as you can!",0x2A);
+		TableFlip->draw(33,20,"Table Flip",0x2B);
+		TableFlip->draw(23,21,"----------Instuctions----------" ,0x2B);
+		TableFlip->draw(13,22,"Press the left and right button as much as you can!",0x2B);
 
 		TableFlip->draw(7,12,"-------",0x58);
 		TableFlip->draw(7,13,"|     |",0x58);
@@ -117,23 +117,15 @@ void TableFlip::drawTableFlip(Graphics* TableFlip)
 		TableFlip->draw(3,12,"  |   ",0x48);  
 		TableFlip->draw(3,13,"  |\\  ",0x48); 
 
-		TableFlip->draw(13,21,"Congratulations! Your table has flipped over ",0x2A);
+		TableFlip->draw(13,21,"Congratulations! Your table has flipped over ",0x2B);
 		{
 			char buffer[10];
 			sprintf(buffer,"%d",right+left);
-			TableFlip->draw(58,21,(buffer),0x2A);
+			TableFlip->draw(58,21,(buffer),0x2B);
 		}
-		TableFlip->draw(61,21,"m!",0x2A);
+		TableFlip->draw(61,21,"m!",0x2AB);
+
+		TableFlip->draw(20,10,"Press Enter to return to the Main Menu!" ,0x3E);
 	}
 }
 
-void TableFlip::resetTableFlip()
-{
-	left = 0;
-	right = 0;
-	checkleft = 0;
-	checkright = 0;
-	CurrentFramePerSec = 0;
-	GameStarts = false;
-	gameends = false;
-}

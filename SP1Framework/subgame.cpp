@@ -193,7 +193,9 @@ console(console)
 	  }
 	  if(framecounter >= 900 && framecounter <= 1200)
 	  {
-		  console->draw(24,10,"Score: ",0xB2);
+		  char buffer[256];
+		  sprintf(buffer,"Score %d",higherscore);
+		  console->draw(24,10,buffer,0xB2);
 	  }
  }
 
