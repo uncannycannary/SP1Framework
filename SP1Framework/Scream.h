@@ -18,6 +18,7 @@ private:
 	Graphics& console;
 
 	//animation stuff
+	Directory file;
 	Animations anim;
 	std::vector<std::string> Intro;
 	std::vector<std::string> Dovakin;
@@ -50,6 +51,7 @@ private:
 	//functions
 	void UpdatePowerbar();
 	void draw();
+	void changestate();
 	void DoUserInput();
 	void UpdateAnim();
 public:

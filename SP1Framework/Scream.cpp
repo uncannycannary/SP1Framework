@@ -5,6 +5,7 @@ Scream::Scream(Graphics& console)
 	:
 console(console),
 power(0),
+file(L"scream\\",L"*.txt"),
 currFrame(0),
 paused(false),
 gameends(false),
@@ -23,8 +24,7 @@ drawPauseY(30),
 anim(console)
 {
 	endscreen = "lol";
-	Dovakin.push_back("lol");
-	Dovakin.push_back("ROR");
+	Dovakin.push_back(file.getstring(L"dragon.txt"));
 	anim.Add(&Intro, 0, 0, 1);
 	anim.Add(&Dovakin, 0, 0, 1);
 	anim.Add(&Dragon, 0, 0, 1);
@@ -62,6 +62,7 @@ void Scream::draw()
 
 gamestate Scream::update()
 {
+
 	if(isKeyPressed(VK_ESCAPE))
 	{
 		return MAIN_MENU;
@@ -70,6 +71,56 @@ gamestate Scream::update()
 	{
 		paused = !paused;
 	}
+	if(!paused)
+	{
+		currFrame++;
+		if(!lockinput)
+		{
+			DoUserInput();
+		}
+		UpdateAnim();
+		changestate();
+	}
+	draw();
+
+	return SCREAM;
+}
+
+void Scream::UpdateAnim()
+{
+	anim.update();
+	const int delay = power;
+	//anim.ChangeDelay(DOVAKIN_KILLS_DRAGON, delay);
+}
+
+void Scream::UpdatePowerbar()
+{
+	const int resistance = power / PowerToResistanceRatio;
+	power -= resistance;
+	if(power < 0)
+	{
+		power = 0;
+	}
+}
+
+void Scream::DoUserInput()
+{
+	if(isKeyPressed(VK_LEFT))
+	{
+		power+=PowerIncrement;
+	}
+	if(isKeyPressed(VK_DOWN))
+	{
+		power+=PowerIncrement;
+	}
+	if(isKeyPressed(VK_RIGHT))
+	{
+		power+=PowerIncrement;
+	}
+}
+
+void Scream::changestate()
+{
 	if(currFrame == GameStartFrame)
 	{
 		lockinput = false;
@@ -97,49 +148,5 @@ gamestate Scream::update()
 	else if(currFrame == EndscreenFrame)
 	{
 		anim.stop(DOVAKIN_KILLS_DRAGON);
-	}
-	if(!paused)
-	{
-		currFrame++;
-		if(!lockinput)
-		{
-			DoUserInput();
-		}
-		UpdateAnim();
-	}
-	draw();
-	return SCREAM;
-}
-
-void Scream::UpdateAnim()
-{
-	anim.update();
-	const int delay = power;
-	//anim.ChangeDelay(DOVAKIN_KILLS_DRAGON, delay);
-}
-
-void Scream::UpdatePowerbar()
-{
-	const int resistance = power / PowerToResistanceRatio;
-	power -= resistance;
-	if(power < 0)
-	{
-		power = 0;
-	}
-}
-
-void Scream::DoUserInput()
-{
-	if(isKeyPressed(VK_LEFT))
-	{
-		power+=PowerIncrement;
-	}
-	if(isKeyPressed(VK_UP))
-	{
-		power+=PowerIncrement;
-	}
-	if(isKeyPressed(VK_RIGHT))
-	{
-		power+=PowerIncrement;
 	}
 }

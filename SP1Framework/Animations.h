@@ -19,7 +19,6 @@ public:
 	void ChangeDelay(const int index, const int delay);
 private:
 	void advance(const int index);
-	bool hasEnded(const int index);
 	struct Animation
 	{
 		const std::vector<std::string>* frames;

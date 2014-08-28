@@ -15,10 +15,6 @@ void Animations::update()
 	for(int index = 0; index < aniVector.size(); index++)
 	{
 		advance(index);
-		if(hasEnded(index))
-		{
-			stop(index);
-		}
 	}
 }
 
@@ -29,13 +25,19 @@ int Animations::Add(const std::vector<std::string>* frames,const int sizeX,const
 	const bool isplaying = false;
 	Animation newAnimation = {frames, sizeX, sizeY, frameDelay, currDelay, isplaying, currframe};
 	aniVector.push_back(newAnimation);
+
 	const int index = aniVector.size() - 1;
+	stop(index);
 	return index;
 }
 
 void Animations::playInstance(const int index)
 {
 	aniVector[index].isplaying = true;
+	if(aniVector[index].currframe == aniVector[index].frames->size())
+	{
+		stop(index);
+	}
 }
 
 bool Animations::InstanceIsPlaying(const int index)
@@ -56,34 +58,16 @@ void Animations::advance(const int index)
 {
 	if(aniVector[index].isplaying)
 	{
-		if(aniVector[index].currframe < aniVector[index].frames->size())
+		aniVector[index].currDelay++;
+		if(aniVector[index].currDelay == aniVector[index].frameDelay)
 		{
-			if(aniVector[index].currDelay == aniVector[index].frameDelay)
-			{
-				aniVector[index].currframe++;
-				aniVector[index].currDelay = 0;
-			}
-			else
-			{
-				aniVector[index].currDelay++;
-			}
+			aniVector[index].currframe++;
+			aniVector[index].currDelay = 0;
 		}
-		else
+		if(aniVector[index].currframe == aniVector[index].frames->size())
 		{
-			aniVector[index].isplaying = false;
+			stop(index);
 		}
-	}
-}
-
-bool Animations::hasEnded(const int index)
-{
-	if(aniVector[index].currframe == aniVector[index].frames->size())
-	{
-		return true;
-	}
-	else
-	{
-		return false;
 	}
 }
 
