@@ -24,6 +24,7 @@ enum gamestate
 	MAIN_MENU,
 	HIGH_SCORE,
 	RANDOM,
+	RESULTS,
 	MAXSTATES
 };
 

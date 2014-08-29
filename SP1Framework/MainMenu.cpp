@@ -114,7 +114,7 @@ gamestate MainMenu(Graphics& console)
 	}
 	if(choice == 4)
 	{
-		console.draw(27,15,"-->",0x25);
+		console.draw(27,16,"-->",0x25);
 	}
 	if(isKeyPressed(VK_RETURN))
 	{
