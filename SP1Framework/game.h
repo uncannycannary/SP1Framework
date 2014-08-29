@@ -37,7 +37,7 @@ enum submarfull//submarine game.
 
 
 
-const int numofminigames = MAXSTATES - 2;
+const int numofminigames = MAXSTATES - 8;
 
 
 void init();                // initialize your variables, allocate memory, etc
