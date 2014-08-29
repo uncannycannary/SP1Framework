@@ -29,6 +29,7 @@ FindTwins* twins;
 highscore* score;
 subgame* submarine;
 Virus* virus;
+pumprocket* rocket;
 gamestate state = INTRO;
 void init()
 {
@@ -44,6 +45,7 @@ void init()
 	twins = NULL;
 	submarine = NULL;
 	virus = NULL;
+	rocket = NULL;
 }
 
 void shutdown()
@@ -161,6 +163,18 @@ void update(double dt)
 		}
 		break;
 	case ROCKET:
+		if(rocket == NULL)
+		{
+			rocket = new pumprocket(console);
+		}
+
+		state = rocket->update();
+
+		if(state != ROCKET)
+		{
+			delete rocket;
+			rocket = NULL;
+		}
 		break;
 	case VIRUS:
 		if(virus == NULL)

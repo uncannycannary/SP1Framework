@@ -51,10 +51,11 @@ gamestate Intro(Graphics& console)
 gamestate MainMenu(Graphics& console)
 {
 	console.draw(15,3,Main.c_str(),0x25);
-	console.draw(30,12,"Start game",0x25);
-	console.draw(30,13,"Options",0x25);
-	console.draw(30,14,"High Score",0x25);
-	console.draw(30,15,"Exit game",0x25);
+	console.draw(30,12,"Normal Mode",0x25);
+	console.draw(30,13,"Random Mode",0x25);
+	console.draw(30,14,"Options",0x25);
+	console.draw(30,15,"High Score",0x25);
+	console.draw(30,16,"Exit game",0x25);
 	if(choice == 0 && isKeyPressed(VK_DOWN))
 	{
 		check += 1;
@@ -70,6 +71,11 @@ gamestate MainMenu(Graphics& console)
 		check += 1;
 		choice = check;
 	}
+	if(choice == 3 && isKeyPressed(VK_DOWN))
+	{
+		check += 1;
+		choice = check;
+	}
 	if( choice == 1 && isKeyPressed(VK_UP))
 	{
 		check -= 1;
@@ -81,6 +87,11 @@ gamestate MainMenu(Graphics& console)
 		choice = check;
 	}
 	if( choice == 3 && isKeyPressed(VK_UP))
+	{
+		check -= 1;
+		choice = check;
+	}
+	if( choice == 4 && isKeyPressed(VK_UP))
 	{
 		check -= 1;
 		choice = check;
@@ -101,6 +112,10 @@ gamestate MainMenu(Graphics& console)
 	{
 		console.draw(27,15,"-->",0x25);
 	}
+	if(choice == 4)
+	{
+		console.draw(27,15,"-->",0x25);
+	}
 	if(isKeyPressed(VK_RETURN))
 	{
 		if (choice == 0)
@@ -109,13 +124,17 @@ gamestate MainMenu(Graphics& console)
 		}
 		if (choice == 1)
 		{
-			return OPTIONS;
+			return RANDOM;
 		}
 		if (choice == 2)
 		{
-			return HIGH_SCORE;
+			return OPTIONS;
 		}
 		if (choice == 3)
+		{
+			return HIGH_SCORE;
+		}
+		if (choice == 4)
 		{
 			return QUIT_GAME;
 		}
@@ -133,6 +152,7 @@ gamestate GameSelect(Graphics& console)
 	console.draw(30,16,"Cross, but don't get Spotted!",0x69);
 	console.draw(30,17,"Snapshot that blink!",0x69);
 	console.draw(30,18,"Be the Virus Buster!",0x69);
+	console.draw(30,19,"Pump that Rocket Sky-high!",0x69);
 	if(choice2 == 0 && isKeyPressed(VK_DOWN))
 	{
 		check2 += 1;
@@ -159,6 +179,11 @@ gamestate GameSelect(Graphics& console)
 		choice2 = check2;
 	}
 	if(choice2 == 5 && isKeyPressed(VK_DOWN))
+	{
+		check2 += 1;
+		choice2 = check2;
+	}
+	if(choice2 == 6 && isKeyPressed(VK_DOWN))
 	{
 		check2 += 1;
 		choice2 = check2;
@@ -193,6 +218,11 @@ gamestate GameSelect(Graphics& console)
 		check2 -= 1;
 		choice2 = check2;
 	}
+	if( choice2 == 7 && isKeyPressed(VK_UP))
+	{
+		check2 -= 1;
+		choice2 = check2;
+	}
 	if(choice2 == 0)
 	{
 		console.draw(27,12,"-->",0x69);
@@ -220,6 +250,10 @@ gamestate GameSelect(Graphics& console)
 	if(choice2 == 6)
 	{
 		console.draw(27,18,"-->",0x69);
+	}
+	if(choice2 == 7)
+	{
+		console.draw(27,19,"-->",0x69);
 	}
 	if(isKeyPressed(VK_RETURN))
 	{
@@ -250,6 +284,10 @@ gamestate GameSelect(Graphics& console)
 		if (choice2 == 6)
 		{
 			return VIRUS;
+		}
+		if (choice2 == 7)
+		{
+			return ROCKET;
 		}
 	}
 	if(isKeyPressed(VK_ESCAPE))

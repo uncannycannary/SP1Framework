@@ -49,6 +49,9 @@
     <Filter Include="Text Files\TableFlip\UI">
       <UniqueIdentifier>{37ed554b-197b-4610-9600-7c7df7749aa6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Text Files\Minigame Rank">
+      <UniqueIdentifier>{7647da69-bb3e-48bb-b827-9fe930247fae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\console.cpp">
@@ -125,9 +128,6 @@
     <ClInclude Include="game.h">
       <Filter>Header Files\UI&amp;Game</Filter>
     </ClInclude>
-    <ClInclude Include="MainMenu.h">
-      <Filter>Header Files\UI&amp;Game</Filter>
-    </ClInclude>
     <ClInclude Include="Scream.h">
       <Filter>Header Files\Minigames</Filter>
     </ClInclude>
@@ -162,6 +162,9 @@
       <Filter>Header Files\Minigames</Filter>
     </ClInclude>
     <ClInclude Include="minihighscore.h">
+      <Filter>Header Files\UI&amp;Game</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
       <Filter>Header Files\UI&amp;Game</Filter>
     </ClInclude>
   </ItemGroup>
@@ -204,6 +207,18 @@
     </None>
     <None Include="score.txt">
       <Filter>Text Files\TableFlip\UI</Filter>
+    </None>
+    <None Include="Minigame result\comment.txt">
+      <Filter>Text Files\Minigame Rank</Filter>
+    </None>
+    <None Include="Minigame result\rank.txt">
+      <Filter>Text Files\Minigame Rank</Filter>
+    </None>
+    <None Include="Minigame result\rocketscore.txt">
+      <Filter>Text Files\Minigame Rank</Filter>
+    </None>
+    <None Include="Minigame result\results.txt">
+      <Filter>Text Files\Minigame Rank</Filter>
     </None>
   </ItemGroup>
 </Project>

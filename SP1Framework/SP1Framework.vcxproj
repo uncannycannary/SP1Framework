@@ -122,6 +122,10 @@
     <None Include="ascii\toiletroll.txt" />
     <None Include="ButtonMashMaster.txt" />
     <None Include="MainMenu.txt" />
+    <None Include="Minigame result\comment.txt" />
+    <None Include="Minigame result\rank.txt" />
+    <None Include="Minigame result\results.txt" />
+    <None Include="Minigame result\rocketscore.txt" />
     <None Include="name.txt" />
     <None Include="Position.txt" />
     <None Include="score.txt" />
