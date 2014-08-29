@@ -25,6 +25,7 @@ anim(console)
 {
 	endscreen = "lol";
 	Dovakin.push_back(file.getstring(L"dragon.txt"));
+	Dovakin.push_back("lolzerssssssssss");
 	anim.Add(&Intro, 0, 0, 1);
 	anim.Add(&Dovakin, 0, 0, 1);
 	anim.Add(&Dragon, 0, 0, 1);
