@@ -105,6 +105,9 @@
     <ClCompile Include="Virus.cpp">
       <Filter>Source Files\Minigames</Filter>
     </ClCompile>
+    <ClCompile Include="minihighscore.cpp">
+      <Filter>Source Files\UI&amp;Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\console.h">
@@ -157,6 +160,9 @@
     </ClInclude>
     <ClInclude Include="Virus.h">
       <Filter>Header Files\Minigames</Filter>
+    </ClInclude>
+    <ClInclude Include="minihighscore.h">
+      <Filter>Header Files\UI&amp;Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
