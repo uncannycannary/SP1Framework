@@ -69,6 +69,9 @@ void update(double dt)
 	case GAME_SELECT:
 		state = GameSelect(console);
 		break;
+	case OPTIONS:
+		state = Options(console);
+		break;
 	case TABLE_FLIP:
 		if(flip == NULL)
 		{

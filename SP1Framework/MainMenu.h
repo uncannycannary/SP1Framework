@@ -11,6 +11,8 @@ void ini();
 gamestate Intro(Graphics&);
 gamestate MainMenu(Graphics&);
 gamestate GameSelect(Graphics&);
+gamestate Options(Graphics&);
+void randommode();
 
 
 #endif

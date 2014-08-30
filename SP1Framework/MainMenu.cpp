@@ -3,13 +3,11 @@ std::string Title;
 std::string Main;
 std::string Select;
 int choice = 0;
-int check = 0;
 int choice2 = 0;
 int check2 = 0;
 std::vector<gamestate> random;
 int currentframe = 0;
 int currentstage = 0;
-
 
 void ini()
 {
@@ -75,109 +73,77 @@ gamestate MainMenu(Graphics& console)
 	}
 	else
 	{
+		console.draw(27,12+choice,"-->",0x25);
 		console.draw(15,3,Main.c_str(),0x25);
 		console.draw(30,12,"Normal Mode",0x25);
 		console.draw(30,13,"Random Mode",0x25);
 		console.draw(30,14,"Options",0x25);
 		console.draw(30,15,"High Score",0x25);
 		console.draw(30,16,"Exit game",0x25);
-		if(choice == 0 && isKeyPressed(VK_DOWN))
+
+		if(isKeyPressed(VK_DOWN))
 		{
-			check += 1;
-			choice = check;
+			choice++;
+			if(choice > 4)
+			{
+				choice = 4;
+			}
 		}
-		if(choice == 1 && isKeyPressed(VK_DOWN))
+		if(isKeyPressed(VK_UP))
 		{
-			check += 1;
-			choice = check;
-		}
-		if(choice == 2 && isKeyPressed(VK_DOWN))
-		{
-			check += 1;
-			choice = check;
-		}
-		if(choice == 3 && isKeyPressed(VK_DOWN))
-		{
-			check += 1;
-			choice = check;
-		}
-		if( choice == 1 && isKeyPressed(VK_UP))
-		{
-			check -= 1;
-			choice = check;
-		}
-		if( choice == 2 && isKeyPressed(VK_UP))
-		{
-			check -= 1;
-			choice = check;
-		}
-		if( choice == 3 && isKeyPressed(VK_UP))
-		{
-			check -= 1;
-			choice = check;
-		}
-		if( choice == 4 && isKeyPressed(VK_UP))
-		{
-			check -= 1;
-			choice = check;
-		}
-		if(choice == 0)
-		{
-			console.draw(27,12,"-->",0x25);
-		}
-		if(choice == 1)
-		{
-			console.draw(27,13,"-->",0x25);
-		}
-		if(choice == 2)
-		{
-			console.draw(27,14,"-->",0x25);
-		}
-		if(choice == 3)
-		{
-			console.draw(27,15,"-->",0x25);
-		}
-		if(choice == 4)
-		{
-			console.draw(27,16,"-->",0x25);
+			choice--;
+			if(choice < 0)
+			{
+				choice = 0;
+			}
 		}
 		if(isKeyPressed(VK_RETURN))
 		{
-			if (choice == 0)
+			switch(choice)
 			{
+			case 0:
 				return GAME_SELECT;
-			}
-			if (choice == 1)
-			{
-				std::vector<int> games;
-				for(int i=0; i < numofminigames; ++i)
-				{
-					games.push_back(i);
-				}
-				for(int i=0; i < 7; ++i)
-				{
-					int index = rand()%games.size();
-					gamestate stage = (gamestate)games[index];
-					random.push_back(stage);
-					games.erase(games.begin()+index);
-				}
-				currentstage = 1;
+			case 1:
+				randommode();
 				return MAIN_MENU;
-			}
-			if (choice == 2)
-			{
+			case 2:
 				return OPTIONS;
-			}
-			if (choice == 3)
-			{
+			case 3:
 				return HIGH_SCORE;
-			}
-			if (choice == 4)
-			{
+			case 4:
 				return QUIT_GAME;
 			}
 		}
 		return MAIN_MENU;
+	}
+}
+
+void randommode()
+{
+	std::vector<int> games;
+	for(int i=0; i < numofminigames; ++i)
+	{
+		games.push_back(i);
+	}
+	for(int i=0; i < 7; ++i)
+	{
+		int index = rand()%games.size();
+		gamestate stage = (gamestate)games[index];
+		random.push_back(stage);
+		games.erase(games.begin()+index);
+	}
+	currentstage = 1;
+}
+
+gamestate Options(Graphics& console)
+{
+	if(isKeyPressed(VK_ESCAPE))
+	{
+		return MAIN_MENU;
+	}
+	else
+	{
+		return OPTIONS;
 	}
 }
 
