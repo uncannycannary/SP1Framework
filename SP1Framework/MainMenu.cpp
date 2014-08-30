@@ -4,7 +4,6 @@ std::string Main;
 std::string Select;
 int choice = 0;
 int choice2 = 0;
-int check2 = 0;
 std::vector<gamestate> random;
 int currentframe = 0;
 int currentstage = 0;
@@ -130,7 +129,8 @@ void randommode()
 		int index = rand()%games.size();
 		gamestate stage = (gamestate)games[index];
 		random.push_back(stage);
-		games.erase(games.begin()+index);
+		games[index] = games.back();
+		games.pop_back();
 	}
 	currentstage = 1;
 }
@@ -149,7 +149,7 @@ gamestate Options(Graphics& console)
 
 gamestate GameSelect(Graphics& console)
 {
-
+	console.draw(27,12+choice2,"-->",0x69);
 	console.draw(11,3,Select.c_str(),0x69);
 	console.draw(30,12,"Scream it out!",0x69);
 	console.draw(30,13,"Flip that table over!",0x69);
@@ -159,141 +159,59 @@ gamestate GameSelect(Graphics& console)
 	console.draw(30,17,"Snapshot that blink!",0x69);
 	console.draw(30,18,"Be the Virus Buster!",0x69);
 	console.draw(30,19,"Pump that Rocket Sky-high!",0x69);
-	if(choice2 == 0 && isKeyPressed(VK_DOWN))
+
+	if(isKeyPressed(VK_DOWN))
 	{
-		check2 += 1;
-		choice2 = check2;
+		choice2++;
+		if(choice2 > numofminigames)
+		{
+			choice2 = numofminigames;
+		}
 	}
-	if(choice2 == 1 && isKeyPressed(VK_DOWN))
+	if(isKeyPressed(VK_UP))
 	{
-		check2 += 1;
-		choice2 = check2;
-	}
-	if(choice2 == 2 && isKeyPressed(VK_DOWN))
-	{
-		check2 += 1;
-		choice2 = check2;
-	}
-	if(choice2 == 3 && isKeyPressed(VK_DOWN))
-	{
-		check2 += 1;
-		choice2 = check2;
-	}
-	if(choice2 == 4 && isKeyPressed(VK_DOWN))
-	{
-		check2 += 1;
-		choice2 = check2;
-	}
-	if(choice2 == 5 && isKeyPressed(VK_DOWN))
-	{
-		check2 += 1;
-		choice2 = check2;
-	}
-	if(choice2 == 6 && isKeyPressed(VK_DOWN))
-	{
-		check2 += 1;
-		choice2 = check2;
-	}
-	if(choice2 == 1 && isKeyPressed(VK_UP))
-	{
-		check2 -= 1;
-		choice2 = check2;
-	}
-	if( choice2 == 2 && isKeyPressed(VK_UP))
-	{
-		check2 -= 1;
-		choice2 = check2;
-	}
-	if( choice2 == 3 && isKeyPressed(VK_UP))
-	{
-		check2 -= 1;
-		choice2 = check2;
-	}
-	if( choice2 == 4 && isKeyPressed(VK_UP))
-	{
-		check2 -= 1;
-		choice2 = check2;
-	}
-	if( choice2 == 5 && isKeyPressed(VK_UP))
-	{
-		check2 -= 1;
-		choice2 = check2;
-	}
-	if( choice2 == 6 && isKeyPressed(VK_UP))
-	{
-		check2 -= 1;
-		choice2 = check2;
-	}
-	if( choice2 == 7 && isKeyPressed(VK_UP))
-	{
-		check2 -= 1;
-		choice2 = check2;
-	}
-	if(choice2 == 0)
-	{
-		console.draw(27,12,"-->",0x69);
-	}
-	if(choice2 == 1)
-	{
-		console.draw(27,13,"-->",0x69);
-	}
-	if(choice2 == 2)
-	{
-		console.draw(27,14,"-->",0x69);
-	}
-	if(choice2 == 3)
-	{
-		console.draw(27,15,"-->",0x69);
-	}
-	if(choice2 == 4)
-	{
-		console.draw(27,16,"-->",0x69);
-	}
-	if(choice2 == 5)
-	{
-		console.draw(27,17,"-->",0x69);
-	}
-	if(choice2 == 6)
-	{
-		console.draw(27,18,"-->",0x69);
-	}
-	if(choice2 == 7)
-	{
-		console.draw(27,19,"-->",0x69);
+		choice2--;
+		if(choice2 < 0)
+		{
+			choice2 = 0;
+		}
 	}
 	if(isKeyPressed(VK_RETURN))
 	{
-		if (choice2 == 0)
+		switch(choice2)
 		{
-			return SCREAM;
-		}
-		if (choice2 == 1)
-		{
-			return TABLE_FLIP;
-		}
-		if (choice2 == 2)
-		{
-			return SUBMARINE;
-		}
-		if (choice2 == 3)
-		{
-			return TOILET_ROLL;
-		}
-		if (choice2 == 4)
-		{
-			return SPOTTED;
-		}
-		if (choice2 == 5)
-		{
-			return PHOTOSPAM;
-		}
-		if (choice2 == 6)
-		{
-			return VIRUS;
-		}
-		if (choice2 == 7)
-		{
-			return ROCKET;
+			case 0:
+			{
+				return SCREAM;
+			}
+			case 1:
+			{
+				return TABLE_FLIP;
+			}
+			case 2:
+			{
+				return SUBMARINE;
+			}
+			case 3:
+			{
+				return TOILET_ROLL;
+			}
+			case 4:
+			{
+				return SPOTTED;
+			}
+			case 5:
+			{
+				return PHOTOSPAM;
+			}
+			case 6:
+			{
+				return VIRUS;
+			}
+			case 7:
+			{
+				return ROCKET;
+			}
 		}
 	}
 	if(isKeyPressed(VK_ESCAPE))
