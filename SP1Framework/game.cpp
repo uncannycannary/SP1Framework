@@ -4,6 +4,8 @@
 #include "game.h"
 #include "highscore.h"
 #include "Framework\console.h"
+#include <time.h>
+#include <stdlib.h>
 #include <iostream>
 #include "MainMenu.h"
 #include"ToiletRoll.h"
@@ -33,6 +35,7 @@ pumprocket* rocket;
 gamestate state = INTRO;
 void init()
 {
+	srand(time(NULL));
 	updateinput();
 	ini();
 
@@ -65,6 +68,9 @@ void update(double dt)
 		break;
 	case GAME_SELECT:
 		state = GameSelect(console);
+		break;
+	case OPTIONS:
+		state = Options(console);
 		break;
 	case TABLE_FLIP:
 		if(flip == NULL)
