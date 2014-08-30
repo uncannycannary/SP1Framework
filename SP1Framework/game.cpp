@@ -15,7 +15,7 @@
 #include "Rocket.h"
 #include "Photospam.h"
 #include "FindTwins.h"
-#include "Virus.h"
+#include "candy.h"
 
 Graphics console;
 
@@ -28,7 +28,7 @@ photospam* spam;
 FindTwins* twins;
 highscore* score;
 subgame* submarine;
-Virus* virus;
+Candy* candy;
 pumprocket* rocket;
 gamestate state = INTRO;
 void init()
@@ -44,7 +44,7 @@ void init()
 	spot = NULL;
 	twins = NULL;
 	submarine = NULL;
-	virus = NULL;
+	candy = NULL;
 	rocket = NULL;
 }
 
@@ -176,18 +176,18 @@ void update(double dt)
 			rocket = NULL;
 		}
 		break;
-	case VIRUS:
-		if(virus == NULL)
+	case CANDY:
+		if(CANDY == NULL)
 		{
-			virus = new Virus;
+			candy = new Candy;
 		}
 
-		state = virus->update(&console);
+		state = candy->update(&console);
 
-		if(state != VIRUS)
+		if(state != CANDY)
 		{
-			delete virus;
-			virus = NULL;
+			delete candy;
+			candy = NULL;
 		}
 		break;
 	case HIGH_SCORE:

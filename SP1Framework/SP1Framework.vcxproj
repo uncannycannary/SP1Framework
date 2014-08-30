@@ -94,7 +94,7 @@
     <ClCompile Include="subgame.cpp" />
     <ClCompile Include="TableFlip.cpp" />
     <ClCompile Include="ToiletRoll.cpp" />
-    <ClCompile Include="Virus.cpp" />
+    <ClCompile Include="candy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animations.h" />
@@ -114,7 +114,7 @@
     <ClInclude Include="subgame.h" />
     <ClInclude Include="TableFlip.h" />
     <ClInclude Include="ToiletRoll.h" />
-    <ClInclude Include="Virus.h" />
+    <ClInclude Include="candy.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ascii\lefthand.txt" />
@@ -123,9 +123,13 @@
     <None Include="ButtonMashMaster.txt" />
     <None Include="MainMenu.txt" />
     <None Include="Minigame result\comment.txt" />
+    <None Include="Minigame result\photoscore.txt" />
     <None Include="Minigame result\rank.txt" />
     <None Include="Minigame result\results.txt" />
     <None Include="Minigame result\rocketscore.txt" />
+    <None Include="Minigame result\spottedscore.txt" />
+    <None Include="Minigame result\tablescore.txt" />
+    <None Include="Minigame result\toiletscore.txt" />
     <None Include="name.txt" />
     <None Include="Position.txt" />
     <None Include="score.txt" />

@@ -151,7 +151,7 @@ gamestate GameSelect(Graphics& console)
 	console.draw(30,15,"Toilet Roll Catch!",0x69);
 	console.draw(30,16,"Cross, but don't get Spotted!",0x69);
 	console.draw(30,17,"Snapshot that blink!",0x69);
-	console.draw(30,18,"Be the Virus Buster!",0x69);
+	console.draw(30,18,"Fill up that Candy Jar!",0x69);
 	console.draw(30,19,"Pump that Rocket Sky-high!",0x69);
 	if(choice2 == 0 && isKeyPressed(VK_DOWN))
 	{
@@ -283,7 +283,7 @@ gamestate GameSelect(Graphics& console)
 		}
 		if (choice2 == 6)
 		{
-			return VIRUS;
+			return CANDY;
 		}
 		if (choice2 == 7)
 		{

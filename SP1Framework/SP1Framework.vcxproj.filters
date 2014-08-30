@@ -84,9 +84,6 @@
     <ClCompile Include="game.cpp">
       <Filter>Source Files\UI&amp;Game</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FindTwins.cpp">
       <Filter>Source Files\Minigames</Filter>
     </ClCompile>
@@ -105,11 +102,14 @@
     <ClCompile Include="highscore.cpp">
       <Filter>Source Files\UI&amp;Game</Filter>
     </ClCompile>
-    <ClCompile Include="Virus.cpp">
-      <Filter>Source Files\Minigames</Filter>
-    </ClCompile>
     <ClCompile Include="minihighscore.cpp">
       <Filter>Source Files\UI&amp;Game</Filter>
+    </ClCompile>
+    <ClCompile Include="candy.cpp">
+      <Filter>Source Files\Minigames</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Text Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,14 +158,14 @@
     <ClInclude Include="highscore.h">
       <Filter>Header Files\UI&amp;Game</Filter>
     </ClInclude>
-    <ClInclude Include="Virus.h">
-      <Filter>Header Files\Minigames</Filter>
-    </ClInclude>
     <ClInclude Include="minihighscore.h">
       <Filter>Header Files\UI&amp;Game</Filter>
     </ClInclude>
     <ClInclude Include="MainMenu.h">
       <Filter>Header Files\UI&amp;Game</Filter>
+    </ClInclude>
+    <ClInclude Include="candy.h">
+      <Filter>Header Files\Minigames</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +218,18 @@
       <Filter>Text Files\Minigame Rank</Filter>
     </None>
     <None Include="Minigame result\results.txt">
+      <Filter>Text Files\Minigame Rank</Filter>
+    </None>
+    <None Include="Minigame result\tablescore.txt">
+      <Filter>Text Files\Minigame Rank</Filter>
+    </None>
+    <None Include="Minigame result\toiletscore.txt">
+      <Filter>Text Files\Minigame Rank</Filter>
+    </None>
+    <None Include="Minigame result\spottedscore.txt">
+      <Filter>Text Files\Minigame Rank</Filter>
+    </None>
+    <None Include="Minigame result\photoscore.txt">
       <Filter>Text Files\Minigame Rank</Filter>
     </None>
   </ItemGroup>

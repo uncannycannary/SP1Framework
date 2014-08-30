@@ -1,42 +1,44 @@
-#ifndef _VIRUS_H
-#define _VIRUS_H
+#ifndef _CANDY_H
+#define _CANDY_H
 
 #include <string>
 #include "game.h"
 #include "Framework\console.h"
 #include "Animations.h"
+#include <time.h>
 
-class Virus
+class Candy
 {
 public:
 	gamestate update(Graphics* console);
-	Virus()
+	Candy()
 		:
-	VirusFile(L"Virus\\",L"*.txt")
+	CandyFile(L"candy\\",L"*.txt")
 	{
 		GameStarts = false;
 		gameends = false;
-		fileempty = false;
-		firegun = false;
-		checkfile = 0;
+		jarfull = false;
+		overflow = false;
+		checkjar = 0;
 		penalty = 0;
 		CurrentFramePerSec = 0;
+		candies = 0;
 	}
-	~Virus()
+	~Candy()
 	{
 	}
 private:
-	void draw(Graphics* Virus);
+	void draw(Graphics* candy);
 	void play();
-	bool fileempty;
-	bool firegun;
-	int files;
-	int virus;
+	bool jarfull;
+	bool overflow;
+	int candies;
 	int CurrentFramePerSec;
-	Directory VirusFile;
+	int checkframe;
+	Directory CandyFile;
 	bool GameStarts;
 	bool gameends;
-	int checkfile;
+	int checkjar;
 	int penalty;
 };
 
