@@ -157,7 +157,7 @@ gamestate GameSelect(Graphics& console)
 	console.draw(30,15,"Toilet Roll Catch!",0x69);
 	console.draw(30,16,"Cross, but don't get Spotted!",0x69);
 	console.draw(30,17,"Snapshot that blink!",0x69);
-	console.draw(30,18,"Be the Virus Buster!",0x69);
+	console.draw(30,18,"Fill that candy jar up!",0x69);
 	console.draw(30,19,"Pump that Rocket Sky-high!",0x69);
 
 	if(isKeyPressed(VK_DOWN))

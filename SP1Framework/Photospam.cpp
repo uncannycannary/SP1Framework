@@ -15,7 +15,7 @@ console(console)
 	read();
 }
 
-gamestate photospam::update()
+gamestate photospam::update(int& gamescore)
 {
 	if(isKeyPressed(VK_ESCAPE))
 	{
@@ -26,6 +26,7 @@ gamestate photospam::update()
 
 	if(CurrentFrame >= 1310 && isKeyPressed(VK_RETURN))
 	{
+		gamescore = score;
 		return MAIN_MENU;
 	}
 	else

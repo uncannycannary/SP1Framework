@@ -18,6 +18,7 @@
 #include "candy.h"
 
 Graphics console;
+highscore score(console); 
 
 //Create a pointer to store the location of the scream object
 Spotted* spot;
@@ -26,7 +27,6 @@ Scream* scream;
 toiletroll* toilet;
 photospam* spam;
 FindTwins* twins;
-highscore* score;
 subgame* submarine;
 Candy* candy;
 pumprocket* rocket;
@@ -36,7 +36,6 @@ void init()
 	updateinput();
 	ini();
 
-	score = NULL;
 	scream = NULL;
 	toilet = NULL;
 	spam = NULL;
@@ -153,9 +152,9 @@ void update(double dt)
 		{
 			spam = new photospam(console);
 		}
-
-		state = spam->update();
-
+		int gamescore;
+		state = spam->update(gamescore);
+		score.addscore(gamescore);  
 		if(state != PHOTOSPAM)
 		{
 			delete spam;
@@ -192,12 +191,7 @@ void update(double dt)
 		break;
 	case HIGH_SCORE:
 	{
-		if(score == NULL)
-		{
-			 score = new highscore(console);
-		}
-
-		state = score->updatehighscore();
+		state = score.updatehighscore();
 		break;
 	}
 	case QUIT_GAME:

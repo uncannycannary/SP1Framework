@@ -13,15 +13,22 @@ class highscore
 public:
 	gamestate updatehighscore();
 	highscore(Graphics&);
+	void addscore(int score);
+	void scorestart(char* nowname);
+	void scoreend();
 	~highscore()
 	{
+
 	}
 private:
 	Graphics& corn;
 	void drawhighscore();
 	string score;
-	string name; 
+	string name;
 	string position;
+	char currentname[4];
+	int totalscore;
+	int numofmini;
 	void drawmainscore();
 };
 

@@ -1,6 +1,12 @@
 #include "highscore.h"
 std::string scoretitle;
 
+void highscore::addscore(int gamescore)
+{
+
+	totalscore += gamescore;
+}
+
 highscore::highscore(Graphics& console)
 	:
 corn(console)
@@ -46,6 +52,10 @@ corn(console)
 	}
 	score.pop_back();
 	readscore.close ();
+
+	totalscore = 0;
+	numofmini = 0;
+	strcpy(currentname,"END");
 }
 gamestate highscore::updatehighscore()
 {
@@ -60,4 +70,35 @@ gamestate highscore::updatehighscore()
 		return MAIN_MENU;
 	}
 	return HIGH_SCORE;
+}
+
+void highscore::scorestart(char* nowname)
+{
+	totalscore = 0;
+	numofmini = 0;
+	strcpy(currentname,nowname);
+}
+
+void highscore::scoreend()
+{
+	int currscore;
+	currscore = totalscore/numofmini;
+	std::vector<int> scores;
+	std::string buffer;
+	for(int i = 0; i < score.size(); i++)
+	{
+		if(score[i] != '\n')
+		{	int num = 0;
+			for(int i = 0; i < buffer.size(); i++)
+			{
+				num = i - 48;
+			}
+			scores.push_back(num);
+			buffer.empty();
+		}
+		else
+		{
+			buffer += score[i];
+		}
+	}
 }

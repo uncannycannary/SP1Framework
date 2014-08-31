@@ -23,7 +23,7 @@ private:
 	Graphics& console;
 
 public:
-	gamestate update();
+	gamestate update(int& gamescore);
 	void play();
 	void read();
 	void draw();
