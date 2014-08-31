@@ -206,7 +206,7 @@ gamestate GameSelect(Graphics& console)
 			}
 			case 6:
 			{
-				return VIRUS;
+				return CANDY;
 			}
 			case 7:
 			{

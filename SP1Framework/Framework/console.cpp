@@ -71,32 +71,49 @@ void cls( HANDLE hConsole )
 }
 
 bool keyAlreadyPressed[256];
+bool keyispressed[256];
+bool keyishold[256];
 
 bool isKeyHold(unsigned short key)
 {
-    return ((GetAsyncKeyState(key) & 0x8001) != 0);
+	return keyishold[key];
+}
+
+bool getkey(unsigned short key)
+{
+	return ((GetAsyncKeyState(key) & 0x8001) != 0);
 }
 
 void updateinput()
 {
 	for(int index = 0; index < 256; index++)
 	{
-		if(keyAlreadyPressed[index] && !isKeyHold(index))
+		if(keyAlreadyPressed[index] && !getkey(index))
 		{
 			keyAlreadyPressed[index] = false;
+			keyispressed[index] = false;
+			keyishold[index] = false;
+		}
+		else if(!keyAlreadyPressed[index] && getkey(index))
+		{
+			keyAlreadyPressed[index] = true;
+			keyispressed[index] = true;
+			keyishold[index] = true;
+		}
+		else if(keyAlreadyPressed[index] && getkey(index))
+		{
+			keyispressed[index] = false;
+			keyishold[index] = true;
+		}
+		else
+		{
+			keyispressed[index] = false;
+			keyishold[index] = false;
 		}
 	}
 }
 
 bool isKeyPressed(unsigned short key)
 {
-	if(!keyAlreadyPressed[key] && isKeyHold(key))
-	{
-		keyAlreadyPressed[key] = true;
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	return keyispressed[key];
 }
