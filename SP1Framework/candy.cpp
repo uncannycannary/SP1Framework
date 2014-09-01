@@ -21,8 +21,13 @@ gamestate Candy::update()
 	}
 	draw();
 	play();
-
-	return CANDY;
+	if(CurrentFrame > twosec && isKeyPressed(VK_RETURN))
+	{
+		return MAIN_MENU;
+	}
+	else{
+		return CANDY;
+	}
 }
 
 void Candy::play()
@@ -167,10 +172,12 @@ void Candy::draw()
 		sprintf(timebuffer,"Time: %d",time);
 		console.draw(47,17, timebuffer, 0x0F);
 
-		char candybuffer[12];
-		sprintf(candybuffer,"Candy: %d",candy);
-		console.draw(46,45, candybuffer, 0x0F);
-
+		if(candy >= 90)
+		{
+			char candybuffer[12];
+			sprintf(candybuffer,"Candy: %d",candy);
+			console.draw(46,45, candybuffer, 0x0F);
+		}
 		if(candy <= 19)
 		{
 			console.draw(38,25, j0.c_str(), 0x0F);
@@ -226,7 +233,6 @@ void Candy::draw()
 		{
 			console.draw(38,25, j7.c_str(), 0x0F);
 		}
-
 		char scorebuffer[26];
 		sprintf(scorebuffer,"You took %ds to fill this",score);
 		console.draw(38,23, scorebuffer, 0x0F);
