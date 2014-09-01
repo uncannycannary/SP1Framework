@@ -10,14 +10,6 @@ Animations::~Animations()
 {
 }
 
-void Animations::update()
-{
-	for(int index = 0; index < aniVector.size(); index++)
-	{
-		advance(index);
-	}
-}
-
 int Animations::Add(const std::vector<std::string>* frames,const int sizeX,const int sizeY, const int frameDelay)
 {
 	const int currDelay = 0;
@@ -33,6 +25,19 @@ int Animations::Add(const std::vector<std::string>* frames,const int sizeX,const
 
 void Animations::playInstance(const int index)
 {
+	if(aniVector[index].isplaying)
+	{
+		aniVector[index].currDelay++;
+		if(aniVector[index].currDelay == aniVector[index].frameDelay)
+		{
+			aniVector[index].currframe++;
+			aniVector[index].currDelay = 0;
+		}
+		if(aniVector[index].currframe == aniVector[index].frames->size())
+		{
+			stop(index);
+		}
+	}
 	aniVector[index].isplaying = true;
 	if(aniVector[index].currframe == aniVector[index].frames->size())
 	{
@@ -51,23 +56,6 @@ void Animations::drawInstance(const int x, const int y,const int color, const in
 	{
 		std::string buffer = (*(aniVector[index].frames))[aniVector[index].currframe];
 		console.draw(x, y, buffer.c_str(), color);
-	}
-}
-
-void Animations::advance(const int index)
-{
-	if(aniVector[index].isplaying)
-	{
-		aniVector[index].currDelay++;
-		if(aniVector[index].currDelay == aniVector[index].frameDelay)
-		{
-			aniVector[index].currframe++;
-			aniVector[index].currDelay = 0;
-		}
-		if(aniVector[index].currframe == aniVector[index].frames->size())
-		{
-			stop(index);
-		}
 	}
 }
 

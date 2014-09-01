@@ -10,25 +10,23 @@ class Scream
 {
 private:
 	//variables
+	int introindex;
 	bool gameends;
 	bool paused;
 	int power;
 	int currFrame;
 	bool lockinput;
 	Graphics& console;
+	int powerbarcolor;
 
 	//animation stuff
 	Directory file;
 	Animations anim;
-	std::vector<std::string> Intro;
-	std::vector<std::string> Dovakin;
-	std::vector<std::string> Dragon;
-	std::vector<std::string> Dovakin_kills_dragon;
-	std::string endscreen;
-	std::string powerbar;
+	std::vector<std::string> intro;
 
 	//my const
 	const int EndscreenFrame;
+	const int InstructionsFrame;
 	const int GameStartFrame;
 	const int GameEndFrame;
 	const int PowerToPixelRatio;
@@ -39,21 +37,12 @@ private:
 	const int PowerbarPositionY;
 	const int drawPauseX;
 	const int drawPauseY;
-	enum animnames
-	{
-		INTRO,
-		DOVAKIN,
-		DRAGON,
-		DOVAKIN_KILLS_DRAGON,
-		TOTALANIM
-	};
 
 	//functions
 	void UpdatePowerbar();
 	void draw();
 	void changestate();
 	void DoUserInput();
-	void UpdateAnim();
 public:
 	Scream(Graphics& console);
 	~Scream();

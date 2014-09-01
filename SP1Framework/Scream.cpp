@@ -10,8 +10,10 @@ currFrame(0),
 paused(false),
 gameends(false),
 lockinput(true),
+InstructionsFrame(50),
 GameStartFrame(100),
 GameEndFrame(260),
+powerbarcolor(0x1A),
 EndscreenFrame(300),
 PowerToPixelRatio(1550),
 PowerToResistanceRatio(80),
@@ -23,14 +25,13 @@ drawPauseX(47),
 drawPauseY(30),
 anim(console)
 {
-	endscreen = "lol";
-	Dovakin.push_back(file.getstring(L"dragon.txt"));
-	Dovakin.push_back("lolzerssssssssss");
-	anim.Add(&Intro, 0, 0, 1);
-	anim.Add(&Dovakin, 0, 0, 1);
-	anim.Add(&Dragon, 0, 0, 1);
-	anim.Add(&Dovakin_kills_dragon, 0, 0, 1);
-	anim.playInstance(INTRO);
+	intro.push_back(file.getstring(L"title.txt"));
+	intro.push_back(file.getstring(L"instructions.txt"));
+	intro.push_back(file.getstring(L"dragon.txt"));
+	intro.push_back(file.getstring(L"dovakin.txt"));
+	intro.push_back(file.getstring(L"dovakinkillsdragon.txt"));
+	introindex = anim.Add(&intro, 0, 0, 1);
+	anim.playInstance(introindex);
 }
 
 Scream::~Scream()
@@ -39,21 +40,21 @@ Scream::~Scream()
 
 void Scream::draw()
 {
-	anim.drawInstance(0, 0, 0x1A, INTRO);
-	anim.drawInstance(0, 0, 0x1A, DOVAKIN);
-	anim.drawInstance(0, 0, 0X1A, DRAGON);
-	anim.drawInstance(0, 0, 0x1A, DOVAKIN_KILLS_DRAGON);
+	if(currFrame == GameEndFrame)
+	{
+		powerbarcolor = 0x25;
+	}
+	anim.drawInstance(0, 0, 0x1A, introindex);
 
 	const int powerbarheight = power / PowerToPixelRatio;
 	for(int index = 0; index < powerbarheight; index++)
 	{
-		console.draw(PowerbarPositionXTop, PowerbarPositionY - 1, powerbar.c_str(), 0x1A);
-		console.draw(PowerbarPositionXBottom, PowerbarPositionY - index, "****", 0x1A);
+		console.draw(PowerbarPositionXTop, PowerbarPositionY - 1, "___", 0x1A);
+		console.draw(PowerbarPositionXBottom, PowerbarPositionY - index, "****", powerbarcolor);
 	}
-
-	if(currFrame > EndscreenFrame)
+	if(currFrame >= GameStartFrame && currFrame <= 130)
 	{
-		console.draw(0, 0, endscreen.c_str(), 0x1A);
+		console.draw(40,30,"Go",0x0F);
 	}
 	if(paused)
 	{
@@ -72,6 +73,7 @@ gamestate Scream::update()
 	{
 		paused = !paused;
 	}
+
 	if(!paused)
 	{
 		currFrame++;
@@ -79,19 +81,15 @@ gamestate Scream::update()
 		{
 			DoUserInput();
 		}
-		UpdateAnim();
 		changestate();
+		if(currFrame < GameEndFrame)
+		{
+			UpdatePowerbar();
+		}
 	}
 	draw();
 
 	return SCREAM;
-}
-
-void Scream::UpdateAnim()
-{
-	anim.update();
-	const int delay = power;
-	//anim.ChangeDelay(DOVAKIN_KILLS_DRAGON, delay);
 }
 
 void Scream::UpdatePowerbar()
@@ -122,32 +120,22 @@ void Scream::DoUserInput()
 
 void Scream::changestate()
 {
-	if(currFrame == GameStartFrame)
+	if(currFrame == InstructionsFrame)
+	{
+		anim.playInstance(introindex);
+	}
+	else if(currFrame == GameStartFrame)
 	{
 		lockinput = false;
-		anim.playInstance(DOVAKIN);
-		anim.playInstance(DRAGON);
-		UpdatePowerbar();
-	}
-	else if(currFrame > GameStartFrame && !(currFrame >= GameEndFrame))
-	{
-		anim.playInstance(DOVAKIN);
-		anim.playInstance(DRAGON);
-		UpdatePowerbar();
+		anim.playInstance(introindex);
 	}
 	else if(currFrame == GameEndFrame)
 	{
 		lockinput = true;
-		anim.stop(DOVAKIN);
-		anim.stop(DRAGON);
-		anim.playInstance(DOVAKIN_KILLS_DRAGON);
-	}
-	else if(currFrame > GameEndFrame && !(currFrame >= EndscreenFrame))
-	{
-		anim.playInstance(DOVAKIN_KILLS_DRAGON);
+		anim.playInstance(introindex);
 	}
 	else if(currFrame == EndscreenFrame)
 	{
-		anim.stop(DOVAKIN_KILLS_DRAGON);
+		anim.playInstance(introindex);
 	}
 }

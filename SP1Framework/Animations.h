@@ -10,7 +10,6 @@ class Animations
 public:
 	Animations(Graphics& console);
 	~Animations();
-	void update();
 	int Add(const std::vector<std::string>* frames,const int sizeX,const int sizeY, const int frameDelay);
 	void playInstance(const int index);
 	bool InstanceIsPlaying(const int index);
@@ -18,7 +17,6 @@ public:
 	void stop(const int index);
 	void ChangeDelay(const int index, const int delay);
 private:
-	void advance(const int index);
 	struct Animation
 	{
 		const std::vector<std::string>* frames;

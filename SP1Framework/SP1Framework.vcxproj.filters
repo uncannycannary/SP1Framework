@@ -238,5 +238,20 @@
     <None Include="Minigame result\photoscore.txt">
       <Filter>Text Files\Minigame Rank</Filter>
     </None>
+    <None Include="scream\dovakin.txt">
+      <Filter>Text Files\Scream</Filter>
+    </None>
+    <None Include="scream\dragon.txt">
+      <Filter>Text Files\Scream</Filter>
+    </None>
+    <None Include="scream\dovakinkillsdragon.txt">
+      <Filter>Text Files\Scream</Filter>
+    </None>
+    <None Include="scream\instructions.txt">
+      <Filter>Text Files\Scream</Filter>
+    </None>
+    <None Include="scream\title.txt">
+      <Filter>Text Files\Scream</Filter>
+    </None>
   </ItemGroup>
 </Project>
