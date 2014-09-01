@@ -5,6 +5,8 @@
 #include "highscore.h"
 #include "Framework\console.h"
 #include <iostream>
+#include <time.h>
+#include <stdlib.h>
 #include "MainMenu.h"
 #include"ToiletRoll.h"
 #include "Graphics.h"
@@ -33,6 +35,7 @@ pumprocket* rocket;
 gamestate state = INTRO;
 void init()
 {
+	srand(time(NULL));
 	updateinput();
 	ini();
 
@@ -176,12 +179,12 @@ void update(double dt)
 		}
 		break;
 	case CANDY:
-		if(CANDY == NULL)
+		if(candy == NULL)
 		{
-			candy = new Candy;
+			candy = new Candy(console);
 		}
 
-		state = candy->update(&console);
+		state = candy->update();
 
 		if(state != CANDY)
 		{
