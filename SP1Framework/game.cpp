@@ -20,7 +20,7 @@
 #include "candy.h"
 
 Graphics console;
-highscore score(console); 
+highscore score(console);
 
 //Create a pointer to store the location of the scream object
 Spotted* spot;
@@ -63,7 +63,7 @@ void update(double dt)
 		state = Intro(console);
 		break;
 	case MAIN_MENU:
-		state = MainMenu(console);
+		state = MainMenu(console,&score);
 		break;
 	case GAME_SELECT:
 		state = GameSelect(console);
@@ -157,7 +157,6 @@ void update(double dt)
 		}
 		int gamescore;
 		state = spam->update(gamescore);
-		score.addscore(gamescore);  
 		if(state != PHOTOSPAM)
 		{
 			delete spam;
@@ -193,10 +192,8 @@ void update(double dt)
 		}
 		break;
 	case HIGH_SCORE:
-	{
 		state = score.updatehighscore();
 		break;
-	}
 	case QUIT_GAME:
 		g_quitGame = true;
 		break;

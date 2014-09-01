@@ -39,6 +39,7 @@ gamestate FindTwins::update()
 		UpdateAnimations();
 	}
 	Draw();
+	return FIND_TWINS;
 }
 
 void FindTwins::UpdateState()

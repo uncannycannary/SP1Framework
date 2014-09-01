@@ -4,7 +4,7 @@ std::string scoretitle;
 
 void highscore::addscore(int gamescore)
 {
-
+	numofmini++;
 	totalscore += gamescore;
 }
 
@@ -82,67 +82,79 @@ void highscore::scorestart(char* nowname)
 
 void highscore::scoreend()
 {
-	int currscore;
-	currscore = totalscore/numofmini;
-	std::vector<int> scores;
-	std::string buffer;
-	for(int i = 0; i < score.size(); i++)
+	if(numofmini)
 	{
-		if(score[i] == '\n')
-		{	
-			int num = 0;
-			int digit = buffer.size() - 1;
-			for(int i = 0; i < buffer.size(); i++)
-			{
-				num += score[i] - 48;
-				num = num * pow(10.0,digit);
-				digit--;
+		int currscore;
+		currscore = totalscore/numofmini;
+		std::vector<int> scores;
+		std::string buffer;
+		for(int i = 0; i < score.size(); i++)
+		{
+			if(score[i] == '\n' && buffer.size())
+			{	
+				int num = 0;
+				int digit = buffer.size() - 1;
+				for(int i = 0; i < buffer.size(); i++)
+				{
+					num += (buffer[i] - 48) * pow(10.0,digit);
+					digit--;
+				}
+				scores.push_back(num);
+				buffer.clear();
 			}
-			scores.push_back(num);
-			buffer.empty();
+			else if(score[i] == '\n')
+			{
+				continue;
+			}
+			else
+			{
+				buffer += score[i];
+			}
 		}
-		else
+		int index;
+		bool scoreadded = false;
+		for(index = 0; index < scores.size(); index++)
 		{
-			buffer += score[i];
+			if( currscore < scores[index])
+			{
+				continue;
+			}
+			else
+			{
+				scores.insert(scores.begin()+index,currscore);
+				scoreadded = true;
+				break;
+			}
 		}
-	}
-	int index;
-	for(index = 0; index < scores.size(); index++)
-	{
-		if( currscore < scores[index])
+		if(scoreadded)
 		{
-			continue;
-		}
-		else
-		{
-			scores.insert(scores.begin()+index,currscore);
-		}
-	}
-	score.empty();
-	for(int i = 0; i < scores.size(); i++)
-	{
-		int number = scores[i];
-		char buffer[10];
-		sprintf(buffer,"%d\n\n",number);
-		score.append(buffer);
-	}
+			score.clear();
+			for(int i = 0; i < scores.size(); i++)
+			{
+				int number = scores[i];
+				char buffer[10];
+				sprintf(buffer,"%d\n\n",number);
+				score.append(buffer);
+			}
 
-	std::vector<string> namebuffer;
-	int namepass;
-	for(int nameindex = 0; nameindex < name.size(); nameindex += 5)
-	{
-		namebuffer[namepass] = name.substr(nameindex,5);
-		namepass ++;
-	}
-	{
-		string buffer = currentname;
-		buffer += "\n\n";
-		namebuffer.insert(namebuffer.begin() + index,buffer);
-		namebuffer.pop_back();
-		name.empty();
-		for(int namedelete = 0; namedelete < namebuffer.size(); namedelete++)
-		{
-			name += namebuffer[namedelete];
+			std::vector<string> namebuffer;
+			int namepass = 0;
+			for(int nameindex = 0; nameindex < name.size(); nameindex += 5)
+			{
+				namebuffer.push_back(name.substr(nameindex,5));
+				namepass ++;
+			}
+			{
+				string buffer = currentname;
+				buffer += "\n\n";
+				namebuffer.insert(namebuffer.begin() + index,buffer);
+				namebuffer.pop_back();
+				name.clear();
+				for(int namedelete = 0; namedelete < namebuffer.size(); namedelete++)
+				{
+					name += namebuffer[namedelete];
+				}
+			}
 		}
 	}
 }

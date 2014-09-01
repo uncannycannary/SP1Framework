@@ -7,6 +7,7 @@ int choice2 = 0;
 std::vector<gamestate> random;
 int currentframe = 0;
 int currentstage = 0;
+bool israndom;
 
 void ini()
 {
@@ -49,7 +50,7 @@ gamestate Intro(Graphics& console)
 	return INTRO;
 }
 
-gamestate MainMenu(Graphics& console)
+gamestate MainMenu(Graphics& console,highscore* score)
 {
 	if(random.size() > 0)
 	{
@@ -69,6 +70,12 @@ gamestate MainMenu(Graphics& console)
 			random.pop_back();
 			return stage;
 		}
+	}
+	else if(israndom && !random.size())
+	{
+		score->scoreend();
+		israndom = false;
+		return MAIN_MENU;
 	}
 	else
 	{
@@ -104,6 +111,7 @@ gamestate MainMenu(Graphics& console)
 				return GAME_SELECT;
 			case 1:
 				randommode();
+				score->scorestart("HLP");
 				return MAIN_MENU;
 			case 2:
 				return OPTIONS;
@@ -133,6 +141,7 @@ void randommode()
 		games.pop_back();
 	}
 	currentstage = 1;
+	israndom = true;
 }
 
 gamestate Options(Graphics& console)
