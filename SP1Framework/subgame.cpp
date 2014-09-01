@@ -44,7 +44,7 @@ console(console)
 		{
 		console->draw(4,24,Subfold.getstring(L"Sub-shoot.txt").c_str(),0x1A);
 		}
-		if(isKeyPressed(VK_UP))
+		if(isKeyPressed(VK_DOWN))
 		{
 		console->draw(42,24,Subfold.getstring(L"Sub-shoot.txt").c_str(),0x1A);
 		}
@@ -77,7 +77,7 @@ console(console)
 	  if(framecounter >= 370 && framecounter <= 420)
 	  {
 		  console->draw(43,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
-		  if(isKeyPressed(VK_UP) && (framecounter >= 370 && framecounter <=420))
+		  if(isKeyPressed(VK_DOWN) && (framecounter >= 370 && framecounter <=420))
 		  {
 			  higherscore++;
 		  }
@@ -101,7 +101,7 @@ console(console)
 	  if(framecounter >= 500 && framecounter <= 528)
 	  {
 		  console->draw(43,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
-		  if(isKeyPressed(VK_UP) && (framecounter >= 500 && framecounter <= 528))
+		  if(isKeyPressed(VK_DOWN) && (framecounter >= 500 && framecounter <= 528))
 		  {
 			  higherscore++;
 		  }
@@ -109,7 +109,7 @@ console(console)
 	  if(framecounter >= 530 && framecounter <= 558)
 	  {
 		  console->draw(43,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
-		  if(isKeyPressed(VK_UP) && (framecounter >= 530 && framecounter <= 558))
+		  if(isKeyPressed(VK_DOWN) && (framecounter >= 530 && framecounter <= 558))
 		  {
 			  higherscore++;
 		  }
@@ -142,7 +142,7 @@ console(console)
 	  if(framecounter >= 680 && framecounter <= 710)
 	  {
 		  console->draw(43,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
-		  if(isKeyPressed(VK_UP) && (framecounter >= 680 && framecounter <= 710))
+		  if(isKeyPressed(VK_DOWN) && (framecounter >= 680 && framecounter <= 710))
 		  {
 			  higherscore++;
 		  }
@@ -150,7 +150,7 @@ console(console)
 	  if(framecounter >= 714 && framecounter <= 742)
 	  {
 		   console->draw(43,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
-		  if(isKeyPressed(VK_UP) && (framecounter >= 714 && framecounter <= 742))
+		  if(isKeyPressed(VK_DOWN) && (framecounter >= 714 && framecounter <= 742))
 		  {
 			  higherscore++;
 		  }

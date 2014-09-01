@@ -111,6 +111,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Text Files</Filter>
     </ClCompile>
+    <ClCompile Include="IKR.cpp">
+      <Filter>Source Files\Minigames</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\console.h">
@@ -165,6 +168,9 @@
       <Filter>Header Files\UI&amp;Game</Filter>
     </ClInclude>
     <ClInclude Include="candy.h">
+      <Filter>Header Files\Minigames</Filter>
+    </ClInclude>
+    <ClInclude Include="IKR.h">
       <Filter>Header Files\Minigames</Filter>
     </ClInclude>
   </ItemGroup>

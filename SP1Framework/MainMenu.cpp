@@ -159,13 +159,15 @@ gamestate GameSelect(Graphics& console)
 	console.draw(30,17,"Snapshot that blink!",0x69);
 	console.draw(30,18,"Fill that candy jar up!",0x69);
 	console.draw(30,19,"Pump that Rocket Sky-high!",0x69);
+	console.draw(30,20,"Get the twins!",0x69);
+	console.draw(30,21,"Ice Kachang eat-out!", 0x69);
 
 	if(isKeyPressed(VK_DOWN))
 	{
 		choice2++;
-		if(choice2 > numofminigames)
+		if(choice2 > numofminigames-1)
 		{
-			choice2 = numofminigames;
+			choice2 = numofminigames-1;
 		}
 	}
 	if(isKeyPressed(VK_UP))
@@ -211,6 +213,14 @@ gamestate GameSelect(Graphics& console)
 			case 7:
 			{
 				return ROCKET;
+			}
+			case 8:
+			{
+				return FIND_TWINS;
+			}
+			case 9:
+			{
+				return ICECHAN;
 			}
 		}
 	}

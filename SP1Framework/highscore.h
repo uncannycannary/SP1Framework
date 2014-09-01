@@ -29,6 +29,7 @@ private:
 	char currentname[4];
 	int totalscore;
 	int numofmini;
+	
 	void drawmainscore();
 };
 

@@ -84,6 +84,7 @@
     <ClCompile Include="game.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="highscore.cpp" />
+    <ClCompile Include="IKR.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="minihighscore.cpp" />
@@ -105,6 +106,7 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="highscore.h" />
+    <ClInclude Include="IKR.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="minihighscore.h" />
     <ClInclude Include="Photospam.h" />
