@@ -23,6 +23,7 @@ public:
 private:
 	Graphics& corn;
 	void drawhighscore();
+	string scoretitle;
 	string score;
 	string name;
 	string position;

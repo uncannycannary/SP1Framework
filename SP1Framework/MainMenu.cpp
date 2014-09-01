@@ -41,8 +41,8 @@ void ini()
 
 gamestate Intro(Graphics& console)
 {
-	console.draw(16,3,Title.c_str(),0x3E);
-	console.draw(28,20,"Press Enter to Begin!" ,0x3E);
+	console.draw(27,3,Title.c_str(),0x9D);
+	console.draw(42,21,"Press Enter to Begin!" ,0x9D);
 	if(isKeyPressed(VK_RETURN))
 	{
 		return MAIN_MENU;
@@ -79,13 +79,13 @@ gamestate MainMenu(Graphics& console,highscore* score)
 	}
 	else
 	{
-		console.draw(27,12+choice,"-->",0x25);
-		console.draw(15,3,Main.c_str(),0x25);
-		console.draw(30,12,"Normal Mode",0x25);
-		console.draw(30,13,"Random Mode",0x25);
-		console.draw(30,14,"Options",0x25);
-		console.draw(30,15,"High Score",0x25);
-		console.draw(30,16,"Exit game",0x25);
+		console.draw(37,12+choice,"-->",0x9D);
+		console.draw(25,3,Main.c_str(),0x9D);
+		console.draw(40,12," Normal Mode",0x9D);
+		console.draw(40,13," Random Mode",0x9D);
+		console.draw(40,14," Options    ",0x9D);
+		console.draw(40,15," High Score ",0x9D);
+		console.draw(40,16," Exit game  ",0x9D);
 
 		if(isKeyPressed(VK_DOWN))
 		{
@@ -158,18 +158,18 @@ gamestate Options(Graphics& console)
 
 gamestate GameSelect(Graphics& console)
 {
-	console.draw(27,12+choice2,"-->",0x69);
-	console.draw(11,3,Select.c_str(),0x69);
-	console.draw(30,12,"Scream it out!",0x69);
-	console.draw(30,13,"Flip that table over!",0x69);
-	console.draw(30,14,"Submarine shoot-down!",0x69);
-	console.draw(30,15,"Toilet Roll Catch!",0x69);
-	console.draw(30,16,"Cross, but don't get Spotted!",0x69);
-	console.draw(30,17,"Snapshot that blink!",0x69);
-	console.draw(30,18,"Fill that candy jar up!",0x69);
-	console.draw(30,19,"Pump that Rocket Sky-high!",0x69);
-	console.draw(30,20,"Get the twins!",0x69);
-	console.draw(30,21,"Ice Kachang eat-out!", 0x69);
+	console.draw(34,12+choice2,"-->",0x9D);
+	console.draw(20,2,Select.c_str(),0x9D);
+	console.draw(37,12," Scream it out!               ",0x9D);
+	console.draw(37,13," Flip that table over!        ",0x9D);
+	console.draw(37,14," Submarine shoot-down!        ",0x9D);
+	console.draw(37,15," Toilet Roll Catch!           ",0x9D);
+	console.draw(37,16," Cross, but don't get Spotted!",0x9D);
+	console.draw(37,17," Snapshot that blink!         ",0x9D);
+	console.draw(37,18," Fill that candy jar up!      ",0x9D);
+	console.draw(37,19," Pump that Rocket Sky-high!   ",0x9D);
+	console.draw(37,20," Get the twins!               ",0x9D);
+	console.draw(37,21," Ice Kachang eat-out!         ", 0x9D);
 
 	if(isKeyPressed(VK_DOWN))
 	{
