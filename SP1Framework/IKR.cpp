@@ -41,24 +41,24 @@ void IKR::playIKRgameinstances()
 		}
 		if(Icekachanimcounter == 5)// 4/5 of the dessert
 		{
-			
+			console->draw(42,10,IceKach.getstring(L"Icekachang2.txt").c_str(),0x1A);
 		}
 		if(Icekachanimcounter == 4)// 3/5 of the dessert
 		{
-
+			console->draw(42,10,IceKach.getstring(L"Icekachang3.txt").c_str(),0x1A);
 		}
 		if(Icekachanimcounter == 3)// 2/5 of the dessert
 		{
-
+			console->draw(42,10,IceKach.getstring(L"Icekachang4.txt").c_str(),0x1A);
 		}
 		if(Icekachanimcounter == 2)// 1/5 of the dessert
 		{
-
+			console->draw(42,10,IceKach.getstring(L"Icekachang5.txt").c_str(),0x1A);
 			higherscore++;
 		}
 		if(Icekachanimcounter == 1)//the bowl
 		{
-
+			console->draw(42,10,IceKach.getstring(L"Icekachang2.txt").c_str(),0x1A);
 		}
 		if(Icekachanimcounter == 0)
 		{

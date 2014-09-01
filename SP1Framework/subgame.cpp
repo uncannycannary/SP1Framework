@@ -61,8 +61,9 @@ console(console)
 	  if(framecounter >= 240 && framecounter <= 300)
 	  {
 		  console->draw(5,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
-		  if(isKeyPressed(VK_LEFT) &&(framecounter >= 150 && framecounter <= 230))
+		  if(isKeyPressed(VK_LEFT) &&(framecounter >= 240 && framecounter <= 300))
 		  {
+			  console->draw(5,4,Subfold.getstring(L"Subenemies-dead.txt").c_str(),0x1A);
 			  higherscore++;
 		  }
 	  }
@@ -71,6 +72,7 @@ console(console)
 		  console->draw(80,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
 		  if(isKeyPressed(VK_RIGHT) && (framecounter >= 300 && framecounter <=360))
 		  {
+			  console->draw(80,4,Subfold.getstring(L"Subenemies-dead.txt").c_str(),0x1A);
 			  higherscore++;
 		  }
 	  }
@@ -79,6 +81,7 @@ console(console)
 		  console->draw(43,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
 		  if(isKeyPressed(VK_DOWN) && (framecounter >= 370 && framecounter <=420))
 		  {
+			  console->draw(43,4,Subfold.getstring(L"Subenemies-dead.txt").c_str(),0x1A);
 			  higherscore++;
 		  }
 	  }
@@ -87,14 +90,16 @@ console(console)
 		  console->draw(80,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
 		  if(isKeyPressed(VK_RIGHT) && (framecounter >= 410 && framecounter <=450))
 		  {
+			  console->draw(80,4,Subfold.getstring(L"Subenemies-dead.txt").c_str(),0x1A);
 			  higherscore++;
 		  }
 	  }
 	  if(framecounter >= 460 && framecounter <= 478)
 	  {
 		  console->draw(80,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
-		  if(isKeyPressed(VK_RIGHT) && (framecounter >= 410 && framecounter <=450))
+		  if(isKeyPressed(VK_RIGHT) && (framecounter >= 460 && framecounter <=478))
 		  {
+			  console->draw(80,4,Subfold.getstring(L"Subenemies-dead.txt").c_str(),0x1A);
 			  higherscore++;
 		  }
 	  }
@@ -103,6 +108,7 @@ console(console)
 		  console->draw(43,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
 		  if(isKeyPressed(VK_DOWN) && (framecounter >= 500 && framecounter <= 528))
 		  {
+			  console->draw(43,4,Subfold.getstring(L"Subenemies-dead.txt").c_str(),0x1A);
 			  higherscore++;
 		  }
 	  }
@@ -111,6 +117,7 @@ console(console)
 		  console->draw(43,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
 		  if(isKeyPressed(VK_DOWN) && (framecounter >= 530 && framecounter <= 558))
 		  {
+			  console->draw(43,4,Subfold.getstring(L"Subenemies-dead.txt").c_str(),0x1A);
 			  higherscore++;
 		  }
 	  }
@@ -119,6 +126,7 @@ console(console)
 		  console->draw(5,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
 		  if(isKeyPressed(VK_LEFT) && (framecounter >= 530 && framecounter <= 558))
 		  {
+			  console->draw(5,4,Subfold.getstring(L"Subenemies-dead.txt").c_str(),0x1A);
 			  higherscore++;
 		  }
 	  }
@@ -136,6 +144,7 @@ console(console)
 		  console->draw(80,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
 		  if(isKeyPressed(VK_RIGHT) && (framecounter >= 630 && framecounter <=666))
 		  {
+			  console->draw(80,4,Subfold.getstring(L"Subenemies-dead.txt").c_str(),0x1A);
 			  higherscore++;
 		  }
 	  }
@@ -144,6 +153,7 @@ console(console)
 		  console->draw(43,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
 		  if(isKeyPressed(VK_DOWN) && (framecounter >= 680 && framecounter <= 710))
 		  {
+			  console->draw(43,4,Subfold.getstring(L"Subenemies-dead.txt").c_str(),0x1A);
 			  higherscore++;
 		  }
 	  }
@@ -152,6 +162,7 @@ console(console)
 		   console->draw(43,4,Subfold.getstring(L"Subenemies.txt").c_str(),0x1A);
 		  if(isKeyPressed(VK_DOWN) && (framecounter >= 714 && framecounter <= 742))
 		  {
+			  console->draw(43,4,Subfold.getstring(L"Subenemies-dead.txt").c_str(),0x1A);
 			  higherscore++;
 		  }
 	  }

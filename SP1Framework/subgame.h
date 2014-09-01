@@ -5,7 +5,7 @@
 #include <fstream>
 #include "Framework\console.h"
 #include "game.h"
-//bababi
+
 class subgame
 {
 private:
