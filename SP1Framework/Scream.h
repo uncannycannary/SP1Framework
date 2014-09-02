@@ -10,7 +10,7 @@ class Scream
 {
 private:
 	//variables
-	int introindex;
+	
 	bool gameends;
 	bool paused;
 	int power;
@@ -18,22 +18,27 @@ private:
 	bool lockinput;
 	Graphics& console;
 	int powerbarcolor;
+	int introcolor;
 
 	//animation stuff
 	Directory file;
 	Animations anim;
 	std::vector<std::string> intro;
+	std::vector<std::string> countdown;
+	int introindex;
+	int countdownindex;
 
 	//my const
-	const int EndscreenFrame;
+
 	const int InstructionsFrame;
+	const int CountdownFrame;
 	const int GameStartFrame;
 	const int GameEndFrame;
+	const int EndscreenFrame;
 	const int PowerToPixelRatio;
 	const int PowerToResistanceRatio;
 	const int PowerIncrement;
-	const int PowerbarPositionXTop;
-	const int PowerbarPositionXBottom;
+	const int PowerbarPositionX;
 	const int PowerbarPositionY;
 	const int drawPauseX;
 	const int drawPauseY;
