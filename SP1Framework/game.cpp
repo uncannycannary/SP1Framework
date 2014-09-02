@@ -15,6 +15,7 @@
 #include "subgame.h"
 #include "Spotted.h"
 #include "Rocket.h"
+#include "IKR.h"
 #include "Photospam.h"
 #include "FindTwins.h"
 #include "candy.h"
@@ -23,6 +24,7 @@ Graphics console;
 highscore score(console);
 
 //Create a pointer to store the location of the scream object
+IKR* icekan;
 Spotted* spot;
 TableFlip* flip;
 Scream* scream;
@@ -48,6 +50,7 @@ void init()
 	submarine = NULL;
 	candy = NULL;
 	rocket = NULL;
+	icekan = NULL;
 }
 
 void shutdown()
@@ -106,6 +109,19 @@ void update(double dt)
 		{
 			delete toilet;
 			toilet = NULL;
+		}
+		break;
+	case ICECHAN:
+		if(icekan == NULL)
+		{
+			icekan = new IKR(&console);
+		}
+		state = icekan->playIKRgame();
+
+		if(state != ICECHAN)
+		{
+			delete icekan;
+			icekan = NULL;
 		}
 		break;
 	case SCREAM:

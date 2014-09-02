@@ -174,9 +174,9 @@ gamestate GameSelect(Graphics& console)
 	if(isKeyPressed(VK_DOWN))
 	{
 		choice2++;
-		if(choice2 > numofminigames+2)
+		if(choice2 > numofminigames - 1)
 		{
-			choice2 = numofminigames+2;
+			choice2 = numofminigames - 1;
 		}
 	}
 	if(isKeyPressed(VK_UP))
