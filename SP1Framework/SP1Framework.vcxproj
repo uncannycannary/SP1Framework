@@ -77,6 +77,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animations.cpp" />
+    <ClCompile Include="Credits.cpp" />
     <ClCompile Include="Directory.cpp" />
     <ClCompile Include="FindTwins.cpp" />
     <ClCompile Include="Framework\console.cpp" />
@@ -99,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animations.h" />
+    <ClInclude Include="Credits.h" />
     <ClInclude Include="Directory.h" />
     <ClInclude Include="FindTwins.h" />
     <ClInclude Include="Framework\console.h" />
@@ -123,6 +125,10 @@
     <None Include="ascii\righthand.txt" />
     <None Include="ascii\toiletroll.txt" />
     <None Include="ButtonMashMaster.txt" />
+    <None Include="Credits\Credit4.txt" />
+    <None Include="Credits\Credits1.txt" />
+    <None Include="Credits\Credits2.txt" />
+    <None Include="Credits\Credits3.txt" />
     <None Include="MainMenu.txt" />
     <None Include="Minigame result\comment.txt" />
     <None Include="Minigame result\photoscore.txt" />

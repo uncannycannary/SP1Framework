@@ -52,6 +52,9 @@
     <Filter Include="Text Files\Minigame Rank">
       <UniqueIdentifier>{7647da69-bb3e-48bb-b827-9fe930247fae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Text Files\Credits">
+      <UniqueIdentifier>{901b1936-776e-42c7-9c48-d21799aec604}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\console.cpp">
@@ -114,6 +117,9 @@
     <ClCompile Include="IKR.cpp">
       <Filter>Source Files\Minigames</Filter>
     </ClCompile>
+    <ClCompile Include="Credits.cpp">
+      <Filter>Source Files\Minigames</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\console.h">
@@ -172,6 +178,9 @@
     </ClInclude>
     <ClInclude Include="IKR.h">
       <Filter>Header Files\Minigames</Filter>
+    </ClInclude>
+    <ClInclude Include="Credits.h">
+      <Filter>Header Files\UI&amp;Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -252,6 +261,18 @@
     </None>
     <None Include="scream\title.txt">
       <Filter>Text Files\Scream</Filter>
+    </None>
+    <None Include="Credits\Credit4.txt">
+      <Filter>Text Files\Credits</Filter>
+    </None>
+    <None Include="Credits\Credits1.txt">
+      <Filter>Text Files\Credits</Filter>
+    </None>
+    <None Include="Credits\Credits2.txt">
+      <Filter>Text Files\Credits</Filter>
+    </None>
+    <None Include="Credits\Credits3.txt">
+      <Filter>Text Files\Credits</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -26,7 +26,7 @@ enum gamestate
 	CREDITS,
 	RANDOM,
 	RESULTS,
-	MAXSTATES
+	MAXSTATES,
 };
 
 enum submarfull//submarine game.

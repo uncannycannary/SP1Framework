@@ -6,13 +6,17 @@ IKR::IKR(Graphics* console)
 Icekachanimcounter(6),//for the animations the game instances
 higherscore(0),
 IceKach(L"IceKachangEatout\\",L"*.txt"),
-framecounter(0),
+framecounter(-30),
 console(console)
 {
 }
 void IKR::playIKRgameinstances()
 {
 	//initialise a drawing here.
+	if(framecounter < 0)
+	{
+		console->draw(40,20, "Ice Kachang Eat-out",0x1A);
+	}
 	if(framecounter >= 0 && framecounter <= 150)//add Intro here
 	{
 		console->draw(22,10,IceKach.getstring(L"Intro.txt").c_str(),0x1A);
@@ -66,6 +70,13 @@ void IKR::playIKRgameinstances()
 		sprintf(score,"Score: %d",higherscore);
 		console->draw(10,0,score,0x1A);
 	}
+	if(framecounter >= 1191)
+	{
+		char score[25];
+		sprintf(score,"You have scored: %d",higherscore);
+		console->draw(41,20,score,0x1A);
+		console->draw(38,22, "Press Enter to continue!", 0x1A);
+	}
 }
 
 void IKR::IKRcontrols()
@@ -101,5 +112,9 @@ gamestate IKR::playIKRgame()
 	framecounter++;
 	IKRcontrols();//the controls
 	playIKRgameinstances();//game instances
+	if(framecounter >= 1191 && isKeyPressed(VK_RETURN))
+	{
+		return MAIN_MENU;
+	}
 	return ICECHAN;
 }

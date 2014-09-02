@@ -9,7 +9,7 @@ using std::ofstream;
 subgame::subgame(Graphics* console)
 	:
 higherscore(0),
-framecounter(0),
+framecounter(-30),
 Subfold(L"Submarine\\",L"*.txt"),
 console(console)
 {
@@ -18,13 +18,17 @@ console(console)
  void subgame::playsubcontrolsmechanics()//only starts after 3 sec
 {
 	framecounter++;
+	if(framecounter <= 0)
+	{
+		console->draw(44,20, "Sub-Shootdown",0x1A);
+	}
 	if(framecounter >= 1 && framecounter<=90)
 	 {
 		 console->draw(42,10,Subfold.getstring(L"Intro.txt").c_str(),0x1A);
 	 }
 	 if(framecounter >= 90 && framecounter <= 119)
 	 {
-		 console->draw(42,10,Subfold.getstring(L"Subcounter1.txt").c_str(),0x1A);
+		 console->draw(42,10,Subfold.getstring(L"Subcounter3.txt").c_str(),0x1A);
 	 }
 	 if(framecounter >= 120 && framecounter <= 149)
 	 {
@@ -32,13 +36,14 @@ console(console)
 	 }
 	 if(framecounter >= 150 && framecounter <= 179)
 	 {
-		 console->draw(42,10,Subfold.getstring(L"Subcounter3.txt").c_str(),0x1A);
+		 console->draw(42,10,Subfold.getstring(L"Subcounter1.txt").c_str(),0x1A);
 	 }
 	  if(framecounter >= 180 && framecounter <= 209)
 	 {
 		 console->draw(42,10,Subfold.getstring(L"SubcounterGO.txt").c_str(),0x1A);
 	 }
-	if(framecounter > 210)
+
+	if(framecounter > 210 && framecounter < 900)
 	{
 		if(isKeyPressed(VK_LEFT))
 		{
@@ -53,6 +58,12 @@ console(console)
 		{
 		console->draw(79,24,Subfold.getstring(L"Sub-shoot.txt").c_str(),0x1A);
 		}
+		console->draw(5,30,Subfold.getstring(L"Sub.txt").c_str(),0x1A);
+		console->draw(43,30,Subfold.getstring(L"Sub.txt").c_str(),0x1A);
+		console->draw(80,30,Subfold.getstring(L"Sub.txt").c_str(),0x1A);
+		char buffer[256];
+		sprintf(buffer,"Score %d",higherscore);
+		console->draw(24,10,buffer,0xB2);
 	}
 }
 
@@ -202,11 +213,12 @@ console(console)
 			  higherscore++;
 		  }
 	  }
-	  if(framecounter >= 900 && framecounter <= 1200)
+	  if(framecounter >= 900)
 	  {
-		  char buffer[256];
-		  sprintf(buffer,"Score %d",higherscore);
-		  console->draw(24,10,buffer,0xB2);
+		  char score[25];
+		  sprintf(score,"You have scored: %d",higherscore);
+		  console->draw(41,20,score,0x1A);
+		  console->draw(38,22, "Press Enter to continue!", 0x1A);
 	  }
  }
 
@@ -218,9 +230,9 @@ gamestate subgame::playsubgamemain()
 	}
 	playsubcontrolsmechanics();
 	playgamestate();
-
-	console->draw(5,30,Subfold.getstring(L"Sub.txt").c_str(),0x1A);
-	console->draw(43,30,Subfold.getstring(L"Sub.txt").c_str(),0x1A);
-	console->draw(80,30,Subfold.getstring(L"Sub.txt").c_str(),0x1A);
+	if(isKeyPressed(VK_RETURN) && framecounter < 900)
+	{
+		return MAIN_MENU;
+	}
 	return SUBMARINE;
 }
