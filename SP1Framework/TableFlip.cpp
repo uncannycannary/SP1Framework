@@ -1,13 +1,5 @@
 #include "TableFlip.h"
 
-//int left = 0;
-//int right = 0;
-//int checkleft = 0;
-//int checkright = 0;
-//int CurrentFramePerSec = 0;
-//bool GameStarts = false;
-//bool gameends = false;
-
 gamestate TableFlip::updateTableFlip(Graphics* console)
 {
 	//does user input
@@ -15,23 +7,18 @@ gamestate TableFlip::updateTableFlip(Graphics* console)
 	{
 		return MAIN_MENU;
 	}
-	if(isKeyPressed(VK_RETURN))
+	if (CurrentFramePerSec > 650)
 	{
-		GameStarts = true;
+		if(isKeyPressed(VK_RETURN))
+		{
+			return MAIN_MENU;
+		}
 	}
-
-
-	if(GameStarts == true)
-	{
-		playTableFlip();
-		drawTableFlip(console);
-		return TABLE_FLIP;
-	}
-	else
-	{
-		drawTableFlip(console);
-		return TABLE_FLIP;
-	}
+	playTableFlip();
+	drawTableFlip(console);
+	return TABLE_FLIP;
+	drawTableFlip(console);
+	return TABLE_FLIP;
 
 	if(gameends)
 	{
@@ -43,7 +30,7 @@ gamestate TableFlip::updateTableFlip(Graphics* console)
 void TableFlip::playTableFlip()
 {
 	CurrentFramePerSec++;
-	if(CurrentFramePerSec <=210)
+	if(CurrentFramePerSec > 440 && CurrentFramePerSec <= 650)
 	{
 		if(isKeyPressed(VK_LEFT))
 		{
@@ -60,72 +47,93 @@ void TableFlip::playTableFlip()
 
 void TableFlip::drawTableFlip(Graphics* TableFlip)
 {
+	if(CurrentFramePerSec >= 0 && CurrentFramePerSec <= 60)
 	{
-		char buffer[10];
-		sprintf(buffer,"%d",CurrentFramePerSec/30);
-		TableFlip->draw(32,0,"Timer:",0x3C);
-		TableFlip->draw(38,0,buffer,0x3C);
+		TableFlip->draw(44,20,"Table Flip", 0x0F);
 	}
-	if(CurrentFramePerSec == 0)
+	if(CurrentFramePerSec >= 60 && CurrentFramePerSec <= 299)
 	{
-		TableFlip->draw(33,20,"Table Flip",0x2B);
-		TableFlip->draw(23,21,"----------Instuctions----------" ,0x2B);
-		TableFlip->draw(13,22,"Press the left and right button as much as you can!",0x2B);
-		TableFlip->draw(28,10,"Press Enter to Begin!" ,0x3E);
+		TableFlip->draw(42,20,"How to play", 0x0F);
+		TableFlip->draw(15,22,"Mash the arrow keys < and > to increase power to flip that table!", 0x0F);
 	}
-	if(CurrentFramePerSec <= 210)
+	if(CurrentFramePerSec >= 300 && CurrentFramePerSec <= 650)
 	{
-		TableFlip->draw(33,20,"Table Flip",0x2B);
-		TableFlip->draw(23,21,"----------Instuctions----------" ,0x2B);
-		TableFlip->draw(13,22,"Press the left and right button as much as you can!",0x2B);
+		TableFlip->draw(7,25,"-------",0x58);
+		TableFlip->draw(7,26,"|     |",0x58);
 
-		TableFlip->draw(7,12,"-------",0x58);
-		TableFlip->draw(7,13,"|     |",0x58);
+		TableFlip->draw(2,24,"  o",0x48);  
+		TableFlip->draw(2,25," / =",0x48);  
+		TableFlip->draw(2,26,"|| ",0x48);
 
-		TableFlip->draw(2,11,"  o",0x48);  
-		TableFlip->draw(2,12," / =",0x48);  
-		TableFlip->draw(2,13,"|| ",0x48);
+		if(CurrentFramePerSec >= 300 && CurrentFramePerSec <= 330)
+		{	
+			TableFlip->draw(47,20,"Ready?", 0x0F);
+		}
 
+		if(CurrentFramePerSec >= 330 && CurrentFramePerSec <= 360)
+		{	
+			TableFlip->draw(50,20,"1", 0x0F);
+		}
+
+		if(CurrentFramePerSec >= 360 && CurrentFramePerSec <= 390)
+		{	
+			TableFlip->draw(50,20,"2", 0x0F);
+		}
+
+		if(CurrentFramePerSec >= 390 && CurrentFramePerSec <= 420)
+		{	
+			TableFlip->draw(50,20,"3", 0x0F);
+		}
+
+		if(CurrentFramePerSec >= 420 && CurrentFramePerSec <= 440)
+		{	
+			TableFlip->draw(50,20,"GO!", 0x0F);
+		}
+	}
+	if(CurrentFramePerSec >= 440 && CurrentFramePerSec < 650)
+	{
+		{
+			char buffer[10];
+			sprintf(buffer,"%d",right+left);
+			TableFlip->draw(45,25,"Score:",0x3C);
+			TableFlip->draw(51,25,buffer,0x3C);
+		}
 		if(isKeyHold(VK_LEFT))
 		{
-			TableFlip->draw(0,10,"  \\||/ ",0x48);  
-			TableFlip->draw(0,11," -  o- ",0x48);  
-			TableFlip->draw(0,12," - / = ",0x48);  
-			TableFlip->draw(0,13," -||   ",0x48);
-			TableFlip->draw(0,14,"  /||\\ ",0x48);
-
+			TableFlip->draw(0,23,"  \\||/ ",0x48);  
+			TableFlip->draw(0,24," -  o- ",0x48);  
+			TableFlip->draw(0,25," - / = ",0x48);  
+			TableFlip->draw(0,26," -||   ",0x48);
+			TableFlip->draw(0,27,"  /||\\ ",0x48);
 		}
 
 		if(isKeyHold(VK_RIGHT))
 		{
-			TableFlip->draw(0,9,"\\ || / ",0x48); 
-			TableFlip->draw(0,10,"       ",0x48); 
-			TableFlip->draw(0,11,"-   o -",0x48);  
-			TableFlip->draw(0,12,"-  / = ",0x48);  
-			TableFlip->draw(0,13,"- ||   ",0x48);
-			TableFlip->draw(0,14,"       ",0x48);
-			TableFlip->draw(0,15,"/ || \\ ",0x48);
+			TableFlip->draw(0,22,"\\ || / ",0x48); 
+			TableFlip->draw(0,23,"       ",0x48); 
+			TableFlip->draw(0,24,"-   o -",0x48);  
+			TableFlip->draw(0,25,"-  / = ",0x48);  
+			TableFlip->draw(0,26,"- ||   ",0x48);
+			TableFlip->draw(0,27,"       ",0x48);
+			TableFlip->draw(0,28,"/ || \\ ",0x48);
 		}
 	}
 
-	if (CurrentFramePerSec > 210)
+	if (CurrentFramePerSec > 650)
 	{
-		TableFlip->draw(71,12,"|     |",0x58);
-		TableFlip->draw(71,13,"-------",0x58);
+		TableFlip->draw(80,25,"|     |",0x58);
+		TableFlip->draw(80,26,"-------",0x58);
 
-		TableFlip->draw(3,11,"  o// ",0x48);  
-		TableFlip->draw(3,12,"  |   ",0x48);  
-		TableFlip->draw(3,13,"  |\\  ",0x48); 
-
-		TableFlip->draw(13,21,"Congratulations! Your table has flipped over ",0x2B);
+		TableFlip->draw(2,24,"  o// ",0x48);  
+		TableFlip->draw(2,25,"  |   ",0x48);  
+		TableFlip->draw(2,26,"  |\\  ",0x48); 
 		{
-			char buffer[10];
-			sprintf(buffer,"%d",right+left);
-			TableFlip->draw(58,21,(buffer),0x2B);
+			char scorebuffer[10];
+			sprintf(scorebuffer,"%d",right+left);
+			TableFlip->draw(35,25,"You table has flipped over    m!",0x2B);
+			TableFlip->draw(62,25,scorebuffer,0x2B);
 		}
-		TableFlip->draw(61,21,"m!",0x2AB);
-
-		TableFlip->draw(20,10,"Press Enter to return to the Main Menu!" ,0x3E);
+		TableFlip->draw(37,45,"Press Enter to continue!" ,0x3E);
 	}
 }
 

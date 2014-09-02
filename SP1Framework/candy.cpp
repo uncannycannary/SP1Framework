@@ -236,6 +236,6 @@ void Candy::draw()
 		char scorebuffer[26];
 		sprintf(scorebuffer,"You took %ds to fill this",score);
 		console.draw(38,23, scorebuffer, 0x0F);
-		console.draw(37,45, "Press Enter to continune...", 0x0F);
+		console.draw(37,45, "Press Enter to continune!", 0x0F);
 	}
 }
