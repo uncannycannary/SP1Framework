@@ -123,7 +123,7 @@ void Candy::draw()
 {
 	if(CurrentFrame >= 0 && CurrentFrame <= 60)
 	{
-		console.draw(44,20,"Candy the jar", 0x0F);
+		console.draw(40,20,"Fill the candy jar", 0x0F);
 	}
 	if(CurrentFrame >= 60 && CurrentFrame <= 299)
 	{
