@@ -83,16 +83,15 @@ gamestate MainMenu(Graphics& console,highscore* score)
 		console.draw(25,3,Main.c_str(),0x9D);
 		console.draw(40,12," Normal Mode",0x9D);
 		console.draw(40,13," Random Mode",0x9D);
-		console.draw(40,14," Options    ",0x9D);
-		console.draw(40,15," High Score ",0x9D);
-		console.draw(40,16," Exit game  ",0x9D);
+		console.draw(40,14," High Score ",0x9D);
+		console.draw(40,15," Exit game  ",0x9D);
 
 		if(isKeyPressed(VK_DOWN))
 		{
 			choice++;
-			if(choice > 4)
+			if(choice > 3)
 			{
-				choice = 4;
+				choice = 3;
 			}
 		}
 		if(isKeyPressed(VK_UP))
@@ -114,10 +113,8 @@ gamestate MainMenu(Graphics& console,highscore* score)
 				score->scorestart("HLP");
 				return MAIN_MENU;
 			case 2:
-				return OPTIONS;
-			case 3:
 				return HIGH_SCORE;
-			case 4:
+			case 3:
 				return QUIT_GAME;
 			}
 		}
