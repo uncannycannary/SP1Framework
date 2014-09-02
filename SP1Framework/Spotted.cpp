@@ -112,7 +112,7 @@ void Spotted::drawSpotted(Graphics* Spotted)
 void Spotted::playSpotted()
 {
 	CurrentFramePerSec++;
-	if (CurrentFramePerSec <= 1200)
+	if (CurrentFramePerSec >= 440 && CurrentFramePerSec <= 1640)
 	{
 		if(isKeyPressed(VK_LEFT) || isKeyPressed(VK_DOWN) || isKeyPressed(VK_RIGHT))
 		{

@@ -32,7 +32,7 @@ FindTwins* twins;
 subgame* submarine;
 Candy* candy;
 pumprocket* rocket;
-gamestate state = TABLE_FLIP;
+gamestate state = INTRO;
 void init()
 {
 	srand(time(NULL));

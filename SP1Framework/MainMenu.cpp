@@ -84,14 +84,15 @@ gamestate MainMenu(Graphics& console,highscore* score)
 		console.draw(40,12," Normal Mode",0x9D);
 		console.draw(40,13," Random Mode",0x9D);
 		console.draw(40,14," High Score ",0x9D);
-		console.draw(40,15," Exit game  ",0x9D);
+		console.draw(40,15," Credits    ",0x9D);
+		console.draw(40,16," Exit game  ",0x9D);
 
 		if(isKeyPressed(VK_DOWN))
 		{
 			choice++;
-			if(choice > 3)
+			if(choice > 4)
 			{
-				choice = 3;
+				choice = 4;
 			}
 		}
 		if(isKeyPressed(VK_UP))
@@ -115,6 +116,8 @@ gamestate MainMenu(Graphics& console,highscore* score)
 			case 2:
 				return HIGH_SCORE;
 			case 3:
+				return CREDITS;
+			case 4:
 				return QUIT_GAME;
 			}
 		}
@@ -141,7 +144,7 @@ void randommode()
 	israndom = true;
 }
 
-gamestate Options(Graphics& console)
+gamestate Credits(Graphics& console)
 {
 	if(isKeyPressed(VK_ESCAPE))
 	{
@@ -149,7 +152,7 @@ gamestate Options(Graphics& console)
 	}
 	else
 	{
-		return OPTIONS;
+		return CREDITS;
 	}
 }
 
@@ -188,43 +191,43 @@ gamestate GameSelect(Graphics& console)
 	{
 		switch(choice2)
 		{
-			case 0:
+		case 0:
 			{
 				return SCREAM;
 			}
-			case 1:
+		case 1:
 			{
 				return TABLE_FLIP;
 			}
-			case 2:
+		case 2:
 			{
 				return SUBMARINE;
 			}
-			case 3:
+		case 3:
 			{
 				return TOILET_ROLL;
 			}
-			case 4:
+		case 4:
 			{
 				return SPOTTED;
 			}
-			case 5:
+		case 5:
 			{
 				return PHOTOSPAM;
 			}
-			case 6:
+		case 6:
 			{
 				return CANDY;
 			}
-			case 7:
+		case 7:
 			{
 				return ROCKET;
 			}
-			case 8:
+		case 8:
 			{
 				return FIND_TWINS;
 			}
-			case 9:
+		case 9:
 			{
 				return ICECHAN;
 			}
