@@ -51,19 +51,20 @@ void IKR::playIKRgameinstances()
 		{
 			console->draw(42,10,IceKach.getstring(L"Icekachang4.txt").c_str(),0x1A);
 		}
-		if(Icekachanimcounter == 2)// 1/5 of the dessert
+		if(Icekachanimcounter == 2)//bowl
 		{
 			console->draw(42,10,IceKach.getstring(L"Icekachang5.txt").c_str(),0x1A);
-			higherscore++;
 		}
-		if(Icekachanimcounter == 1)//the bowl
+		if(Icekachanimcounter == 1)//finish((bowl thrown away))
 		{
-			console->draw(42,10,IceKach.getstring(L"Icekachang2.txt").c_str(),0x1A);
 		}
-		if(Icekachanimcounter == 0)
+		if(Icekachanimcounter <= 0)
 		{
 			Icekachanimcounter = 6;
 		}
+		char score[12];
+		sprintf(score,"Score: %d",higherscore);
+		console->draw(10,0,score,0x1A);
 	}
 }
 
@@ -74,18 +75,31 @@ void IKR::IKRcontrols()
 		if(isKeyPressed(VK_LEFT))// Eat Ice Kachang Button
 		{
 		Icekachanimcounter -= 1;
+		if(Icekachanimcounter == 2)
+		{
+			higherscore++;
+		}
 		}
 		if(isKeyPressed(VK_RIGHT))//Eat Ice Kachang Button
 		{
 		Icekachanimcounter -= 1;
+		if(Icekachanimcounter == 2)
+		{
+			higherscore++;
+		}
 		}
 	}
+
 }
 
 gamestate IKR::playIKRgame()
 {
+	if(isKeyPressed(VK_ESCAPE))
+	{
+		return MAIN_MENU;
+	}
 	framecounter++;
-	IKR::IKRcontrols();//the controls
-	IKR::playIKRgameinstances();//game instances
+	IKRcontrols();//the controls
+	playIKRgameinstances();//game instances
 	return ICECHAN;
 }
