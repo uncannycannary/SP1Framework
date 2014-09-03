@@ -89,11 +89,12 @@ void highscore::scorestart(const char* nowname)
 	strcpy(currentname,nowname);
 }
 
-void highscore::scoreend()
+char highscore::scoreend()
 {
+	char currscore = 'F';
 	if(numofmini)
 	{
-		char currscore = ceil(totalscore/(float)numofmini);
+		currscore = ceil(totalscore/(float)numofmini);
 		int index = 0;
 		bool scoreadded = false;
 		for(int i = 0; i < score.size(); i++)
@@ -156,4 +157,9 @@ void highscore::scoreend()
 			}
 		}
 	}
+	if(currscore == 'A' - 1)
+	{
+		currscore = 'S';
+	}
+	return currscore;
 }

@@ -278,5 +278,5 @@ gamestate subgame::playsubgamemain()
 
 char subgame::returnscore()
 {
-	return 'F';
+	return rank;
 }

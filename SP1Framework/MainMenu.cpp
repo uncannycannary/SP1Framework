@@ -8,6 +8,8 @@ std::vector<gamestate> random;
 int currentframe = 0;
 int currentstage = 0;
 bool israndom = false;
+bool displayscore = false;
+char finalrank = 'F';
 string name;
 
 void ini()
@@ -74,8 +76,20 @@ gamestate MainMenu(Graphics& console,highscore* score)
 	}
 	else if(israndom)
 	{
-		score->scoreend();
+		finalrank = score->scoreend();
 		israndom = false;
+		displayscore = true;
+		return MAIN_MENU;
+	}
+	else if(displayscore)
+	{
+		char buffer[256];
+		sprintf(buffer,"Final Rank: %c",finalrank);
+		console.draw(44,20,buffer,0x0F);
+		if(isKeyPressed(VK_RETURN) || isKeyPressed(VK_ESCAPE))
+		{
+			displayscore = false;
+		}
 		return MAIN_MENU;
 	}
 	else

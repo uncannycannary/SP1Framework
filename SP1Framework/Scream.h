@@ -10,7 +10,7 @@ class Scream
 {
 private:
 	//variables
-	
+	char rank;
 	bool gameends;
 	bool paused;
 	int power;

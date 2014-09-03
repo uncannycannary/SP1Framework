@@ -15,7 +15,7 @@ public:
 	highscore(Graphics&);
 	void addscore(char score);
 	void scorestart(const char* nowname);
-	void scoreend();
+	char scoreend();
 	~highscore()
 	{
 		std::ofstream savescore;

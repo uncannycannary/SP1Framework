@@ -5,6 +5,7 @@ FindTwins::FindTwins(Graphics& console)
 console(console),
 	anim(console),
 	paused(false),
+	rank('F'),
 	userhasans(false),
 	wrong(false),
 	score(0),
@@ -188,5 +189,5 @@ void FindTwins::ProcessAns(bool userans1, bool userans2, bool userans3)
 
 char FindTwins::returnscore()
 {
-	return 'F';
+	return rank;
 }

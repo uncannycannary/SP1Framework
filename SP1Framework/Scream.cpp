@@ -7,6 +7,7 @@ console(console),
 power(0),
 file(L"scream\\",L"*.txt"),
 currFrame(0),
+rank('F'),
 paused(false),
 gameends(false),
 lockinput(true),
@@ -159,5 +160,5 @@ void Scream::changestate()
 
 char Scream::returnscore()
 {
-	return 'F';
+	return rank;
 }

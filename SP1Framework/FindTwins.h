@@ -24,6 +24,7 @@ private:
 	int score;
 	int paused;
 	bool wrong;
+	char rank;
 	//picture variables
 	const int numofpictures;
 	Directory pics;

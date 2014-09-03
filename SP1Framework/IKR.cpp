@@ -153,5 +153,5 @@ gamestate IKR::playIKRgame()
 
 char IKR::returnscore()
 {
-	return 'F';
+	return rank;
 }
