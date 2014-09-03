@@ -16,6 +16,7 @@ private:
 	int score;
 	int twosec;
 	bool triger;
+	char rank;
 	std::ifstream reader;
 	std::string j0, j1, j2, j3, j4, j5, j6, j7;
 	Graphics& console;
@@ -26,6 +27,7 @@ public:
 	void play();
 	void draw();
 	Candy(Graphics&);
+	char returnscore();
 };
 
 #endif

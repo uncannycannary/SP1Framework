@@ -233,9 +233,47 @@ void Candy::draw()
 		{
 			console.draw(38,25, j7.c_str(), 0x0F);
 		}
+
+		if(score > 60 )
+		{
+			rank = 'S';
+		}
+		if(score > 55 && score <= 60)
+		{
+			rank = 'A';
+		}
+		if(score > 50 && score <= 55)
+		{
+			rank = 'B';
+		}
+		if(score > 45 && score <= 50)
+		{
+			rank = 'C';
+		}
+		if(score > 40 && score <= 45)
+		{
+			rank = 'D';
+		}
+		if(score > 35 && score <= 40)
+		{
+			rank = 'E';
+		}
+		if(score <= 35)
+		{
+			rank = 'F';
+		}
+		char rankbuffer[10];
+		sprintf(rankbuffer, "Rank: %c", rank);
+		console.draw(47,19, rankbuffer, 0x0F);
+
 		char scorebuffer[26];
 		sprintf(scorebuffer,"You took %ds to fill this",score);
 		console.draw(38,23, scorebuffer, 0x0F);
 		console.draw(37,45, "Press Enter to continune!", 0x0F);
 	}
+}
+
+char Candy::returnscore()
+{
+	return score;
 }

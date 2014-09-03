@@ -25,11 +25,12 @@ public:
 		Escapee = 0;
 		checkalert = 0;
 		checkEscapee = Escapee%2;
-		
+		rank = 'F';
 	}
 	~Spotted()
 	{
 	}
+	char returnscore();
 private:
 	void drawSpotted(Graphics* Spotted);
 	void playSpotted();
@@ -43,6 +44,7 @@ private:
 	int checkEscapee;
 	int step;
 	int checkalert;
+	char rank;
 };
 
 #endif 

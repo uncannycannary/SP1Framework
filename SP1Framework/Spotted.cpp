@@ -125,6 +125,38 @@ void Spotted::drawSpotted(Graphics* Spotted)
 	}
 	if(CurrentFramePerSec >= 1640)
 		{
+			if(score > 15 )
+			{
+				rank = 'S';
+			}
+			if(score > 13 && score <= 15)
+			{
+				rank = 'A';
+			}
+			if(score > 11 && score <= 13)
+			{
+				rank = 'B';
+			}
+			if(score > 9 && score <= 11)
+			{
+				rank = 'C';
+			}
+			if(score > 7 && score <= 9)
+			{
+				rank = 'D';
+			}
+			if(score > 5 && score <= 7)
+			{
+				rank = 'E';
+			}
+			if(score <= 3)
+			{
+				rank = 'F';
+			}
+			char rankbuffer[10];
+			sprintf(rankbuffer, "Rank: %c", rank);
+			console.draw(47,20, rankbuffer, 0x2B);
+
 			Spotted->draw(35,30,"  o  ",0x3C);
 			Spotted->draw(35,31,"\\0 /",0x3C);
 			Spotted->draw(35,32," / \\",0x3C);
@@ -164,4 +196,9 @@ void Spotted::resetSpotted()
 	gameends = false;
 	Guard = false;
 	score = 0;
+}
+
+char Spotted::returnscore()
+{
+	return rank;
 }
