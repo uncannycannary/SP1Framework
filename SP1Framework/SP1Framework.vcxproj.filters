@@ -55,6 +55,9 @@
     <Filter Include="Text Files\Credits">
       <UniqueIdentifier>{901b1936-776e-42c7-9c48-d21799aec604}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Text Files\find twins">
+      <UniqueIdentifier>{80208a49-a02a-4f91-b0a7-78a97254dfdd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\console.cpp">
@@ -273,6 +276,36 @@
     </None>
     <None Include="Credits\Credits3.txt">
       <Filter>Text Files\Credits</Filter>
+    </None>
+    <None Include="twins\twins0.txt">
+      <Filter>Text Files\find twins</Filter>
+    </None>
+    <None Include="twins\twins1.txt">
+      <Filter>Text Files\find twins</Filter>
+    </None>
+    <None Include="twins\twins2.txt">
+      <Filter>Text Files\find twins</Filter>
+    </None>
+    <None Include="twins\twins3.txt">
+      <Filter>Text Files\find twins</Filter>
+    </None>
+    <None Include="twins\twins4.txt">
+      <Filter>Text Files\find twins</Filter>
+    </None>
+    <None Include="twins\twins5.txt">
+      <Filter>Text Files\find twins</Filter>
+    </None>
+    <None Include="twins\twins6.txt">
+      <Filter>Text Files\find twins</Filter>
+    </None>
+    <None Include="twins\twins7.txt">
+      <Filter>Text Files\find twins</Filter>
+    </None>
+    <None Include="twins\twins8.txt">
+      <Filter>Text Files\find twins</Filter>
+    </None>
+    <None Include="twins\twins9.txt">
+      <Filter>Text Files\find twins</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -151,6 +151,16 @@
     <None Include="Submarine\Sub.txt" />
     <None Include="Submarine\Subenemies-dead.txt" />
     <None Include="Submarine\Subenemies.txt" />
+    <None Include="twins\twins0.txt" />
+    <None Include="twins\twins1.txt" />
+    <None Include="twins\twins2.txt" />
+    <None Include="twins\twins3.txt" />
+    <None Include="twins\twins4.txt" />
+    <None Include="twins\twins5.txt" />
+    <None Include="twins\twins6.txt" />
+    <None Include="twins\twins7.txt" />
+    <None Include="twins\twins8.txt" />
+    <None Include="twins\twins9.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
