@@ -28,5 +28,6 @@ public:
 	void read();
 	void draw();
 	photospam(Graphics&);
+	char returnscore();
 };
 #endif

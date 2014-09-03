@@ -100,6 +100,7 @@ void update(double dt)
 	case TOILET_ROLL:
 		if(toilet == NULL)
 		{
+			
 			toilet = new toiletroll(console);
 		}
 
@@ -107,6 +108,7 @@ void update(double dt)
 
 		if(state != TOILET_ROLL)
 		{
+			score.addscore(toilet->returnscore());
 			delete toilet;
 			toilet = NULL;
 		}
@@ -189,6 +191,7 @@ void update(double dt)
 
 		if(state != ROCKET)
 		{
+			score.addscore(rocket->returnscore());
 			delete rocket;
 			rocket = NULL;
 		}

@@ -233,7 +233,34 @@ void toiletroll::draw()
 
 	if(CurrentFrame >= 728)
 	{
-		
+		if(score > 8 && score <= 10)
+		{
+			rank = 'S';
+		}
+		if(score > 6 && score <= 8)
+		{
+			rank = 'A';
+		}
+		if(score > 5 && score <= 6)
+		{
+			rank = 'B';
+		}
+		if(score > 4 && score <= 5)
+		{
+			rank = 'C';
+		}
+		if(score > 3 && score <= 4)
+		{
+			rank = 'D';
+		}
+		if(score > 2 && score <= 3)
+		{
+			rank = 'E';
+		}
+		if(score <= 2)
+		{
+			rank = 'F';
+		}
 		char rankbuffer[10];
 		sprintf(rankbuffer, "Rank: %c", rank);
 		console.draw(47,19, rankbuffer, 0x0F);
@@ -245,4 +272,9 @@ void toiletroll::draw()
 	}
 	rx = 60;
 	lx = 25;
+}
+
+char toiletroll::returnscore()
+{
+	return rank;
 }

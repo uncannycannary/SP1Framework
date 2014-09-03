@@ -30,6 +30,7 @@ public:
 	void read();
 	void draw();
 	toiletroll(Graphics&);
+	char returnscore();
 };
 
 

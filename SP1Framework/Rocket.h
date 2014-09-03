@@ -16,6 +16,7 @@ private:
 	int score;
 	int y;
 	int move;
+	char rank;
 	std::ifstream up, down, spark, rocket;
 	std::string ups, downs, sparks, rockets;
 	Graphics& console;
@@ -26,5 +27,6 @@ public:
 	void read();
 	void draw();
 	pumprocket(Graphics&);
+	char returnscore();
 };
 #endif

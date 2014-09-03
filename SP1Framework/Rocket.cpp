@@ -9,6 +9,7 @@ console(console)
 	time = 11;
 	score = 0;
 	y = 40;
+	rank = 'F';
 	read();
 }
 
@@ -151,6 +152,38 @@ void pumprocket::draw()
 	}
 	if(CurrentFrame >= 740)
 	{
+		if(score > 60 )
+		{
+			rank = 'S';
+		}
+		if(score > 55 && score <= 60)
+		{
+			rank = 'A';
+		}
+		if(score > 50 && score <= 55)
+		{
+			rank = 'B';
+		}
+		if(score > 45 && score <= 50)
+		{
+			rank = 'C';
+		}
+		if(score > 40 && score <= 45)
+		{
+			rank = 'D';
+		}
+		if(score > 35 && score <= 40)
+		{
+			rank = 'E';
+		}
+		if(score <= 35)
+		{
+			rank = 'F';
+		}
+		char rankbuffer[10];
+		sprintf(rankbuffer, "Rank: %c", rank);
+		console.draw(47,19, rankbuffer, 0x0F);
+
 		char buffer[24];
 		sprintf(buffer,"Your rocket flew: %dm",score);
 		console.draw(39,20, buffer, 0x0F);
@@ -167,4 +200,9 @@ void pumprocket::draw()
 		else
 			console.draw(43,y, rockets.c_str(), 0x0F);
 	}
+}
+
+char pumprocket::returnscore()
+{
+	return rank;
 }

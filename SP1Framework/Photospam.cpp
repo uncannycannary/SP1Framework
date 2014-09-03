@@ -284,10 +284,47 @@ void photospam::draw()
 
 	if(CurrentFrame >= 1310)
 	{
+		if(score > 110 )
+		{
+			rank = 'S';
+		}
+		if(score > 100 && score <= 110)
+		{
+			rank = 'A';
+		}
+		if(score > 85 && score <= 100)
+		{
+			rank = 'B';
+		}
+		if(score > 70 && score <= 85)
+		{
+			rank = 'C';
+		}
+		if(score > 55 && score <= 70)
+		{
+			rank = 'D';
+		}
+		if(score > 40 && score <= 55)
+		{
+			rank = 'E';
+		}
+		if(score <= 40)
+		{
+			rank = 'F';
+		}
+		char rankbuffer[10];
+		sprintf(rankbuffer, "Rank: %c", rank);
+		console.draw(47,19, rankbuffer, 0x0F);
+
 		char buffer[256];
 		console.draw(36,19, "Just kidding, the game ended", 0x0F);
 		sprintf(buffer,"You have scored: %d",score);
 		console.draw(41,20, buffer, 0x0F);
 		console.draw(37,22, "Press Enter to continune...", 0x0F);
 	}
+}
+
+char photospam::returnscore()
+{
+	return score;
 }
