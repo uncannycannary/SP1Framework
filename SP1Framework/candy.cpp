@@ -234,31 +234,31 @@ void Candy::draw()
 			console.draw(38,25, j7.c_str(), 0x0F);
 		}
 
-		if(score > 60 )
+		if(score < 7)
 		{
 			rank = 'S';
 		}
-		if(score > 55 && score <= 60)
+		if(score > 7 && score <= 8)
 		{
 			rank = 'A';
 		}
-		if(score > 50 && score <= 55)
+		if(score > 8 && score <= 9)
 		{
 			rank = 'B';
 		}
-		if(score > 45 && score <= 50)
+		if(score > 9 && score <= 10)
 		{
 			rank = 'C';
 		}
-		if(score > 40 && score <= 45)
+		if(score > 10 && score <= 11)
 		{
 			rank = 'D';
 		}
-		if(score > 35 && score <= 40)
+		if(score > 11 && score <= 12)
 		{
 			rank = 'E';
 		}
-		if(score <= 35)
+		if(score >= 13)
 		{
 			rank = 'F';
 		}
