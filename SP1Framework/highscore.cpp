@@ -69,10 +69,10 @@ corn(console)
 
 gamestate highscore::updatehighscore()
 {
-	corn.draw(15,1,scoretitle.c_str(),0x2A);
-	corn.draw(2,10,position.c_str(),0x2A);
-	corn.draw(7,10,name.c_str(),0x2A);
-	corn.draw(45,10,score.c_str(),0x2A);
+	corn.draw(15,1,scoretitle.c_str(),0x9D);
+	corn.draw(2,10,position.c_str(),0x9D);
+	corn.draw(7,10,name.c_str(),0x9D);
+	corn.draw(45,10,score.c_str(),0x9D);
 
 
 	if(isKeyPressed(VK_ESCAPE))
@@ -118,8 +118,9 @@ char highscore::scoreend()
 						currscore = 'S';
 					}
 					string buffer;
-					buffer += currscore;
 					buffer += "\n\n";
+					buffer += currscore;
+					
 
 					score.insert(index,buffer);
 					for(int index = 0; index < 3; index++)
