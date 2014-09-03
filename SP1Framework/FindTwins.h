@@ -18,13 +18,16 @@ public:
 	char returnscore();
 private:
 	//game variables
+	Directory mainfolder;
 	Graphics& console;
 	Animations anim;
 	int currframe;
 	int score;
 	int paused;
 	bool wrong;
+	bool lockinput;
 	char rank;
+
 	//picture variables
 	const int numofpictures;
 	Directory pics;
@@ -46,24 +49,23 @@ private:
 	STATE state;
 	
 	//const variables
-	const int picture1positionx;
-	const int picture2positionx;
-	const int picture3positionx;
-	const int picturepositiony;
-	const int pictureheight;
-	const int positionpictureduration;
-	const int positionpicture;
+	const int instructionsframe;
+	const int countdownframe;
+	const int gamestartframe;
 	const int gameendframe;
+	const int endscreenframe;
 
 	//draw info
 	std::vector<std::string> intro;
+	std::vector<std::string> countdown;
+	int introindex;
+	int countdownindex;
 
 	//functions
 	void Draw();
 	void UpdateState();
 	void UpdatePictures();
 	void DoUserInput();
-	void UpdateAnimations();
 	void ProcessAns(bool userans1, bool userans2, bool userans3);
 };
 

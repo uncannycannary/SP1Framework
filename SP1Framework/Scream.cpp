@@ -54,9 +54,11 @@ void Scream::draw()
 	{
 		powerbarcolor = 0x25;
 	}
-	if(currFrame >= CountdownFrame)
+	if(currFrame >= EndscreenFrame)
 	{
-		anim.playInstance(countdownindex,false);
+		char buffer[10];
+		sprintf(buffer, "Rank: %c",rank);
+		console.draw(47,20,buffer,0x0F);
 	}
 	anim.drawInstance(0, 0, introcolor, introindex);
 	anim.drawInstance(0, 0, 0x0F, countdownindex);
@@ -134,6 +136,11 @@ void Scream::DoUserInput()
 
 void Scream::changestate()
 {
+	if(currFrame >= CountdownFrame)
+	{
+		anim.playInstance(countdownindex,false);
+	}
+
 	if(currFrame == InstructionsFrame)
 	{
 		anim.playInstance(introindex);
@@ -153,7 +160,36 @@ void Scream::changestate()
 	}
 	else if(currFrame == EndscreenFrame)
 	{
+		//introcolor = 0x0C;
 		anim.playInstance(introindex);
+		if(power < 10000)
+		{
+			rank = 'F';
+		}
+		else if(power < 20000)
+		{
+			rank = 'E';
+		}
+		else if(power < 30000)
+		{
+			rank = 'D';
+		}
+		else if(power < 40000)
+		{
+			rank = 'C';
+		}
+		else if(power < 50000)
+		{
+			rank = 'B';
+		}
+		else if(power < 60000)
+		{
+			rank = 'A';
+		}
+		else
+		{
+			rank = 'S';
+		}
 	}
 }
 

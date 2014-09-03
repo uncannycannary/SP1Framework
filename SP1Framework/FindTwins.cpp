@@ -6,21 +6,20 @@ console(console),
 	anim(console),
 	paused(false),
 	rank('F'),
+	lockinput(true),
 	userhasans(false),
 	wrong(false),
 	score(0),
 	currframe(0),
-	gameendframe(450),
-	pics(L"twins\\", L"*.txt"),
+	instructionsframe(60),
+	countdownframe(200),
+	gamestartframe(350),
+	gameendframe(900),
+	endscreenframe(950),
+	pics(L"twins\\pics\\", L"*.txt"),
+	mainfolder(L"twins\\",L"*.txt"),
 	namepattern(L"twins%d.txt"),
-	numofpictures(3),
-	picture1positionx(0),
-	picture2positionx(0),
-	picture3positionx(0),
-	picturepositiony(0),
-	pictureheight(0),
-	positionpictureduration(0),
-	positionpicture(0)
+	numofpictures(3)
 {
 	for(int index = 0; index < numofpictures; index++)
 	{
@@ -28,6 +27,18 @@ console(console),
 		pictureans.push_back(false);
 	}
 	UpdatePictures();
+
+	intro.push_back(mainfolder.getstring(L"title.txt"));
+	intro.push_back(mainfolder.getstring(L"instructions.txt"));
+	countdown.push_back(mainfolder.getstring(L"ready.txt"));
+	countdown.push_back(mainfolder.getstring(L"three.txt"));
+	countdown.push_back(mainfolder.getstring(L"two.txt"));
+	countdown.push_back(mainfolder.getstring(L"one.txt"));
+	countdown.push_back(mainfolder.getstring(L"go.txt"));
+	introindex = anim.Add(&intro,1);
+	countdownindex = anim.Add(&countdown,30);
+
+	anim.playInstance(introindex);
 }
 
 FindTwins::~FindTwins()
@@ -40,10 +51,15 @@ gamestate FindTwins::update()
 	{
 		return MAIN_MENU;
 	}
-	if(isKeyPressed(VK_RETURN))
+	if(currframe >= gameendframe &&isKeyPressed(VK_RETURN))
 	{
-		paused = !paused;
+		return  MAIN_MENU;
 	}
+	//else if(isKeyPressed(VK_RETURN))
+	//{
+		//paused = !paused;
+	//}
+	
 	if(gameendframe == 0 && isKeyPressed(VK_RETURN))
 	{
 		return MAIN_MENU;
@@ -51,7 +67,10 @@ gamestate FindTwins::update()
 	if(!paused)
 	{
 		currframe++;
-		DoUserInput();
+		if(!lockinput)
+		{
+			DoUserInput();
+		}
 		UpdateState();
 		if(userhasans)
 		{
@@ -66,7 +85,55 @@ gamestate FindTwins::update()
 
 void FindTwins::UpdateState()
 {
+	if(currframe >= countdownframe)
+	{
+		anim.playInstance(countdownindex,false);
+	}
 
+	if(currframe == instructionsframe)
+	{
+		anim.playInstance(introindex,false);
+	}
+	else if(currframe == countdownframe)
+	{
+		anim.playInstance(introindex,false);
+	}
+	else if(currframe == gamestartframe)
+	{
+		lockinput = false;
+	}
+	else if(currframe == gameendframe)
+	{
+		lockinput = true;
+		if(score < 5)
+		{
+			rank = 'F';
+		}
+		else if(score < 10)
+		{
+			rank = 'E';
+		}
+		else if(score < 15)
+		{
+			rank = 'D';
+		}
+		else if(score < 20)
+		{
+			rank = 'C';
+		}
+		else if(score < 25)
+		{
+			rank = 'B';
+		}
+		else if(score < 30)
+		{
+			rank = 'A';
+		}
+		else
+		{
+			rank = 'S';
+		}
+	}
 }
 
 void FindTwins::UpdatePictures()
@@ -100,10 +167,6 @@ void FindTwins::UpdatePictures()
 	}
 }
 
-void FindTwins::UpdateAnimations()
-{
-}
-
 void FindTwins::DoUserInput()
 {
 	if(currframe <= gameendframe)
@@ -125,49 +188,39 @@ void FindTwins::DoUserInput()
 
 void FindTwins::Draw()
 {
-	int color;
-	if(wrong)
+	anim.drawInstance(0,0,0x0F,introindex);
+	anim.drawInstance(0, 0, 0x0F, countdownindex);
+	if(currframe >= gamestartframe && currframe < gameendframe)
 	{
-		color = 0x0C;
-	}
-	else
-	{
-		color = 0x0F;
-	}
-	console.draw(0,20,pictures[0].c_str(),color);
-	console.draw(30,20,pictures[1].c_str(),color);
-	console.draw(60,20,pictures[2].c_str(),color);
+		char timebuffer[15];
+		sprintf(timebuffer,"time %d",(gameendframe - currframe)/30);
+		console.draw(46,11,timebuffer,0x0F);
 
-	{
-		char buffer[15];
-		sprintf(buffer,"Score %d",score);
-		console.draw(46,10,buffer,0x0F);
-	}
-	if(currframe <= gameendframe)
-	{
-		char buffer[15];
-		sprintf(buffer,"time %d",(gameendframe - currframe)/30);
-		console.draw(46,11,buffer,0x0F);
-	}
-	if(state == INTRO)
-	{
-		anim.drawInstance(0,0,0x1A,INTRO);
-	}
-	else if(state == SETPICTURE)
-	{
-		//console.draw(0,0,pictures[picture1index].c_str(),0x1A);
-	}
-	else if(state == QUESTION)
-	{
-		//console.draw(0,0,background.c_str(),0x1A);
-	}
-	else if(state == SHOWANS)
-	{
+		char scorebuffer[15];
+		sprintf(scorebuffer,"Score %d",score);
+		console.draw(46,10,scorebuffer,0x0F);
 
+		int color;
+		if(wrong)
+		{
+			color = 0x0C;
+		}
+		else
+		{
+			color = 0x0F;
+		}
+		console.draw(0,20,pictures[0].c_str(),color);
+		console.draw(30,20,pictures[1].c_str(),color);
+		console.draw(60,20,pictures[2].c_str(),color);
 	}
-	else if(state == ENDSCREEN)
+	else if(currframe >= gameendframe)
 	{
-
+		char scorebuffer[15];
+		char rankbuffer[10];
+		sprintf(scorebuffer,"Score %d",score);
+		sprintf(rankbuffer,"Rank  %c",rank);
+		console.draw(46,10,scorebuffer,0x0F);
+		console.draw(46,9,rankbuffer,0x0F);
 	}
 }
 
