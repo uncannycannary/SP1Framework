@@ -23,6 +23,7 @@ public:
 		score = 0;
 		step = 0;
 		Escapee = 0;
+		checkalert = 0;
 		checkEscapee = Escapee%2;
 		
 	}
@@ -41,6 +42,7 @@ private:
 	int score;
 	int checkEscapee;
 	int step;
+	int checkalert;
 };
 
 #endif 

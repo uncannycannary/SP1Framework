@@ -21,14 +21,11 @@ gamestate pumprocket::update()
 	draw();
 	play();
 
-	if(CurrentFrame >= 1310 && isKeyPressed(VK_RETURN))
+	if(CurrentFrame >= 740 && isKeyPressed(VK_RETURN))
 	{
 		return MAIN_MENU;
 	}
-	else
-	{
-		return ROCKET;
-	}
+	return ROCKET;
 }
 
 void pumprocket::play()

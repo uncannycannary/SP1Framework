@@ -7,21 +7,17 @@ gamestate Spotted::updateSpotted(Graphics* console)
 	{
 		return MAIN_MENU;
 	}
-	if(isKeyPressed(VK_RETURN))
+	if (CurrentFramePerSec > 1640)
 	{
-		GameStarts = true;
+		if(isKeyPressed(VK_RETURN))
+		{
+			return MAIN_MENU;
+		}
 	}
-	if(GameStarts == true)
-	{
-		playSpotted();
-		drawSpotted(console);
-		return SPOTTED;
-	}
-	else
-	{
-		drawSpotted(console);
-		return SPOTTED;
-	}
+	playSpotted();
+	drawSpotted(console);
+	return SPOTTED;
+
 	if(gameends)
 	{
 		gamestate state = (gamestate)(rand() % numofminigames);
@@ -31,81 +27,113 @@ gamestate Spotted::updateSpotted(Graphics* console)
 
 void Spotted::drawSpotted(Graphics* Spotted)
 {
-	Spotted->draw(35,2,"_________ ZZZ",0x3C);
-	Spotted->draw(35,3,"/       \\",0x3C);
-	Spotted->draw(35,4,"| -   - |",0x3C);
-	Spotted->draw(35,5,"|   _   |",0x3C);
-	for (int a = 0; a <= 15; a++)
+	if(CurrentFramePerSec >= 0 && CurrentFramePerSec <= 60)
 	{
-		Spotted->draw(10,2+a,"-",0x2A);
+		Spotted->draw(44,20,"Don't get Spotted!", 0x0F);
+	}
+	if(CurrentFramePerSec >= 60 && CurrentFramePerSec <= 299)
+	{
+		Spotted->draw(42,20,"How to play", 0x0F);
+		Spotted->draw(15,22,"Mash the arrow keys <, v and > to run across the border!\nBut watch out for the (ALERT!) icon!", 0x0F);
+	}
+	if(CurrentFramePerSec >= 300 && CurrentFramePerSec <= 330)
+	{	
+		Spotted->draw(47,20,"Ready?", 0x0F);
 	}
 
-	for (int a = 0; a <= 15; a++)
-	{
-		Spotted->draw(70,2+a,"-",0x2A);
+	if(CurrentFramePerSec >= 330 && CurrentFramePerSec <= 360)
+	{	
+		Spotted->draw(50,20,"3", 0x0F);
 	}
-	{
-		char buffer[10];
-		sprintf(buffer,"%d",CurrentFramePerSec/30);
-		Spotted->draw(32,0,"Timer:",0x3C);
-		Spotted->draw(38,0,buffer,0x3C);
+
+	if(CurrentFramePerSec >= 360 && CurrentFramePerSec <= 390)
+	{	
+		Spotted->draw(50,20,"2", 0x0F);
 	}
-	if(CurrentFramePerSec >= 120 && CurrentFramePerSec <= 135 || CurrentFramePerSec >= 180 && CurrentFramePerSec <= 195 || CurrentFramePerSec >= 270 && CurrentFramePerSec <= 285 ||CurrentFramePerSec >= 375 && CurrentFramePerSec <= 390 ||CurrentFramePerSec >= 455 && CurrentFramePerSec <= 470 || CurrentFramePerSec >= 550 && CurrentFramePerSec <= 565 || CurrentFramePerSec >= 585 && CurrentFramePerSec <= 600 || CurrentFramePerSec >= 695 && CurrentFramePerSec <= 710 || CurrentFramePerSec >= 750 && CurrentFramePerSec <= 765 || CurrentFramePerSec >= 885 && CurrentFramePerSec <= 900 || CurrentFramePerSec >= 985 && CurrentFramePerSec <= 1000 || CurrentFramePerSec >= 1030 && CurrentFramePerSec <= 1045 || CurrentFramePerSec >= 1105 && CurrentFramePerSec <= 1120)
-	{
-		Spotted->draw(35,15,"ALERT!",0x3C);
+
+	if(CurrentFramePerSec >= 390 && CurrentFramePerSec <= 420)
+	{	
+		Spotted->draw(50,20,"1", 0x0F);
 	}
-	if(CurrentFramePerSec >= 135 && CurrentFramePerSec <= 150 || CurrentFramePerSec >= 195 && CurrentFramePerSec <= 210 || CurrentFramePerSec >= 285 && CurrentFramePerSec <= 315 ||CurrentFramePerSec >= 390 && CurrentFramePerSec <= 420 ||CurrentFramePerSec >= 470 && CurrentFramePerSec <= 500 || CurrentFramePerSec >= 565 && CurrentFramePerSec <= 580 || CurrentFramePerSec >= 600 && CurrentFramePerSec <= 620 || CurrentFramePerSec >= 710 && CurrentFramePerSec <= 730 || CurrentFramePerSec >= 765 && CurrentFramePerSec <= 795 || CurrentFramePerSec >= 900 && CurrentFramePerSec <= 945 || CurrentFramePerSec >= 1000 && CurrentFramePerSec <= 1015 || CurrentFramePerSec >= 1045 && CurrentFramePerSec <= 1080 || CurrentFramePerSec >= 1120 && CurrentFramePerSec <= 1140)
-	{
-		Spotted->draw(35,2,"_________!!!!",0x3C);
-		Spotted->draw(35,3,"/       \\",0x3C);
-		Spotted->draw(35,4,"| 0   0 |",0x3C);
-		Spotted->draw(35,5,"|   o   |",0x3C);
-		Guard = true;
+
+	if(CurrentFramePerSec >= 420 && CurrentFramePerSec <= 440)
+	{	
+		Spotted->draw(50,20,"GO!", 0x0F);
 	}
-	else if (CurrentFramePerSec == 151 || CurrentFramePerSec == 211 || CurrentFramePerSec == 316 || CurrentFramePerSec == 421 || CurrentFramePerSec == 501 || CurrentFramePerSec == 581 || CurrentFramePerSec == 621 || CurrentFramePerSec == 731 || CurrentFramePerSec == 796 || CurrentFramePerSec == 946 || CurrentFramePerSec == 1016 || CurrentFramePerSec == 1081 || CurrentFramePerSec == 1141)
+	if(CurrentFramePerSec >= 440 && CurrentFramePerSec <= 1640)
 	{
-		Guard = false;
-	}
-	if(moving == true && Guard == true)
-	{
-		CurrentFramePerSec - 10;
-		Escapee = 0;
-	}
-	if(Escapee == 20)
-	{
-		Escapee = 0;
-		score += 1;
-	}
-	if(CurrentFramePerSec <= 1200)
-	{
-		if(Escapee%2 == 0)
-		{ 
-			Spotted->draw(10+checkEscapee*3,10,"  o  ",0x3C);
-			Spotted->draw(10+checkEscapee*3,11,"/ 0 \\",0x3C);
-			Spotted->draw(10+checkEscapee*3,12," / > ",0x3C);
-		}
-		else if(Escapee%2 == 1)
+		Spotted->draw(46,2,"_________ ZZZ",0x3C);
+		Spotted->draw(46,3,"/       \\",0x3C);
+		Spotted->draw(46,4,"| -   - |",0x3C);
+		Spotted->draw(46,5,"|   _   |",0x3C);
+		for (int a = 0; a <= 15; a++)
 		{
-			Spotted->draw(10+checkEscapee*3,10,"  o  ",0x3C);
-			Spotted->draw(10+checkEscapee*3,11,"\\ 0 /",0x3C);
-			Spotted->draw(10+checkEscapee*3,12," > / ",0x3C);
+			Spotted->draw(20,12+a,"-",0x2A);
 		}
-		Spotted->draw(24,20,"Cross, but don't get Spotted!",0x2B);
-		Spotted->draw(23,21,"----------Instuctions----------" ,0x2B);
-		Spotted->draw(5,22,"Spam the left, down and right buttons, but stop if the Guard wakes up!",0x2B);
-	}
-	if(CurrentFramePerSec > 1200)
-	{
-		Spotted->draw(19,21,"  criminals have crossed!",0x2B);
+
+		for (int a = 0; a <= 15; a++)
+		{
+			Spotted->draw(80,12+a,"-",0x2A);
+		}
+		if(checkalert >= 120 && checkalert <= 135 || checkalert >= 180 && checkalert <= 195 || checkalert >= 270 && checkalert <= 285 ||checkalert >= 375 && checkalert <= 390 ||checkalert >= 455 && checkalert <= 470 || checkalert >= 550 && checkalert <= 565 || checkalert >= 585 && checkalert <= 600 || checkalert >= 695 && checkalert <= 710 || checkalert >= 750 && checkalert <= 765 || checkalert >= 885 && checkalert <= 900 || checkalert >= 985 && checkalert <= 1000 || checkalert >= 1030 && checkalert <= 1045 || checkalert >= 1105 && checkalert <= 1120)
+		{
+			Spotted->draw(35,15,"ALERT!",0x3C);
+		}
+		if(checkalert >= 135 && checkalert <= 150 || checkalert >= 195 && checkalert <= 210 || checkalert >= 285 && checkalert <= 315 ||checkalert >= 390 && checkalert <= 420 ||checkalert >= 470 && checkalert <= 500 || checkalert >= 565 && checkalert <= 580 || checkalert >= 600 && checkalert <= 620 || checkalert >= 710 && checkalert <= 730 || checkalert >= 765 && checkalert <= 795 || checkalert >= 900 && checkalert <= 945 || checkalert >= 1000 && checkalert <= 1015 || checkalert >= 1045 && checkalert <= 1080 || checkalert >= 1120 && checkalert <= 1140)
+		{
+			Spotted->draw(46,2,"_________!!!!",0x3C);
+			Spotted->draw(46,3,"/       \\",0x3C);
+			Spotted->draw(46,4,"| 0   0 |",0x3C);
+			Spotted->draw(46,5,"|   o   |",0x3C);
+			Guard = true;
+		}
+		else if (checkalert == 151 || checkalert == 211 || checkalert == 316 || checkalert == 421 || checkalert == 501 || checkalert == 581 || checkalert == 621 || checkalert == 731 || checkalert == 796 || checkalert == 946 || checkalert == 1016 || checkalert == 1081 || checkalert == 1141)
+		{
+			Guard = false;
+		}
+		if(moving == true && Guard == true)
+		{
+			CurrentFramePerSec - 10;
+			Escapee = 0;
+		}
+		if(Escapee == 20)
+		{
+			Escapee = 0;
+			score += 1;
+		}
+		if(CurrentFramePerSec >= 440 && CurrentFramePerSec <= 1640)
+		{
+			if(Escapee%2 == 0)
+			{ 
+				Spotted->draw(21+checkEscapee*3,20,"  o  ",0x3C);
+				Spotted->draw(21+checkEscapee*3,21,"/ 0 \\",0x3C);
+				Spotted->draw(21+checkEscapee*3,22," / > ",0x3C);
+			}
+			else if(Escapee%2 == 1)
+			{
+				Spotted->draw(21+checkEscapee*3,20,"  o  ",0x3C);
+				Spotted->draw(21+checkEscapee*3,21,"\\ 0 /",0x3C);
+				Spotted->draw(21+checkEscapee*3,22," > / ",0x3C);
+			}
+		}
 		{
 			char buffer[10];
 			sprintf(buffer,"%d",score);
-			Spotted->draw(18,21,(buffer),0x2B);
+			Spotted->draw(40,27,"Score:",0x3C);
+			Spotted->draw(47,27,buffer,0x3C);
 		}
-	}
-	if(CurrentFramePerSec == 0 )
-	{
-		Spotted->draw(28,10,"Press Enter to Begin!" ,0x3E);
+		if(CurrentFramePerSec > 1640)
+		{
+			Spotted->draw(35,30,"  o  ",0x3C);
+			Spotted->draw(35,31,"\\0 /",0x3C);
+			Spotted->draw(35,32," / \\",0x3C);
+			Spotted->draw(31,21,"  criminals have crossed!",0x2B);
+			{
+				char buffer[10];
+				sprintf(buffer,"%d",score);
+				Spotted->draw(30,21,(buffer),0x2B);
+			}
+		}
 	}
 }
 
@@ -114,6 +142,7 @@ void Spotted::playSpotted()
 	CurrentFramePerSec++;
 	if (CurrentFramePerSec >= 440 && CurrentFramePerSec <= 1640)
 	{
+		checkalert++;
 		if(isKeyPressed(VK_LEFT) || isKeyPressed(VK_DOWN) || isKeyPressed(VK_RIGHT))
 		{
 			moving = true;

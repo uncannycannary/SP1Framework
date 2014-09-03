@@ -17,8 +17,6 @@ gamestate TableFlip::updateTableFlip(Graphics* console)
 	playTableFlip();
 	drawTableFlip(console);
 	return TABLE_FLIP;
-	drawTableFlip(console);
-	return TABLE_FLIP;
 
 	if(gameends)
 	{
@@ -72,7 +70,7 @@ void TableFlip::drawTableFlip(Graphics* TableFlip)
 
 		if(CurrentFramePerSec >= 330 && CurrentFramePerSec <= 360)
 		{	
-			TableFlip->draw(50,20,"1", 0x0F);
+			TableFlip->draw(50,20,"3", 0x0F);
 		}
 
 		if(CurrentFramePerSec >= 360 && CurrentFramePerSec <= 390)
@@ -82,7 +80,7 @@ void TableFlip::drawTableFlip(Graphics* TableFlip)
 
 		if(CurrentFramePerSec >= 390 && CurrentFramePerSec <= 420)
 		{	
-			TableFlip->draw(50,20,"3", 0x0F);
+			TableFlip->draw(50,20,"1", 0x0F);
 		}
 
 		if(CurrentFramePerSec >= 420 && CurrentFramePerSec <= 440)
