@@ -49,10 +49,6 @@ Scream::~Scream()
 
 void Scream::draw()
 {
-	if(currFrame == CountdownFrame)
-	{
-		introcolor = 0x1A;
-	}
 	if(currFrame == GameEndFrame)
 	{
 		powerbarcolor = 0x25;
@@ -62,7 +58,7 @@ void Scream::draw()
 		anim.playInstance(countdownindex,false);
 	}
 	anim.drawInstance(0, 0, introcolor, introindex);
-	anim.drawInstance(30, 40, 0x0F, countdownindex);
+	anim.drawInstance(0, 0, 0x0F, countdownindex);
 
 	const int powerbarheight = power / PowerToPixelRatio;
 	for(int index = 0; index < powerbarheight; index++)
@@ -82,7 +78,7 @@ gamestate Scream::update()
 	{
 		return MAIN_MENU;
 	}
-	else if(currFrame==EndscreenFrame && isKeyPressed(VK_RETURN))
+	else if(currFrame>=EndscreenFrame && isKeyPressed(VK_RETURN))
 	{
 		return MAIN_MENU;
 	}

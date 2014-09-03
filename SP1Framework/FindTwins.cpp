@@ -9,7 +9,7 @@ console(console),
 	wrong(false),
 	score(0),
 	currframe(0),
-	gameendframe(1100),
+	gameendframe(450),
 	pics(L"twins\\", L"*.txt"),
 	namepattern(L"twins%d.txt"),
 	numofpictures(3),
@@ -42,6 +42,10 @@ gamestate FindTwins::update()
 	if(isKeyPressed(VK_RETURN))
 	{
 		paused = !paused;
+	}
+	if(gameendframe == 0 && isKeyPressed(VK_RETURN))
+	{
+		return MAIN_MENU;
 	}
 	if(!paused)
 	{

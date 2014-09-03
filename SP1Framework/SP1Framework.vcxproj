@@ -144,8 +144,13 @@
     <None Include="scream\dovakin.txt" />
     <None Include="scream\dovakinkillsdragon.txt" />
     <None Include="scream\dragon.txt" />
+    <None Include="scream\go.txt" />
     <None Include="scream\instructions.txt" />
+    <None Include="scream\one.txt" />
+    <None Include="scream\ready.txt" />
+    <None Include="scream\three.txt" />
     <None Include="scream\title.txt" />
+    <None Include="scream\two.txt" />
     <None Include="SelectGame.txt" />
     <None Include="Submarine\Sub-shoot.txt" />
     <None Include="Submarine\Sub.txt" />

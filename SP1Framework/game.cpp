@@ -81,6 +81,7 @@ void update(double dt)
 
 		if(state != TABLE_FLIP)
 		{
+			score.addscore(flip->returnscore());
 			delete flip;
 			flip = NULL;
 		}
@@ -93,6 +94,7 @@ void update(double dt)
 		state = submarine->playsubgamemain();
 		if(state != SUBMARINE)
 		{
+			score.addscore(submarine->returnscore());
 			delete submarine;
 			submarine = NULL;
 		}
@@ -122,6 +124,7 @@ void update(double dt)
 
 		if(state != ICECHAN)
 		{
+			score.addscore(icekan->returnscore());
 			delete icekan;
 			icekan = NULL;
 		}
@@ -136,6 +139,7 @@ void update(double dt)
 
 		if(state != SCREAM)
 		{
+			score.addscore(scream->returnscore());
 			delete scream;
 			scream = NULL;
 		}
@@ -150,6 +154,7 @@ void update(double dt)
 
 		if(state != SPOTTED)
 		{
+			score.addscore(spot->returnscore());
 			delete spot;
 			spot = NULL;
 		}
@@ -164,6 +169,7 @@ void update(double dt)
 
 		if(state != FIND_TWINS)
 		{
+			score.addscore(twins->returnscore());
 			delete twins;
 			twins = NULL;
 		}
@@ -173,10 +179,12 @@ void update(double dt)
 		{
 			spam = new photospam(console);
 		}
-		int gamescore;
-		state = spam->update(gamescore);
+		
+		state = spam->update();
+
 		if(state != PHOTOSPAM)
 		{
+			score.addscore(spam->returnscore());
 			delete spam;
 			spam = NULL;
 		}
@@ -206,6 +214,7 @@ void update(double dt)
 
 		if(state != CANDY)
 		{
+			score.addscore(candy->returnscore());
 			delete candy;
 			candy = NULL;
 		}

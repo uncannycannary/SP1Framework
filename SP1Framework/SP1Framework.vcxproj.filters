@@ -307,5 +307,20 @@
     <None Include="twins\twins9.txt">
       <Filter>Text Files\find twins</Filter>
     </None>
+    <None Include="scream\go.txt">
+      <Filter>Text Files\Scream</Filter>
+    </None>
+    <None Include="scream\one.txt">
+      <Filter>Text Files\Scream</Filter>
+    </None>
+    <None Include="scream\ready.txt">
+      <Filter>Text Files\Scream</Filter>
+    </None>
+    <None Include="scream\three.txt">
+      <Filter>Text Files\Scream</Filter>
+    </None>
+    <None Include="scream\two.txt">
+      <Filter>Text Files\Scream</Filter>
+    </None>
   </ItemGroup>
 </Project>
