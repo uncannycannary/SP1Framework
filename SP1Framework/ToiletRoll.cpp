@@ -13,6 +13,7 @@ console(console)
 	rx = 60;
 	lx = 25;
 	score = 0;
+	rank = 'F';
 	read();
 }
 
@@ -232,6 +233,11 @@ void toiletroll::draw()
 
 	if(CurrentFrame >= 728)
 	{
+		
+		char rankbuffer[10];
+		sprintf(rankbuffer, "Rank: %c", rank);
+		console.draw(47,19, rankbuffer, 0x0F);
+
 		char buffer[256];
 		sprintf(buffer,"You have scored: %d",score);
 		console.draw(41,20, buffer, 0x0F);

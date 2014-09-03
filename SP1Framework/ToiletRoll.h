@@ -19,6 +19,7 @@ private:
 	int rx;
 	int lx;
 	int score;
+	char rank;
 	std::ifstream tr, rh, lh;
 	std::string trs, rhs, lhs;
 	Graphics& console;
