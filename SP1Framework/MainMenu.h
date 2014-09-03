@@ -12,7 +12,6 @@ gamestate Intro(Graphics&);
 gamestate EnterName(Graphics& console, highscore* score);
 gamestate MainMenu(Graphics&,highscore* score);
 gamestate GameSelect(Graphics&);
-gamestate Credits(Graphics&);
 void randommode();
 
 

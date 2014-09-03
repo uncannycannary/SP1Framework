@@ -158,18 +158,6 @@ void randommode()
 	israndom = true;
 }
 
-gamestate Credits(Graphics& console)
-{
-	if(isKeyPressed(VK_ESCAPE))
-	{
-		return MAIN_MENU;
-	}
-	else
-	{
-		return CREDITS;
-	}
-}
-
 gamestate GameSelect(Graphics& console)
 {
 	console.draw(34,12+choice2,"-->",0x9D);

@@ -19,6 +19,7 @@
 #include "Photospam.h"
 #include "FindTwins.h"
 #include "candy.h"
+#include "Credits.h"
 
 Graphics console;
 highscore score(console);
@@ -33,6 +34,7 @@ photospam* spam;
 FindTwins* twins;
 subgame* submarine;
 Candy* candy;
+Credits credit(&console);
 pumprocket* rocket;
 gamestate state = INTRO;
 void init()
@@ -41,6 +43,7 @@ void init()
 	updateinput();
 	ini();
 
+	//credit = NULL:
 	scream = NULL;
 	toilet = NULL;
 	spam = NULL;
@@ -221,6 +224,9 @@ void update(double dt)
 		break;
 	case HIGH_SCORE:
 		state = score.updatehighscore();
+		break;
+	case CREDITS:
+		state = credit.playCredits();
 		break;
 	case ENTER_NAME:
 		state = EnterName(console, &score);
