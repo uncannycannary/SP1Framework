@@ -7,7 +7,7 @@ gamestate Spotted::updateSpotted(Graphics* console)
 	{
 		return MAIN_MENU;
 	}
-	if (CurrentFramePerSec > 1640)
+	if (CurrentFramePerSec >= 1640)
 	{
 		if(isKeyPressed(VK_RETURN))
 		{
@@ -122,7 +122,7 @@ void Spotted::drawSpotted(Graphics* Spotted)
 			Spotted->draw(40,27,"Score:",0x3C);
 			Spotted->draw(47,27,buffer,0x3C);
 		}
-		if(CurrentFramePerSec > 1640)
+		if(CurrentFramePerSec >= 1640)
 		{
 			Spotted->draw(35,30,"  o  ",0x3C);
 			Spotted->draw(35,31,"\\0 /",0x3C);
