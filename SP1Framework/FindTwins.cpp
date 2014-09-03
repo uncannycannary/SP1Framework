@@ -138,7 +138,7 @@ void FindTwins::Draw()
 	if(currframe <= gameendframe)
 	{
 		char buffer[15];
-		sprintf(buffer,"time %d",gameendframe - currframe);
+		sprintf(buffer,"time %d",(gameendframe - currframe)/30);
 		console.draw(46,11,buffer,0x0F);
 	}
 	if(state == INTRO)

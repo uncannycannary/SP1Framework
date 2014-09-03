@@ -1,4 +1,4 @@
 How to Play...
 Hit left to shoot the enemy on the left.
-Hit up to shoot the enemy in the middle.
+Hit down to shoot the enemy in the middle.
 Hit right to shoot the enemy on the right.

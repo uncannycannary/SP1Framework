@@ -122,7 +122,8 @@ void Spotted::drawSpotted(Graphics* Spotted)
 			Spotted->draw(40,27,"Score:",0x3C);
 			Spotted->draw(47,27,buffer,0x3C);
 		}
-		if(CurrentFramePerSec >= 1640)
+	}
+	if(CurrentFramePerSec >= 1640)
 		{
 			Spotted->draw(35,30,"  o  ",0x3C);
 			Spotted->draw(35,31,"\\0 /",0x3C);
@@ -134,7 +135,6 @@ void Spotted::drawSpotted(Graphics* Spotted)
 				Spotted->draw(30,21,(buffer),0x2B);
 			}
 		}
-	}
 }
 
 void Spotted::playSpotted()

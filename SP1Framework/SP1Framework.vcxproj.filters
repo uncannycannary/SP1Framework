@@ -121,7 +121,7 @@
       <Filter>Source Files\Minigames</Filter>
     </ClCompile>
     <ClCompile Include="Credits.cpp">
-      <Filter>Source Files\Minigames</Filter>
+      <Filter>Source Files\UI&amp;Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
