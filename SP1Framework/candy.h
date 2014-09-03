@@ -22,12 +22,12 @@ private:
 	Graphics& console;
 
 public:
+	char returnscore();
 	gamestate update();
 	void read();
 	void play();
 	void draw();
 	Candy(Graphics&);
-	char returnscore();
 };
 
 #endif

@@ -185,3 +185,8 @@ void FindTwins::ProcessAns(bool userans1, bool userans2, bool userans3)
 		wrong = true;
 	}
 }
+
+char FindTwins::returnscore()
+{
+	return 'F';
+}

@@ -150,3 +150,8 @@ gamestate IKR::playIKRgame()
 	}
 	return ICECHAN;
 }
+
+char IKR::returnscore()
+{
+	return 'F';
+}

@@ -24,7 +24,7 @@ private:
 	Graphics& console;
 
 public:
-	gamestate update(int& gamescore);
+	gamestate update();
 	void play();
 	void read();
 	void draw();

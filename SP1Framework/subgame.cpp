@@ -275,3 +275,8 @@ gamestate subgame::playsubgamemain()
 	}
 	return SUBMARINE;
 }
+
+char subgame::returnscore()
+{
+	return 'F';
+}

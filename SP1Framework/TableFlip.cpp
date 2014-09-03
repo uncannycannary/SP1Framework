@@ -169,3 +169,7 @@ void TableFlip::drawTableFlip(Graphics* TableFlip)
 	}
 }
 
+char TableFlip::returnscore()
+{
+	return 'F';
+}

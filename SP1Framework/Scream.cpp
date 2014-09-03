@@ -155,3 +155,9 @@ void Scream::changestate()
 		anim.playInstance(introindex);
 	}
 }
+
+
+char Scream::returnscore()
+{
+	return 'F';
+}

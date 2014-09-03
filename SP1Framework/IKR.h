@@ -16,6 +16,7 @@ private:
 	Graphics* console;
 	char rank;
 public:
+	char returnscore();
 	void playIKRgameinstances();
 	gamestate playIKRgame();//main function
 	IKR(Graphics* console);

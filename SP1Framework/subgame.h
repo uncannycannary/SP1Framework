@@ -16,6 +16,7 @@ private:
 	Directory Subfold;
 	char rank;
 public:
+	char returnscore();
 	void playgamestate();
 	gamestate playsubgamemain();
 	void playsubcontrolsmechanics();

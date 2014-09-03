@@ -15,6 +15,7 @@ public:
 	FindTwins(Graphics& console);
 	~FindTwins();
 	gamestate update();
+	char returnscore();
 private:
 	//game variables
 	Graphics& console;

@@ -12,6 +12,7 @@
 class TableFlip
 {
 public:
+	char returnscore();
 	gamestate updateTableFlip(Graphics* console);
 	TableFlip()
 	{

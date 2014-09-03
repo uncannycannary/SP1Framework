@@ -52,6 +52,7 @@ public:
 	Scream(Graphics& console);
 	~Scream();
 	gamestate update();
+	char returnscore();
 };
 
 #endif
