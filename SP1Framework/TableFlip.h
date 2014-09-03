@@ -24,6 +24,7 @@ public:
 		GameStarts = false;
 		gameends = false;
 		score = 0;
+		rank = 'F';
 	}
 	~TableFlip()
 	{

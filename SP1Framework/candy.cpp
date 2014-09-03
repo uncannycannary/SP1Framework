@@ -10,6 +10,7 @@ console(console)
 	score = 20;
 	triger = false;
 	twosec = 1040;
+	rank = 'F';
 	read();
 }
 
@@ -234,7 +235,7 @@ void Candy::draw()
 			console.draw(38,25, j7.c_str(), 0x0F);
 		}
 
-		if(score < 7)
+		if(score <= 7)
 		{
 			rank = 'S';
 		}

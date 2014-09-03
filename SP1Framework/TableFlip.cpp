@@ -135,11 +135,11 @@ void TableFlip::drawTableFlip(Graphics* TableFlip)
 		
 		score = right+left;
 
-		if(score > 76 && score < 85 )
+		if(score > 76)
 		{
 			rank = 'S';
 		}
-		if(score > 66 && score < 76)
+		if(score > 66 && score <= 76)
 		{
 			rank = 'A';
 		}
@@ -165,7 +165,7 @@ void TableFlip::drawTableFlip(Graphics* TableFlip)
 		}
 		char rankbuffer[10];
 		sprintf(rankbuffer, "Rank: %c", rank);
-		TableFlip->draw(47,19, rankbuffer, 0x0F);
+		TableFlip->draw(47,24, rankbuffer, 0x0F);
 	}
 }
 

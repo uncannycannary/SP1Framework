@@ -12,6 +12,7 @@ console(console)
 	wrong = false;
 	score = 0;
 	set = 500;
+	rank = 'F';
 	read();
 }
 
@@ -316,7 +317,7 @@ void photospam::draw()
 		console.draw(47,19, rankbuffer, 0x0F);
 
 		char buffer[256];
-		console.draw(36,19, "Just kidding, the game ended", 0x0F);
+		console.draw(36,17, "Just kidding, the game ended", 0x0F);
 		sprintf(buffer,"You have scored: %d",score);
 		console.draw(41,20, buffer, 0x0F);
 		console.draw(37,22, "Press Enter to continune...", 0x0F);

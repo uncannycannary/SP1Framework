@@ -129,27 +129,27 @@ void Spotted::drawSpotted(Graphics* Spotted)
 			{
 				rank = 'S';
 			}
-			if(score > 13 && score <= 15)
+			if(score > 12 && score <= 15)
 			{
 				rank = 'A';
 			}
-			if(score > 11 && score <= 13)
+			if(score > 10 && score <= 12)
 			{
 				rank = 'B';
 			}
-			if(score > 9 && score <= 11)
+			if(score > 8 && score <= 10)
 			{
 				rank = 'C';
 			}
-			if(score > 7 && score <= 9)
+			if(score > 6 && score <= 8)
 			{
 				rank = 'D';
 			}
-			if(score > 5 && score <= 7)
+			if(score > 4 && score <= 6)
 			{
 				rank = 'E';
 			}
-			if(score <= 3)
+			if(score <= 4)
 			{
 				rank = 'F';
 			}

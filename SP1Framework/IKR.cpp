@@ -7,6 +7,7 @@ Icekachanimcounter(6),//for the animations the game instances
 higherscore(0),
 IceKach(L"IceKachangEatout\\",L"*.txt"),
 framecounter(-30),
+rank('F'),
 console(console)
 {
 }
@@ -72,42 +73,42 @@ void IKR::playIKRgameinstances()
 	}
 	if(framecounter >= 1191)
 	{
-		char score[25];
-		sprintf(score,"You have scored: %d",higherscore);
-		console->draw(41,20,score,0x1A);
-		console->draw(38,22, "Press Enter to continue!", 0x1A);
-
-		if(higherscore > 76 && higherscore < 85 )
+		if(higherscore > 65)
 		{
 			rank = 'S';
 		}
-		if(higherscore > 66 && higherscore < 76)
+		if(higherscore > 60 && higherscore <= 65)
 		{
 			rank = 'A';
 		}
-		if(higherscore > 57 && higherscore <= 66)
+		if(higherscore > 55 && higherscore <= 60)
 		{
 			rank = 'B';
 		}
-		if(higherscore > 49 && higherscore <= 57)
+		if(higherscore > 50  && higherscore <= 55)
 		{
 			rank = 'C';
 		}
-		if(higherscore > 41 && higherscore <= 49)
+		if(higherscore > 45 && higherscore <= 50)
 		{
 			rank = 'D';
 		}
-		if(higherscore > 31 && higherscore <= 40)
+		if(higherscore > 35 && higherscore <= 45)
 		{
 			rank = 'E';
 		}
-		if(higherscore <= 30)
+		if(higherscore <= 35)
 		{
 			rank = 'F';
 		}
 		char rankbuffer[10];
 		sprintf(rankbuffer, "Rank: %c", rank);
 		console->draw(47,19, rankbuffer, 0x0F);
+
+		char score[25];
+		sprintf(score,"You have scored: %d",higherscore);
+		console->draw(41,20,score,0x1A);
+		console->draw(38,22, "Press Enter to continue!", 0x1A);
 	}
 }
 
