@@ -2,10 +2,18 @@
 #include <math.h>
 std::string scoretitle;
 
-void highscore::addscore(int gamescore)
+void highscore::addscore(char gamescore)
 {
-	numofmini++;
-	totalscore += gamescore;
+	if(gamescore >= 'A' && gamescore <= 'F')
+	{
+		numofmini++;
+		totalscore += gamescore;
+	}
+	else if(gamescore == 'S')
+	{
+		numofmini++;
+		totalscore += 'A' - 1;
+	}
 }
 
 highscore::highscore(Graphics& console)
@@ -58,6 +66,7 @@ corn(console)
 	numofmini = 0;
 	strcpy(currentname,"END");
 }
+
 gamestate highscore::updatehighscore()
 {
 	corn.draw(15,1,scoretitle.c_str(),0x2A);
@@ -84,59 +93,49 @@ void highscore::scoreend()
 {
 	if(numofmini)
 	{
-		int currscore;
-		currscore = totalscore/numofmini;
-		std::vector<int> scores;
-		std::string buffer;
+		char currscore = ceil(totalscore/(float)numofmini);
+		int index = 0;
+		bool scoreadded = false;
 		for(int i = 0; i < score.size(); i++)
 		{
-			if(score[i] == '\n' && buffer.size())
-			{	
-				int num = 0;
-				int digit = buffer.size() - 1;
-				for(int i = 0; i < buffer.size(); i++)
+			
+			if( score[i] == '\n')
+			{
+				continue;
+			}
+			else
+			{
+				char letter = score[i];
+				if(letter == 'S')
 				{
-					num += (buffer[i] - 48) * pow(10.0,digit);
-					digit--;
+					letter = 'A' - 1;
 				}
-				scores.push_back(num);
-				buffer.clear();
-			}
-			else if(score[i] == '\n')
-			{
-				continue;
-			}
-			else
-			{
-				buffer += score[i];
-			}
-		}
-		int index;
-		bool scoreadded = false;
-		for(index = 0; index < scores.size(); index++)
-		{
-			if( currscore < scores[index])
-			{
-				continue;
-			}
-			else
-			{
-				scores.insert(scores.begin()+index,currscore);
-				scoreadded = true;
-				break;
+				if(currscore <= letter)
+				{
+					if(currscore == 'A' - 1)
+					{
+						currscore = 'S';
+					}
+					string buffer;
+					buffer += "\n\n";
+					buffer += currscore;
+
+					score.insert(index,buffer);
+					for(int index = 0; index < 3; index++)
+					{
+						score.pop_back();
+					}
+					scoreadded = true;
+					break;
+				}
+				else
+				{
+					index++;
+				}
 			}
 		}
 		if(scoreadded)
 		{
-			score.clear();
-			for(int i = 0; i < scores.size(); i++)
-			{
-				int number = scores[i];
-				char buffer[10];
-				sprintf(buffer,"%d\n\n",number);
-				score.append(buffer);
-			}
-
 			std::vector<string> namebuffer;
 			int namepass = 0;
 			for(int nameindex = 0; nameindex < name.size(); nameindex += 5)

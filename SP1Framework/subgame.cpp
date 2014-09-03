@@ -230,7 +230,7 @@ gamestate subgame::playsubgamemain()
 	}
 	playsubcontrolsmechanics();
 	playgamestate();
-	if(isKeyPressed(VK_RETURN) && framecounter < 900)
+	if(isKeyPressed(VK_RETURN) && framecounter > 900)
 	{
 		return MAIN_MENU;
 	}

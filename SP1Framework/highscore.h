@@ -13,12 +13,19 @@ class highscore
 public:
 	gamestate updatehighscore();
 	highscore(Graphics&);
-	void addscore(int score);
+	void addscore(char score);
 	void scorestart(char* nowname);
 	void scoreend();
 	~highscore()
 	{
+		std::ofstream savescore;
+		savescore.open("score.txt");
+		savescore << score;
+		savescore.close();
 
+		savescore.open("name.txt");
+		savescore << name;
+		savescore.close();
 	}
 private:
 	Graphics& corn;

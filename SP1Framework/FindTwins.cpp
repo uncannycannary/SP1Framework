@@ -173,6 +173,7 @@ void FindTwins::ProcessAns(bool userans1, bool userans2, bool userans3)
 	}
 	else
 	{
+		score -= 3;
 		userhasans = true;
 		wrong = true;
 	}
