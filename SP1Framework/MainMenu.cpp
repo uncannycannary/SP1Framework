@@ -7,7 +7,8 @@ int choice2 = 0;
 std::vector<gamestate> random;
 int currentframe = 0;
 int currentstage = 0;
-bool israndom;
+bool israndom = false;
+string name;
 
 void ini()
 {
@@ -71,7 +72,7 @@ gamestate MainMenu(Graphics& console,highscore* score)
 			return stage;
 		}
 	}
-	else if(israndom && !random.size())
+	else if(israndom)
 	{
 		score->scoreend();
 		israndom = false;
@@ -111,8 +112,7 @@ gamestate MainMenu(Graphics& console,highscore* score)
 				return GAME_SELECT;
 			case 1:
 				randommode();
-				score->scorestart("HLP");
-				return MAIN_MENU;
+				return ENTER_NAME;
 			case 2:
 				return HIGH_SCORE;
 			case 3:
@@ -238,4 +238,31 @@ gamestate GameSelect(Graphics& console)
 		return MAIN_MENU;
 	}
 	return GAME_SELECT;
+}
+
+gamestate EnterName(Graphics& console, highscore* score)
+{
+	if(name.empty())
+	{
+		name += "AAA";
+	}
+	while(char letter = getkeyboardbuffer())
+	{
+		string l;
+		l += letter;
+		name.insert(0,l);
+		name.pop_back();
+	}
+	char buffer[256] = "Please enter your name: ";
+	strcat(buffer,name.c_str());
+	console.draw(37,10,buffer,0x0f);
+	if(isKeyPressed(VK_RETURN))
+	{
+		score->scorestart(name.c_str());
+		return MAIN_MENU;
+	}
+	else
+	{
+		return ENTER_NAME;
+	}
 }

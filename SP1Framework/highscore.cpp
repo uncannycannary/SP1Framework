@@ -82,7 +82,7 @@ gamestate highscore::updatehighscore()
 	return HIGH_SCORE;
 }
 
-void highscore::scorestart(char* nowname)
+void highscore::scorestart(const char* nowname)
 {
 	totalscore = 0;
 	numofmini = 0;

@@ -28,5 +28,6 @@ void cls( HANDLE hConsole = 0);
 bool isKeyPressed(unsigned short key);
 void updateinput();
 bool isKeyHold(unsigned short key);
+char getkeyboardbuffer();
 
 #endif // _CONSOLE_H

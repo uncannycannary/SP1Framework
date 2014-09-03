@@ -14,7 +14,7 @@ public:
 	gamestate updatehighscore();
 	highscore(Graphics&);
 	void addscore(char score);
-	void scorestart(char* nowname);
+	void scorestart(const char* nowname);
 	void scoreend();
 	~highscore()
 	{

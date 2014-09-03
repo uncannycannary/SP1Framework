@@ -213,6 +213,9 @@ void update(double dt)
 	case HIGH_SCORE:
 		state = score.updatehighscore();
 		break;
+	case ENTER_NAME:
+		state = EnterName(console, &score);
+		break;
 	case QUIT_GAME:
 		g_quitGame = true;
 		break;

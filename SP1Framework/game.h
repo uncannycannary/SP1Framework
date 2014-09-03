@@ -23,6 +23,7 @@ enum gamestate
 	INTRO,
 	MAIN_MENU,
 	HIGH_SCORE,
+	ENTER_NAME,
 	CREDITS,
 	RANDOM,
 	RESULTS,
@@ -36,7 +37,7 @@ enum submarfull//submarine game.
 	MECHANICS
 };
 
-const int numofminigames = MAXSTATES - 8;
+const int numofminigames = MAXSTATES - 9;
 
 
 void init();                // initialize your variables, allocate memory, etc

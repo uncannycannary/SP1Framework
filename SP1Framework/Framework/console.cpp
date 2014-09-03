@@ -1,5 +1,9 @@
 #include "console.h"
 #include <cstdio>
+#include <vector>
+
+std::vector<char> keyboardbuffer;
+int delay = 0;
 
 void gotoXY(int x,int y)
 {
@@ -86,6 +90,22 @@ bool getkey(unsigned short key)
 
 void updateinput()
 {
+	if(!delay)
+	{
+		keyboardbuffer.clear();
+		for(int index = ' '; index < '~'; index++)
+		{
+			if(getkey(index))
+			{
+				keyboardbuffer.push_back((char)index);
+			}
+		}
+		delay = 2;
+	}
+	else
+	{
+		delay--;
+	}
 	for(int index = 0; index < 256; index++)
 	{
 		if(keyAlreadyPressed[index] && !getkey(index))
@@ -116,4 +136,18 @@ void updateinput()
 bool isKeyPressed(unsigned short key)
 {
 	return keyispressed[key];
+}
+
+char getkeyboardbuffer()
+{
+	if(keyboardbuffer.empty())
+	{
+		return 0;
+	}
+	else
+	{
+		char letter = keyboardbuffer.back();
+		keyboardbuffer.pop_back();
+		return letter;
+	}
 }

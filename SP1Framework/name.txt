@@ -1,5 +1,9 @@
 SAD
 
+DAM
+
+DMA
+
 SFK
 
 ADD
@@ -13,8 +17,4 @@ DEC
 EEK
 
 FIN
-
-FUU
-
-FAA
 
