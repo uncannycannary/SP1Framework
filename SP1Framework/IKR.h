@@ -14,6 +14,7 @@ private:
 	int framecounter;
 	Directory IceKach;
 	Graphics* console;
+	char rank;
 public:
 	void playIKRgameinstances();
 	gamestate playIKRgame();//main function

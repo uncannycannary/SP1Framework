@@ -14,6 +14,7 @@ private:
 	int higherscore;
 	Graphics* console;
 	Directory Subfold;
+	char rank;
 public:
 	void playgamestate();
 	gamestate playsubgamemain();

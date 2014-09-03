@@ -233,7 +233,7 @@ void toiletroll::draw()
 
 	if(CurrentFrame >= 728)
 	{
-		if(score > 8 && score <= 10)
+		if(score > 8)
 		{
 			rank = 'S';
 		}

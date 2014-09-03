@@ -22,6 +22,7 @@ public:
 		CurrentFramePerSec = 0;
 		GameStarts = false;
 		gameends = false;
+		score = 0;
 	}
 	~TableFlip()
 	{
@@ -34,6 +35,8 @@ private:
 	int checkleft;
 	int checkright;
 	int CurrentFramePerSec;
+	int score;
+	char rank;
 	bool GameStarts;
 	bool gameends;
 };

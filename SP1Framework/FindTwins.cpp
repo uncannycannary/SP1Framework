@@ -3,23 +3,23 @@
 FindTwins::FindTwins(Graphics& console)
 	:
 console(console),
-anim(console),
-paused(false),
-userhasans(false),
-wrong(false),
-score(0),
-currframe(0),
-gameendframe(1100),
-pics(L"twins\\", L"*.txt"),
-namepattern(L"twins%d.txt"),
-numofpictures(3),
-picture1positionx(0),
-picture2positionx(0),
-picture3positionx(0),
-picturepositiony(0),
-pictureheight(0),
-positionpictureduration(0),
-positionpicture(0)
+	anim(console),
+	paused(false),
+	userhasans(false),
+	wrong(false),
+	score(0),
+	currframe(0),
+	gameendframe(1100),
+	pics(L"twins\\", L"*.txt"),
+	namepattern(L"twins%d.txt"),
+	numofpictures(3),
+	picture1positionx(0),
+	picture2positionx(0),
+	picture3positionx(0),
+	picturepositiony(0),
+	pictureheight(0),
+	positionpictureduration(0),
+	positionpicture(0)
 {
 	for(int index = 0; index < numofpictures; index++)
 	{
@@ -61,7 +61,7 @@ gamestate FindTwins::update()
 
 void FindTwins::UpdateState()
 {
-	
+
 }
 
 void FindTwins::UpdatePictures()
@@ -101,17 +101,20 @@ void FindTwins::UpdateAnimations()
 
 void FindTwins::DoUserInput()
 {
-	if(isKeyPressed(VK_LEFT) && isKeyPressed(VK_DOWN))
+	if(currframe <= gameendframe)
 	{
-		ProcessAns(true, true, false);
-	}
-	else if(isKeyPressed(VK_LEFT) && isKeyPressed(VK_RIGHT))
-	{
-		ProcessAns(true, false, true);
-	}
-	else if(isKeyPressed(VK_DOWN) && isKeyPressed(VK_RIGHT))
-	{
-		ProcessAns(false, true, true);
+		if(isKeyPressed(VK_LEFT) && isKeyPressed(VK_DOWN))
+		{
+			ProcessAns(true, true, false);
+		}
+		else if(isKeyPressed(VK_LEFT) && isKeyPressed(VK_RIGHT))
+		{
+			ProcessAns(true, false, true);
+		}
+		else if(isKeyPressed(VK_DOWN) && isKeyPressed(VK_RIGHT))
+		{
+			ProcessAns(false, true, true);
+		}
 	}
 }
 
@@ -129,7 +132,7 @@ void FindTwins::Draw()
 	console.draw(0,20,pictures[0].c_str(),color);
 	console.draw(30,20,pictures[1].c_str(),color);
 	console.draw(60,20,pictures[2].c_str(),color);
-	
+
 	{
 		char buffer[15];
 		sprintf(buffer,"Score %d",score);
@@ -155,11 +158,11 @@ void FindTwins::Draw()
 	}
 	else if(state == SHOWANS)
 	{
-		
+
 	}
 	else if(state == ENDSCREEN)
 	{
-		
+
 	}
 }
 

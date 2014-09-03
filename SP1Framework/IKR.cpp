@@ -76,6 +76,38 @@ void IKR::playIKRgameinstances()
 		sprintf(score,"You have scored: %d",higherscore);
 		console->draw(41,20,score,0x1A);
 		console->draw(38,22, "Press Enter to continue!", 0x1A);
+
+		if(higherscore > 76 && higherscore < 85 )
+		{
+			rank = 'S';
+		}
+		if(higherscore > 66 && higherscore < 76)
+		{
+			rank = 'A';
+		}
+		if(higherscore > 57 && higherscore <= 66)
+		{
+			rank = 'B';
+		}
+		if(higherscore > 49 && higherscore <= 57)
+		{
+			rank = 'C';
+		}
+		if(higherscore > 41 && higherscore <= 49)
+		{
+			rank = 'D';
+		}
+		if(higherscore > 31 && higherscore <= 40)
+		{
+			rank = 'E';
+		}
+		if(higherscore <= 30)
+		{
+			rank = 'F';
+		}
+		char rankbuffer[10];
+		sprintf(rankbuffer, "Rank: %c", rank);
+		console->draw(47,19, rankbuffer, 0x0F);
 	}
 }
 

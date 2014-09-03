@@ -132,6 +132,40 @@ void TableFlip::drawTableFlip(Graphics* TableFlip)
 			TableFlip->draw(62,25,scorebuffer,0x2B);
 		}
 		TableFlip->draw(37,45,"Press Enter to continue!" ,0x3E);
+		
+		score = right+left;
+
+		if(score > 76 && score < 85 )
+		{
+			rank = 'S';
+		}
+		if(score > 66 && score < 76)
+		{
+			rank = 'A';
+		}
+		if(score > 57 && score <= 66)
+		{
+			rank = 'B';
+		}
+		if(score > 49 && score <= 57)
+		{
+			rank = 'C';
+		}
+		if(score > 41 && score <= 49)
+		{
+			rank = 'D';
+		}
+		if(score > 31 && score <= 40)
+		{
+			rank = 'E';
+		}
+		if(score <= 30)
+		{
+			rank = 'F';
+		}
+		char rankbuffer[10];
+		sprintf(rankbuffer, "Rank: %c", rank);
+		TableFlip->draw(47,19, rankbuffer, 0x0F);
 	}
 }
 

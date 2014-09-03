@@ -18,6 +18,7 @@ private:
 	bool wrong;
 	int score;
 	int set;
+	char rank;
 	std::ifstream diamond, poop, snap, cross,box;
 	std::string diamonds, poops, snaps, crosss,boxs;
 	Graphics& console;

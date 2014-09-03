@@ -219,6 +219,38 @@ void subgame::playgamestate()
 		sprintf(score,"You have scored: %d",higherscore);
 		console->draw(41,20,score,0x1A);
 		console->draw(38,22, "Press Enter to continue!", 0x1A);
+
+		if(higherscore > 70 && higherscore < 80 )
+		{
+			rank = 'S';
+		}
+		if(higherscore > 60 && higherscore < 70)
+		{
+			rank = 'A';
+		}
+		if(higherscore > 50 && higherscore <= 60)
+		{
+			rank = 'B';
+		}
+		if(higherscore > 40 && higherscore <= 50)
+		{
+			rank = 'C';
+		}
+		if(higherscore > 30 && higherscore <= 40)
+		{
+			rank = 'D';
+		}
+		if(higherscore > 20 && higherscore <= 30)
+		{
+			rank = 'E';
+		}
+		if(higherscore <= 20)
+		{
+			rank = 'F';
+		}
+		char rankbuffer[10];
+		sprintf(rankbuffer, "Rank: %c", rank);
+		console->draw(47,19, rankbuffer, 0x0F);
 	}
 }
 

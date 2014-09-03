@@ -155,7 +155,7 @@ void Spotted::drawSpotted(Graphics* Spotted)
 			}
 			char rankbuffer[10];
 			sprintf(rankbuffer, "Rank: %c", rank);
-			console.draw(47,20, rankbuffer, 0x2B);
+			Spotted->draw(47,20, rankbuffer, 0x2B);
 
 			Spotted->draw(35,30,"  o  ",0x3C);
 			Spotted->draw(35,31,"\\0 /",0x3C);
