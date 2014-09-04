@@ -2,46 +2,15 @@
 //
 //
 #include "game.h"
-#include "highscore.h"
-#include "Framework\console.h"
-#include <iostream>
-#include <time.h>
-#include <stdlib.h>
-#include "MainMenu.h"
-#include"ToiletRoll.h"
-#include "Graphics.h"
-#include "TableFlip.h"
-#include "Scream.h"
-#include "subgame.h"
-#include "Spotted.h"
-#include "Rocket.h"
-#include "IKR.h"
-#include "Photospam.h"
-#include "FindTwins.h"
-#include "candy.h"
-#include "Credits.h"
 
-Graphics console;
-highscore score(console);
-
-//Create a pointer to store the location of the scream object
-IKR* icekan;
-Spotted* spot;
-TableFlip* flip;
-Scream* scream;
-toiletroll* toilet;
-photospam* spam;
-FindTwins* twins;
-subgame* submarine;
-Candy* candy;
-Credits credit(&console);
-pumprocket* rocket;
-gamestate state = INTRO;
-void init()
+Game::Game()
+	:
+score(console),
+state(MAIN_MENU),
+mainmenu(console,&score)
 {
 	srand(time(NULL));
 	updateinput();
-	ini();
 
 	//credit = NULL:
 	scream = NULL;
@@ -56,23 +25,17 @@ void init()
 	icekan = NULL;
 }
 
-void shutdown()
+Game::~Game()
 {
 }
 
-void update(double dt)
+bool Game::Update(double dt)
 {
 	updateinput();
 	switch(state)
 	{
-	case INTRO:
-		state = Intro(console);
-		break;
 	case MAIN_MENU:
-		state = MainMenu(console,&score);
-		break;
-	case GAME_SELECT:
-		state = GameSelect(console);
+		state = mainmenu.Update();
 		break;
 	case TABLE_FLIP:
 		if(flip == NULL)
@@ -225,19 +188,14 @@ void update(double dt)
 	case HIGH_SCORE:
 		state = score.updatehighscore();
 		break;
-	case CREDITS:
-		state = credit.playCredits();
-		break;
-	case ENTER_NAME:
-		state = EnterName(console, &score);
-		break;
 	case QUIT_GAME:
-		g_quitGame = true;
+		return true;
 		break;
 	}
+	return false;
 }
 
-void render()
+void Game::Render()
 {
 	console.updateconsole();
 }

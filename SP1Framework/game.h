@@ -3,46 +3,51 @@
 
 #include "Framework\timer.h"
 #include "Directory.h"
+#include "Sound.h"
+#include "TableFlip.h"
+#include "Scream.h"
+#include "subgame.h"
+#include "Spotted.h"
+#include "Rocket.h"
+#include "IKR.h"
+#include "Photospam.h"
+#include "FindTwins.h"
+#include "candy.h"
+#include "highscore.h"
+#include "Framework\console.h"
+#include <iostream>
+#include <time.h>
+#include <stdlib.h>
+#include "MainMenu.h"
+#include"ToiletRoll.h"
+#include "Graphics.h"
 
 extern StopWatch g_timer;
-extern bool g_quitGame;
-enum gamestate
+
+class Game
 {
-	TABLE_FLIP,
-	TOILET_ROLL,
-	SCREAM,
-	SUBMARINE,
-	SPOTTED,
-	FIND_TWINS,
-	ROCKET,
-	PHOTOSPAM,
-	CANDY,
-	ICECHAN,
-	QUIT_GAME,
-	GAME_SELECT,
-	INTRO,
-	MAIN_MENU,
-	HIGH_SCORE,
-	ENTER_NAME,
-	CREDITS,
-	RANDOM,
-	RESULTS,
-	MAXSTATES,
+public:
+	Game::Game();
+	Game::~Game();
+	bool Update(double dt);
+	void Render();
+private:
+	Graphics console;
+	highscore score;
+	MainMenu mainmenu;
+
+	gamestate state;
+
+	IKR* icekan;
+	Spotted* spot;
+	TableFlip* flip;
+	Scream* scream;
+	toiletroll* toilet;
+	photospam* spam;
+	FindTwins* twins;
+	subgame* submarine;
+	Candy* candy;
+	pumprocket* rocket;
 };
-
-enum submarfull//submarine game.
-{
-	ANIMATIONS,
-	GAMESTATE,
-	MECHANICS
-};
-
-const int numofminigames = MAXSTATES - 9;
-
-
-void init();                // initialize your variables, allocate memory, etc
-void update(double dt);     // update the game and the state of the game
-void render();              // renders the current state of the game to the console
-void shutdown();            // do clean up, free memory
 
 #endif // _GAME_H

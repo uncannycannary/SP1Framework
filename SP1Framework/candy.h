@@ -1,7 +1,6 @@
 #ifndef _CANDY_H
 #define _CANDY_H
 
-#include "game.h"
 #include "Framework\console.h"
 #include "Graphics.h"
 #include <fstream>

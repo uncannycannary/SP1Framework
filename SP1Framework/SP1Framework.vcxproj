@@ -92,6 +92,7 @@
     <ClCompile Include="Photospam.cpp" />
     <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="Scream.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Spotted.cpp" />
     <ClCompile Include="subgame.cpp" />
     <ClCompile Include="TableFlip.cpp" />
@@ -114,6 +115,7 @@
     <ClInclude Include="Photospam.h" />
     <ClInclude Include="Rocket.h" />
     <ClInclude Include="Scream.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="Spotted.h" />
     <ClInclude Include="subgame.h" />
     <ClInclude Include="TableFlip.h" />

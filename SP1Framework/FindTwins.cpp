@@ -40,6 +40,9 @@ console(console),
 	countdownindex = anim.Add(&countdown,30);
 
 	anim.playInstance(introindex);
+
+	snd.loadWave("tinkle", "tinkle.wav");
+    snd.loadWave("farty", "farty.wav");
 }
 
 FindTwins::~FindTwins()
@@ -238,12 +241,14 @@ void FindTwins::ProcessAns(bool userans1, bool userans2, bool userans3)
 		userhasans = true;
 		score++;
 		wrong = false;
+		snd.playSound("tinkle");
 	}
 	else
 	{
 		score -= 3;
 		userhasans = true;
 		wrong = true;
+		snd.playSound("farty");
 	}
 }
 

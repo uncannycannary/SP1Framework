@@ -1,8 +1,12 @@
 #ifndef _HIGHSCORE_H
 #define _HIGHSCORE_H
+#include <iostream>
+#include <stdlib.h>
 #include <string>
+#include <cstdio>
 #include <iomanip>
-#include "game.h"
+#include <fstream>
+#include <vector>
 #include "Graphics.h"
 #include "Framework\console.h"
 

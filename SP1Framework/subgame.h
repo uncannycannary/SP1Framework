@@ -4,7 +4,6 @@
 #include "Directory.h"
 #include <fstream>
 #include "Framework\console.h"
-#include "game.h"
 
 class subgame
 {

@@ -1,18 +1,22 @@
 #include "MainMenu.h"
-std::string Title;
-std::string Main;
-std::string Select;
-int choice = 0;
-int choice2 = 0;
-std::vector<gamestate> random;
-int currentframe = 0;
-int currentstage = 0;
-bool israndom = false;
-bool displayscore = false;
-char finalrank = 'F';
-string name;
 
-void ini()
+
+
+
+MainMenu::MainMenu(Graphics& console, highscore* score)
+	:
+console(console),
+score(score),
+credits(L"Credits//",L"*.txt"),
+choice(0),
+choice2(0),
+currentframe(0),
+currentstage(0),
+israndom(false),
+displayscore(false),
+entername(false),
+state(TITLE),
+finalrank('F')
 {
 	std::ifstream readTitle;
 	readTitle.open ("ButtonMashMaster.txt"); // associate & open files
@@ -27,9 +31,9 @@ void ini()
 	readMain.open ("MainMenu.txt"); // associate & open files
 	while (!readMain.eof()) 
 	{
-		Main += readMain.get();
+		Menu += readMain.get();
 	}
-	Main.pop_back();
+	Menu.pop_back();
 	readMain.close();
 
 	std::ifstream readSelect;
@@ -42,20 +46,43 @@ void ini()
 	readSelect.close();
 }
 
-gamestate Intro(Graphics& console)
+MainMenu::~MainMenu()
 {
-	console.draw(27,3,Title.c_str(),0x9D);
-	console.draw(42,21,"Press Enter to Begin!" ,0x9D);
-	if(isKeyPressed(VK_RETURN))
-	{
-		return MAIN_MENU;
-	}
-	return INTRO;
 }
 
-gamestate MainMenu(Graphics& console,highscore* score)
+gamestate MainMenu::Update()
 {
-	if(random.size() > 0)
+	switch(state)
+	{
+	case TITLE:
+		Intro();
+		return MAIN_MENU;
+	case MENU:
+		return Main();
+	case GAME_SELECT:
+		return GameSelect();
+	case RANDOM:
+		return Random();
+	case ENTER_NAME:
+		EnterName();
+	case CREDITS:
+		Credits();
+		return MAIN_MENU;
+	case HIGHSCORE:
+		return score->updatehighscore();
+	default:
+		return MAIN_MENU;
+	}
+}
+
+gamestate MainMenu::Random()
+{
+	if(entername)
+	{
+		EnterName();
+		return MAIN_MENU;
+	}
+	else if(random.size() > 0)
 	{
 		if(currentframe <= 60)
 		{
@@ -74,13 +101,6 @@ gamestate MainMenu(Graphics& console,highscore* score)
 			return stage;
 		}
 	}
-	else if(israndom)
-	{
-		finalrank = score->scoreend();
-		israndom = false;
-		displayscore = true;
-		return MAIN_MENU;
-	}
 	else if(displayscore)
 	{
 		char buffer[256];
@@ -89,57 +109,79 @@ gamestate MainMenu(Graphics& console,highscore* score)
 		if(isKeyPressed(VK_RETURN) || isKeyPressed(VK_ESCAPE))
 		{
 			displayscore = false;
+			state = MENU;
 		}
 		return MAIN_MENU;
 	}
 	else
 	{
-		console.draw(37,12+choice,"-->",0x9D);
-		console.draw(25,3,Main.c_str(),0x9D);
-		console.draw(40,12," Normal Mode",0x9D);
-		console.draw(40,13," Random Mode",0x9D);
-		console.draw(40,14," High Score ",0x9D);
-		console.draw(40,15," Credits    ",0x9D);
-		console.draw(40,16," Exit game  ",0x9D);
-
-		if(isKeyPressed(VK_DOWN))
-		{
-			choice++;
-			if(choice > 4)
-			{
-				choice = 4;
-			}
-		}
-		if(isKeyPressed(VK_UP))
-		{
-			choice--;
-			if(choice < 0)
-			{
-				choice = 0;
-			}
-		}
-		if(isKeyPressed(VK_RETURN))
-		{
-			switch(choice)
-			{
-			case 0:
-				return GAME_SELECT;
-			case 1:
-				randommode();
-				return ENTER_NAME;
-			case 2:
-				return HIGH_SCORE;
-			case 3:
-				return CREDITS;
-			case 4:
-				return QUIT_GAME;
-			}
-		}
+		finalrank = score->scoreend();
+		israndom = false;
+		displayscore = true;
 		return MAIN_MENU;
 	}
 }
 
-void randommode()
+void MainMenu::Intro()
+{
+	console.draw(27,3,Title.c_str(),0x9D);
+	console.draw(42,21,"Press Enter to Begin!" ,0x9D);
+	if(isKeyPressed(VK_RETURN))
+	{
+		state = MENU;
+	}
+}
+
+gamestate MainMenu::Main()
+{
+	console.draw(37,12+choice,"-->",0x9D);
+	console.draw(25,3,Menu.c_str(),0x9D);
+	console.draw(40,12," Normal Mode",0x9D);
+	console.draw(40,13," Random Mode",0x9D);
+	console.draw(40,14," High Score ",0x9D);
+	console.draw(40,15," Credits    ",0x9D);
+	console.draw(40,16," Exit game  ",0x9D);
+
+	if(isKeyPressed(VK_DOWN))
+	{
+		choice++;
+		if(choice > 4)
+		{
+			choice = 4;
+		}
+	}
+	if(isKeyPressed(VK_UP))
+	{
+		choice--;
+		if(choice < 0)
+		{
+			choice = 0;
+		}
+	}
+	if(isKeyPressed(VK_RETURN))
+	{
+		switch(choice)
+		{
+		case 0:
+			state = GAME_SELECT;
+			return MAIN_MENU;
+		case 1:
+			randommode();
+			state = RANDOM;
+			return MAIN_MENU;
+		case 2:
+			return HIGH_SCORE;
+		case 3:
+			state = CREDITS;
+			return MAIN_MENU;
+		case 4:
+			return QUIT_GAME;
+		}
+	}
+	return MAIN_MENU;
+}
+
+void MainMenu::randommode()
 {
 	std::vector<int> games;
 	for(int i=0; i < numofminigames; ++i)
@@ -156,9 +198,10 @@ void randommode()
 	}
 	currentstage = 1;
 	israndom = true;
+	entername = true;
 }
 
-gamestate GameSelect(Graphics& console)
+gamestate MainMenu::GameSelect()
 {
 	console.draw(34,12+choice2,"-->",0x9D);
 	console.draw(20,2,Select.c_str(),0x9D);
@@ -237,12 +280,12 @@ gamestate GameSelect(Graphics& console)
 	}
 	if(isKeyPressed(VK_ESCAPE))
 	{
-		return MAIN_MENU;
+		state = MENU;
 	}
-	return GAME_SELECT;
+	return MAIN_MENU;
 }
 
-gamestate EnterName(Graphics& console, highscore* score)
+void MainMenu::EnterName()
 {
 	if(name.empty())
 	{
@@ -261,10 +304,35 @@ gamestate EnterName(Graphics& console, highscore* score)
 	if(isKeyPressed(VK_RETURN))
 	{
 		score->scorestart(name.c_str());
-		return MAIN_MENU;
+		entername = false;
 	}
-	else
+}
+
+gamestate MainMenu::Credits()
+{
+	if(isKeyPressed(VK_RETURN) || isKeyPressed(VK_ESCAPE))
 	{
-		return ENTER_NAME;
+		state = MENU;
 	}
+	//if(framecounter >= 0  && framecounter <= 150)
+	{
+		console.draw(0,0,credits.getstring(L"Credits1.txt").c_str(),0x9D);
+	}
+	///if(framecounter >= 150 && framecounter <= 300)
+	{
+		console.draw(0,0,credits.getstring(L"Credits2.txt").c_str(),0x9D);
+	}
+	///if(framecounter >= 300 && framecounter <= 450)
+	{
+		console.draw(0,0,credits.getstring(L"Credits3.txt").c_str(),0x9D);
+	}
+	//if(framecounter >= 450 && framecounter <= 600)
+	{
+		console.draw(0,0,credits.getstring(L"Credits4.txt").c_str(),0x9D);
+	}
+	//if(framecounter > 600)
+	{
+		//return MAIN_MENU;
+	}
+	return MAIN_MENU;
 }

@@ -1,7 +1,6 @@
 #ifndef _ROCKET_H
 #define _ROCKET_H
 
-#include "game.h"
 #include "Framework\console.h"
 #include "Graphics.h"
 #include <fstream>

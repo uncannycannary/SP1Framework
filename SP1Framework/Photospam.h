@@ -1,7 +1,6 @@
 #ifndef _PHOTOSPAM_H
 #define _PHOTOSPAM_H
 
-#include "game.h"
 #include "Framework\console.h"
 #include "Graphics.h"
 #include <fstream>

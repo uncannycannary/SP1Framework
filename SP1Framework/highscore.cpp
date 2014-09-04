@@ -118,9 +118,9 @@ char highscore::scoreend()
 						currscore = 'S';
 					}
 					string buffer;
-					buffer += "\n\n";
+
 					buffer += currscore;
-					
+					buffer += "\n\n";		
 
 					score.insert(i,buffer);
 					for(int index = 0; index < 3; index++)

@@ -5,9 +5,10 @@
 #include <time.h>
 #include <string>
 #include <vector>
-#include "game.h"
 #include "Framework\console.h"
+#include "Directory.h"
 #include "Animations.h"
+#include "Sound.h"
 
 class FindTwins
 {
@@ -21,6 +22,7 @@ private:
 	Directory mainfolder;
 	Graphics& console;
 	Animations anim;
+	Sound snd;
 	int currframe;
 	int score;
 	int paused;

@@ -1,5 +1,4 @@
 #include "Graphics.h"
-#include "game.h"
 #include <iostream>
 #include "Directory.h"
 #include <fstream>
