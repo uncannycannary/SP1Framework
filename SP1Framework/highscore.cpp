@@ -121,7 +121,7 @@ char highscore::scoreend()
 					buffer += currscore;
 					buffer += "\n\n";
 
-					score.insert(index,buffer);
+					score.insert(i,buffer);
 					for(int index = 0; index < 3; index++)
 					{
 						score.pop_back();

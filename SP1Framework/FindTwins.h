@@ -26,6 +26,7 @@ private:
 	int paused;
 	bool wrong;
 	bool lockinput;
+	bool keysreleased;
 	char rank;
 
 	//picture variables

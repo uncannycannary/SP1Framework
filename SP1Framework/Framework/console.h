@@ -26,6 +26,7 @@ void colour(WORD attrib);
 void cls( HANDLE hConsole = 0);
 
 bool isKeyPressed(unsigned short key);
+bool isKeyReleased(unsigned short key);
 void updateinput();
 bool isKeyHold(unsigned short key);
 char getkeyboardbuffer();

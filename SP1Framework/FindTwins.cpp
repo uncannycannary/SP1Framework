@@ -11,6 +11,7 @@ console(console),
 	wrong(false),
 	score(0),
 	currframe(0),
+	keysreleased(true),
 	instructionsframe(60),
 	countdownframe(200),
 	gamestartframe(350),
@@ -47,6 +48,11 @@ FindTwins::~FindTwins()
 
 gamestate FindTwins::update()
 {
+	if(isKeyReleased(VK_LEFT) && isKeyReleased(VK_UP) && isKeyReleased(VK_RIGHT))
+	{
+		keysreleased = true;
+	}
+
 	if(isKeyPressed(VK_ESCAPE))
 	{
 		return MAIN_MENU;
@@ -67,7 +73,7 @@ gamestate FindTwins::update()
 	if(!paused)
 	{
 		currframe++;
-		if(!lockinput)
+		if(!lockinput && keysreleased)
 		{
 			DoUserInput();
 		}
@@ -165,21 +171,22 @@ void FindTwins::UpdatePictures()
 			pictureans[index] = true;
 		}
 	}
+	keysreleased = false;
 }
 
 void FindTwins::DoUserInput()
 {
 	if(currframe <= gameendframe)
 	{
-		if(isKeyPressed(VK_LEFT) && isKeyPressed(VK_DOWN))
+		if(isKeyHold(VK_LEFT) && isKeyHold(VK_DOWN))
 		{
 			ProcessAns(true, true, false);
 		}
-		else if(isKeyPressed(VK_LEFT) && isKeyPressed(VK_RIGHT))
+		else if(isKeyHold(VK_LEFT) && isKeyHold(VK_RIGHT))
 		{
 			ProcessAns(true, false, true);
 		}
-		else if(isKeyPressed(VK_DOWN) && isKeyPressed(VK_RIGHT))
+		else if(isKeyHold(VK_DOWN) && isKeyHold(VK_RIGHT))
 		{
 			ProcessAns(false, true, true);
 		}

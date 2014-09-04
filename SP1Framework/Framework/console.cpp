@@ -90,22 +90,7 @@ bool getkey(unsigned short key)
 
 void updateinput()
 {
-	if(!delay)
-	{
-		keyboardbuffer.clear();
-		for(int index = ' '; index < '~'; index++)
-		{
-			if(getkey(index))
-			{
-				keyboardbuffer.push_back((char)index);
-			}
-		}
-		delay = 2;
-	}
-	else
-	{
-		delay--;
-	}
+	keyboardbuffer.clear();
 	for(int index = 0; index < 256; index++)
 	{
 		if(keyAlreadyPressed[index] && !getkey(index))
@@ -131,6 +116,13 @@ void updateinput()
 			keyishold[index] = false;
 		}
 	}
+	for(int index = ' '; index < '~'; index++)
+	{
+		if(isKeyPressed(index))
+		{
+			keyboardbuffer.push_back((char)index);
+		}
+	}
 }
 
 bool isKeyPressed(unsigned short key)
@@ -150,4 +142,9 @@ char getkeyboardbuffer()
 		keyboardbuffer.pop_back();
 		return letter;
 	}
+}
+
+bool isKeyReleased(unsigned short key)
+{
+	return !(isKeyHold(key));
 }
