@@ -22,8 +22,6 @@
 #include"ToiletRoll.h"
 #include "Graphics.h"
 
-extern StopWatch g_timer;
-
 class Game
 {
 public:

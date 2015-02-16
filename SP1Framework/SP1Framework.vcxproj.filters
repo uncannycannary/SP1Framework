@@ -126,9 +126,6 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Framework\console.h">
-      <Filter>Header Files\Framework</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\timer.h">
       <Filter>Header Files\Framework</Filter>
     </ClInclude>
@@ -187,6 +184,9 @@
       <Filter>Header Files\UI&amp;Game</Filter>
     </ClInclude>
     <ClInclude Include="Sound.h">
+      <Filter>Header Files\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\console.h">
       <Filter>Header Files\Framework</Filter>
     </ClInclude>
   </ItemGroup>
